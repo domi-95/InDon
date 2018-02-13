@@ -1,6 +1,7 @@
 package bean;
 
 import java.sql.*;
+
 import static bean.Provider.*;
 
 public class ConnectionProvider {
@@ -8,7 +9,7 @@ public class ConnectionProvider {
 	static {
 		try {
 			Class.forName(DRIVER);
-			con = DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
+			con = DriverManager.getConnection("jdbc:mysql://server2.febas.net/InDon","InDonAdmin","InDon123");
 		} catch (Exception e) {
 		}
 	}
