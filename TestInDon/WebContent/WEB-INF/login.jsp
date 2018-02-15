@@ -22,7 +22,7 @@ out.print(login_msg);
 }  
  %>  
  <br/>  
-<form action="loginprocess.jsp" metho="post">  
+<form action="loginprocess.jsp" method="post">  
 Email:<input type="text" name="email"/><br/><br/>  
 Password:<input type="password" name="password"/><br/><br/>  
 <input type="submit" value="login"/>"  
