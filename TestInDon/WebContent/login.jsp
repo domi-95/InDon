@@ -9,9 +9,10 @@
 </head>
 <body>
 	<div>
-		<form action="loginprocess.jsp" method="post">
-			<img src="C:\Users\gaert\Desktop\InDOn\indon.png" alt="InDon">
+		
+			<img src="Images\INDON_BLACKh55.png" alt="InDon">
 	</div>
+	<form action="loginprocess.jsp" method="post">
 	<br />
 	<br /> Benutzername
 	<br />
