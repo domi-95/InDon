@@ -1,3 +1,4 @@
+package benutzer;
 
 
 public class Mitarbeiter extends Rettungsorganisation{

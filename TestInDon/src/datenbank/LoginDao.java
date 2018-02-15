@@ -1,17 +1,18 @@
-package bean;
+package datenbank;
 
+import benutzer.Benutzer;
 import java.sql.*;
 
 public class LoginDao {
 
-	public static boolean validate(LoginBean bean) {
+	public static Benutzer validate(String benutzername, String passwort) {
 
 		boolean status = false;
 		try {
 			Connection con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 			
-			ResultSet myRs = myst.executeQuery("select * from Benutzer where Benutzername = '" + bean.getBenutzername()+ "' and Passwort = '" + bean.getPass() + "'");
+			ResultSet myRs = myst.executeQuery("select * from Benutzer where Benutzername = '" + benutzername+ "' and Passwort = '" + passwort + "'");
 
 			if (myRs.next()) {
 				status = true;

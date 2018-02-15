@@ -1,4 +1,4 @@
-package bean;
+package datenbank;
 
 public interface Provider {
 	String DRIVER = "com.mysql.jdbc.Driver";

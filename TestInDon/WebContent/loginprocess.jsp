@@ -7,18 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@page import="bean.LoginDao"%>  
-<%@page import="bean.LoginBean"%>  
-<jsp:useBean id="obj" class="bean.LoginBean"/>  
+<%@page import="datenbank.LoginDao"%>  
+<%@page import="datenbank.LoginBean"%>  
+<jsp:useBean id="obj" class="datenbank.LoginBean"/>  
   
 <jsp:setProperty property="*" name="obj"/>  
   
 <%  
 String benutzername = request.getParameter( "email" );
 String passwort = request.getParameter( "password" );
-LoginBean bean = new LoginBean (benutzername, passwort);
+// LoginBean bean = new LoginBean (benutzername, passwort);
 boolean status=LoginDao.validate(bean);  
 if(status){  
+
 out.println("You r successfully logged in");  
 session.setAttribute("session","TRUE");  
 }  

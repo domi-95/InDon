@@ -1,4 +1,4 @@
-package bean;
+package datenbank;
 
 public class LoginBean {
 	private String benutzername,pass;  
