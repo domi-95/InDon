@@ -7,7 +7,11 @@
 <title>InDon</title>
 </head>
 <body>
+<<<<<<< HEAD
 <a href="login.jsp"WebContent/WEB-INF/index.jsp">login</a>|  
+=======
+<a href="login.jsp">login</a>|  
+>>>>>>> branch 'master' of https://github.com/domi-95/InDon.git
 <a href="logout.jsp">logout</a>|  
 <a href="profile.jsp">profile</a> 
 </html>
