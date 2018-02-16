@@ -22,12 +22,12 @@
 	session.setAttribute("objekt", b);
 	
 	if (b instanceof Mitarbeiter){
-		response.sendRedirect("mitarbeiterDashboard.jsp");
+		response.sendRedirect("mitarbeiter_dashboard.jsp");
 		
 	}
 	
 	if (b instanceof Beduerftiger){
-		response.sendRedirect("beduerftigenDashboard.jsp");
+		response.sendRedirect("beduerftigen_dashboard.jsp");
 	}
 	
 	

@@ -9,8 +9,7 @@
 </head>
 <body>
 	<div>
-		
-			<img src="Images\INDON_BLACKh55.png" alt="InDon">
+		<img src="Images\INDON_BLACKh55.png" alt="InDon">
 	</div>
 	<form action="loginprocess.jsp" method="post">
 	<br />

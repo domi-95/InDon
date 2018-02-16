@@ -7,6 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<%@page import="benutzer.*"%>  
+
+<%
+ Beduerftiger bd = (Beduerftiger)session.getAttribute("objekt");
+ out.print (bd);
+
+
+
+
+%>
 <h2>Sie sind im Beduerftigen Dashboard</h2>
 </body>
 </html>
