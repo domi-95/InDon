@@ -7,6 +7,17 @@
 <title>Mitarbeiter Dashboard</title>
 </head>
 <body>
+<%@page import="benutzer.*"%>  
+
+<%
+ Mitarbeiter m = (Mitarbeiter)session.getAttribute("objekt");
+ out.print (m);
+
+
+
+
+%>
+
 <h2>Sie sind im Mitarbeiter Dashboard</h2>
 </body>
 </html>
