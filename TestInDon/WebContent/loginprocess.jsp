@@ -14,11 +14,18 @@
  <%-- <jsp:setProperty property="*" name="obj"/>   --%>
   
 <%  
-// String benutzername = request.getParameter( "email" );
-// String passwort = request.getParameter( "password" );
-	Benutzer b = LoginDao.validate("kevin", "123");
-	Mitarbeiter bd = (Mitarbeiter)b;
-	out.print(bd);
+ String benutzername = request.getParameter( "benutzername" );
+ String passwort = request.getParameter( "passwort" );
+ // out.print(benutzername + passwort);
+	Benutzer b = LoginDao.validate(benutzername, passwort);
+	
+	if (b instanceof Mitarbeiter){
+		response.sendRedirect("mitarbeiterDashboard.jsp");	
+	}
+	
+	if (b instanceof Beduerftiger){
+		response.sendRedirect("beduerftigenDashboard.jsp");
+	}
 	
 	
 	if (b == null){

@@ -22,7 +22,7 @@
 	<br /> Password
 	<br />
 	<br />
-	<input type="password" name="password" />
+	<input type="password" name="passwort" />
 	<br />
 	<br />
 	<input type="submit" value="login" />

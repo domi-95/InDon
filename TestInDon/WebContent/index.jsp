@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<a href="login.jsp"WebContent/WEB-INF/index.jsp>login</a> 
+<!--  <a href="login.jsp"WebContent/WEB-INF/index.jsp>login</a> -->
 
 <a href="login.jsp">login</a>|  
 <a href="logout.jsp">logout</a>|  
