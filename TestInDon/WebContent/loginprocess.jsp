@@ -8,16 +8,22 @@
 </head>
 <body>
 <%@page import="datenbank.LoginDao"%>  
-<%@page import="datenbank.LoginBean"%>  
+<%@page import="benutzer.*"%>  
   
   
-<jsp:setProperty property="*" name="obj"/>  
+ <%-- <jsp:setProperty property="*" name="obj"/>   --%>
   
 <%  
-String benutzername = request.getParameter( "email" );
-String passwort = request.getParameter( "password" );
-// LoginBean bean = new LoginBean (benutzername, passwort);
-LoginDao.validate("domi", "123");  
+// String benutzername = request.getParameter( "email" );
+// String passwort = request.getParameter( "password" );
+	Benutzer b = LoginDao.validate("kevin", "123");
+	Mitarbeiter bd = (Mitarbeiter)b;
+	out.print(bd);
+	
+	
+	if (b == null){
+	out.print("Sorry, email or password error");		
+	}
  /* if(){  
 
 out.println("You r successfully logged in");  

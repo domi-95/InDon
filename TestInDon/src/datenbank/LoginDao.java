@@ -6,15 +6,15 @@ import java.sql.*;
 
 public class LoginDao {
 
-	public static void main(String[] args) {
-		Benutzer b1 = LoginDao.validate("kevin", "123");
-		Mitarbeiter ma = (Mitarbeiter) b1;
-		System.out.println(ma);
-
-		Benutzer b2 = LoginDao.validate("domi", "123");
-		Beduerftiger bd = (Beduerftiger) b2;
-
-	}
+//	public static void main(String[] args) {
+//		Benutzer b1 = LoginDao.validate("kevin", "123");
+//		Mitarbeiter ma = (Mitarbeiter) b1;
+//		System.out.println(ma);
+//
+//		Benutzer b2 = LoginDao.validate("domi", "123");
+//		Beduerftiger bd = (Beduerftiger) b2;
+//
+//	}
 
 	public static Benutzer validate(String benutzername, String passwort) {
 
