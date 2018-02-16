@@ -9,5 +9,11 @@ public class Rettungsorganisation extends Benutzer {
 		this.bezeichnung = bezeichnung;
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() + "Rettungsorganisation [bezeichnung=" + bezeichnung + "]"  ;
+	}
+
+	
 
 }

@@ -9,7 +9,7 @@
 <body>
 <%@page import="datenbank.LoginDao"%>  
 <%@page import="datenbank.LoginBean"%>  
-<jsp:useBean id="obj" class="datenbank.LoginBean"/>  
+  
   
 <jsp:setProperty property="*" name="obj"/>  
   
@@ -17,19 +17,19 @@
 String benutzername = request.getParameter( "email" );
 String passwort = request.getParameter( "password" );
 // LoginBean bean = new LoginBean (benutzername, passwort);
-boolean status=LoginDao.validate(bean);  
-if(status){  
+LoginDao.validate("domi", "123");  
+ /* if(){  
 
 out.println("You r successfully logged in");  
 session.setAttribute("session","TRUE");  
 }  
 else  
 {  
-out.print("Sorry, email or password error");  
+out.print("Sorry, email or password error");   */ 
 %>  
 <jsp:include page="index.jsp"></jsp:include>  
 <%  
-}  
+// }  
 %>
 </body>
 </html>
