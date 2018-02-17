@@ -20,14 +20,21 @@ body{
 
 .blogin {
 	margin: 0px 20px 0 0;
-    background: #ED842A;  
+    background: #ED842A; 
+    width: 180px; 
+    
+}
+
+.blogin a{
+	color: #000000!important;
 }
 
 .blogin:hover{
 	background: #edaf7b;
 }
 .bclogin {
-	background: #465359; 
+	background: #465359;
+	width: 180px;  
 }
 .bclogin:hover{
 	background: #b3b3b3;
@@ -43,10 +50,7 @@ body{
     border-width: 1px;
     border-color: #707070;
     text-align: center;
-
-
 }
-
 
 .navbar-inner {
   min-height: 60px;
@@ -59,4 +63,32 @@ body{
 	float: left;
 	width: 20%;
 	margin: 2.5px 0 0 0; 
+}
+input{
+	text-align: center;
+	width: 100%;
+}
+
+.login{
+	margin: auto;
+	margin-top: 50px;
+    width: 400px;
+    border: 1px solid #ED842A;
+    padding: 10px;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 15px;
+
+}
+form{
+	margin: auto;
+	padding: 0% 20% 10% 20%;
+	//width: 100%;
+}
+
+.formnames{
+	text-align: left;
+	padding: 0 !important;
+	margin: 0 !important;
+	opacity: 0.5;
 }

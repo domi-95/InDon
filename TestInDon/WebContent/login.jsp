@@ -8,26 +8,29 @@
 <title>Login</title>
 </head>
 <body>
-	<div>
-		<img src="Images\INDON_BLACKh55.png" alt="InDon">
-	</div>
-	<form action="loginprocess.jsp" method="post">
-	<br />
-	<br /> Benutzername
-	<br />
-	<br />
-	<input type="text" name="benutzername" />
-	<br />
-	<br /> Password
-	<br />
-	<br />
-	<input type="password" name="passwort" />
-	<br />
-	<br />
-	<input type="submit" value="login" />
-	<jsp:include page="index.jsp"></jsp:include>
+	<jsp:include page="Header.jsp"></jsp:include>
+	<div class="login">
+		<h1>Anmelden</h1>
+		<div class="formarea">
+			<form action="loginprocess.jsp" method="post">
+			<br />
+			<br /> 
+			<p class="formnames">Benutzername</p>
 
-	</form>
+			<input type="text" name="benutzername" />
+			<br />
+			<br /> 
+			<br/>
+			<p class="formnames">Passwort</p>
+
+			<input type="password" name="passwort" />
+			<br />
+			<br />
+			
+			<input type="submit" value="login" />
+			</form>
+		</div>
+	</div>
 
 </body>
 </html>
