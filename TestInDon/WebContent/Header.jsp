@@ -13,7 +13,6 @@
 
     <div class="navbar">
             <div class="navbar-inner">
-                
                     <a href="index.jsp" class="brand">
                         <img src="Images\logo.png" width="210" height="55" alt="InDon" />
                         <!-- This is website logo -->
@@ -34,8 +33,7 @@
 	                    		<a class="bclogin" href="#Clogin">Unternehmenslogin</a>
                     		</div>
                     </div>
-                    <!-- End main navigation -->
-                
+                    <!-- End main navigation -->  
             </div>
         </div>
 
