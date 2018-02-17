@@ -1,5 +1,78 @@
-div {
-    
+.navbar {
     background: #969ea8;
+    padding: 0;
+     *position: relative;
+  	*z-index: 2;
+  	margin-bottom: 20px;
+  	overflow: visible;
+  	display: block;
+  	   
+}
+
+.nav{
+	position: absolute;
+  
+  height: 100%;
+  top: 12px;
+  
+}
+
+.nav-collapse collapse pull-right{
+	height: 100%;
+}
+
+.navbar .nav {
+  position: relative;
+  left: 0;
+  display: block;
+  float: left;
+  margin: 0 10px 0 0;
+  background: #969ea8;
+  float: right;
+}
+
+.navbar .nav > li {
+  float: left;
+    margin: 5px;
+  
+}
+
+.navbar .nav > li > a {
+  float: none;
+  padding: 10px 15px 10px;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #ffffff;
+
+}
+
+.navbar-inner {
+  min-height: 60px;
+  padding-right: 20px;
+  padding-left: 20px;
+
+}
+
+.brand{
+	float: left;
+	with: 20%;
+	margin: auto;
+}
+
+
+
+.nav, ul {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+
     
+}
+
+
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
 }

@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>InDon</title>
 </head>
 <body>
+<jsp:include page="Header.jsp"></jsp:include>
 
 <a href="login.jsp"WebContent/WEB-INF/index.jsp>login</a> 
 
