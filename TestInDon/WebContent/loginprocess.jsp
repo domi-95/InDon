@@ -8,28 +8,33 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@page import="bean.LoginDao"%>  
-<%@page import="bean.LoginBean"%>  
-<jsp:useBean id="obj" class="bean.LoginBean"/>  
-  
-<jsp:setProperty property="*" name="obj"/>  
-  
+<%@page import="datenbank.LoginDao"%>  
+<%@page import="benutzer.*"%>  
+   
 <%  
-String benutzername = request.getParameter( "email" );
-String passwort = request.getParameter( "password" );
-LoginBean bean = new LoginBean (benutzername, passwort);
-boolean status=LoginDao.validate(bean);  
-if(status){  
-out.println("You r successfully logged in");  
-session.setAttribute("session","TRUE");  
-}  
-else  
-{  
-out.print("Sorry, email or password error");  
+ String benutzername = request.getParameter( "benutzername" );
+ String passwort = request.getParameter( "passwort" );
+ // out.print(benutzername + passwort);
+	Benutzer b = LoginDao.validate(benutzername, passwort);
+	
+	if (b == null){
+		out.print("Sorry, email or password error");		
+		}
+	session.setAttribute("objekt", b);
+	
+	if (b instanceof Mitarbeiter){
+		response.sendRedirect("mitarbeiter_dashboard.jsp");
+		
+	}
+	
+	if (b instanceof Beduerftiger){
+		response.sendRedirect("beduerftigen_dashboard.jsp");
+	}
+	
+	
 %>  
+
 <jsp:include page="index.jsp"></jsp:include>  
-<%  
-}  
-%>
+
 </body>
 </html>

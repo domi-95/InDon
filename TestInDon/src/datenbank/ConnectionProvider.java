@@ -1,8 +1,8 @@
-package bean;
+package datenbank;
+
+import static datenbank.Provider.*;
 
 import java.sql.*;
-
-import static bean.Provider.*;
 
 public class ConnectionProvider {
 	private static Connection con = null;

@@ -1,3 +1,4 @@
+import benutzer.Rettungsorganisation;
 
 public class Anlaufstelle extends Rettungsorganisation{
 	
