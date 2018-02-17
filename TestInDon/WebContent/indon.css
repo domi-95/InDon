@@ -1,50 +1,52 @@
+body{
+	margin: 0;
+	background-color: #969EA8;
+}
+
 .navbar {
-    background: #969ea8;
-    padding: 0;
-     *position: relative;
-  	*z-index: 2;
-  	margin-bottom: 20px;
-  	overflow: visible;
-  	display: block;
-  	   
+    background: #ffffff;
+    overflow: hidden;  
 }
 
-.nav{
-	position: absolute;
-  
-  height: 100%;
-  top: 12px;
-  
+.nav {
+	min-height: 60px;
+	float: right;
+	display: table;
+}
+.elements{
+	display: table-cell;
+	vertical-align: middle;
 }
 
-.nav-collapse collapse pull-right{
-	height: 100%;
+.blogin {
+	margin: 0px 20px 0 0;
+    background: #ED842A;  
 }
 
-.navbar .nav {
-  position: relative;
-  left: 0;
-  display: block;
-  float: left;
-  margin: 0 10px 0 0;
-  background: #969ea8;
-  float: right;
+.blogin:hover{
+	background: #edaf7b;
+}
+.bclogin {
+	background: #465359; 
+}
+.bclogin:hover{
+	background: #b3b3b3;
 }
 
-.navbar .nav > li {
-  float: left;
-    margin: 5px;
-  
+.nav a{
+	color: #FFFFFF;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #ffffff;
+	float: left;
+	padding: 10px 10px 10px;	
+	border-style: solid;
+    border-width: 1px;
+    border-color: #707070;
+    text-align: center;
+
+
 }
 
-.navbar .nav > li > a {
-  float: none;
-  padding: 10px 15px 10px;
-  color: #FFFFFF;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #ffffff;
-
-}
 
 .navbar-inner {
   min-height: 60px;
@@ -55,24 +57,6 @@
 
 .brand{
 	float: left;
-	with: 20%;
-	margin: auto;
-}
-
-
-
-.nav, ul {
-    list-style-type: none;
-    margin: auto;
-    padding: 0;
-    overflow: hidden;
-
-    
-}
-
-
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
+	width: 20%;
+	margin: 2.5px 0 0 0; 
 }

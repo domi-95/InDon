@@ -5,32 +5,40 @@
 <head>
 <link rel="stylesheet" type="text/css" href="indon.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 </head>
 <body>
 
-<header>
+
     <div class="navbar">
             <div class="navbar-inner">
-                <div class="container">
+                
                     <a href="index.jsp" class="brand">
                         <img src="Images\logo.png" width="210" height="55" alt="InDon" />
                         <!-- This is website logo -->
                     </a>
                    
                     <!-- Main navigation -->
-                    <div class="nav-collapse collapse pull-right">
+                    <!-- <div class="nav-collapse collapse pull-right">
                         <ul class="nav" id="top-navigation">
-                            <li><a href="#home">Login</a></li>
-                            <li><a href="#service">Unternehmenslogin</a></li>
+                            <li class= "blogin"><a href="#home">Login</a></li>
+                            <li class = "bclogin"><a href="#service">Unternehmenslogin</a></li>
                             
                         </ul>
+                    </div> -->
+                     <!-- Main navigation -->
+                    <div class= "nav">
+	                    <div class="elements">
+	                    		<a class="blogin" href="#login">Login</a>
+	                    		<a class="bclogin" href="#Clogin">Unternehmenslogin</a>
+                    		</div>
                     </div>
                     <!-- End main navigation -->
-                </div>
+                
             </div>
         </div>
- </header>
+
 
 
 </body>
