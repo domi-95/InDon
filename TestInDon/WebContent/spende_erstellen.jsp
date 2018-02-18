@@ -11,7 +11,7 @@
 <%@page import="java.sql.*"%>  
 <fieldset>
 
-<form action="spende_erstellen_process.jsp" >
+<form method="post" name="spende_erstellen_form" action="spende_erstellen_process.jsp" onchange="return getValue();">
 Bezeichnung  <input type="text" name="bezeichnung" />	<br />
 Beschreibung:  <input type="text" name="beschreibung" />	<br />
 Zustand:  <input type="text" name="zustand" />	<br />
@@ -30,14 +30,25 @@ Zustand:  <input type="text" name="zustand" />	<br />
  - Methode in DB Klasse implementieren um die Spende in der DB zu speichern
  - spenden_erstellen_process anpassen-->
 
-Anlaufstellen:  <select name="item">
-<%  
-ResultSet myRs = Datenbank.holeAnlaufstelle();
-	while(myRs.next())	{ %>
-	<option><%= myRs.getString("bezeichnung")%></option>
-<% 
- } 
+Anlaufstellen:  <select id="anlauf" name="anlauf" >
+<%! ResultSet myRs = Datenbank.holeAnlaufstelle(); %>
+	<%while(myRs.next())	{ %>
+	<option value="test"><%= myRs.getString("bezeichnung")%></option>
+	
+<%
+} 
 %>
+
+</select>	<br />
+
+Kategorie:  <select name="item">
+<%! ResultSet myKRs = Datenbank.holeKategorien(1); %>
+	<%while(myKRs.next())	{ %>
+	<option><%= myKRs.getString("bezeichnung")%></option>
+<%
+} 
+%>
+
   </select>	<br />
 Menge:  <input type="text" name="menge" />	<br />
 Bild: 									<br />
@@ -48,5 +59,31 @@ Bild: 									<br />
 <input type="submit" value="Spendenangebot senden">
 </fieldset>
 </form>
+
+<%
+        String colour = request.getParameter("anlauf");
+        out.println(colour);
+    %>
+    <%= colour %>
+    
+    <form name="f1" method="get" action="#" >
+       <select name="clr" onchange="this.form.submit()">
+           <option>Red</option>
+           <option>Blue</option>   
+           <option>Green</option>
+           <option>Pink</option>
+       </select>
+     <input type="submit" name="submit" value="Select Color"/>
+    </form>
+    <%-- To display selected value from dropdown list. --%>
+     <% 
+                String s=request.getParameter("clr");
+                if (s !=null)
+                {
+                    out.println("Selected Color is : "+s);
+                }
+      %>
+   
+        
 </body>
 </html>
