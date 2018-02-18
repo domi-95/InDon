@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@page import="datenbank.LoginDao"%>  
+<%@page import="datenbank.*"%>  
 <%@page import="benutzer.*"%>  
    
 <%  
