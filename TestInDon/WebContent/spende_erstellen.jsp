@@ -45,6 +45,9 @@ Bild: 									<br />
 <input type="radio" name="lieferung/abholung"> Abholung <br/>
 
 
+
+ 
+
 <input type="submit" value="Spendenangebot senden">
 </fieldset>
 </form>
