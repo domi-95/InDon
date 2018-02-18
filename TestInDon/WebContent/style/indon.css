@@ -108,10 +108,12 @@ form{
 }
 
 .btn-login{
-	padding: 20px 30 px;
+	//padding: 20px 30 px;
 	color: 969ea8;
 	border-radius: 150px;
 	background-color: #FFFFFF;
+	width: 50%;
+	text-align: center;
 	
 	
 }
