@@ -34,7 +34,7 @@ public class Datenbank {
 			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle");
 			return myRs;
 		} catch (SQLException e) {
-			System.out.println("FEHLER beim Holen der Kategorien");
+			System.out.println("FEHLER beim Holen der Anlaufstelle");
 			e.printStackTrace();
 		}
 		return null;
