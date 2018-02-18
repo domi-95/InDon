@@ -36,12 +36,12 @@ Zustand:  <input type="text" name="zustand" />	<br />
 
 Anlaufstellen:  <select name="anlauf" onchange="submit();" >
 <option value="all" selected>Wählen Sie eine Anlaufstelle</option>
-<%! ResultSet myRs = Datenbank.holeAnlaufstelle(); %>
-	<%while(myRs.next())	{ %>
-	<option><%= myRs.getString("bezeichnung")%></option>
-	
-<%
-} 
+<%  
+ResultSet myRs = Datenbank.holeAnlaufstelle();
+	while(myRs.next())	{ %>
+	<option value="<%= myRs.getString("id")%>"><%= myRs.getString("bezeichnung")%> </option>
+<% 
+ } 
 %>
 
 </select>	<br />
