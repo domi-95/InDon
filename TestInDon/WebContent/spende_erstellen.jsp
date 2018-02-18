@@ -11,11 +11,11 @@
 <%@page import="java.sql.*"%>  
 <fieldset>
 
-<<<<<<< HEAD
-<form method="post" name="spende_erstellen_form" action="spende_erstellen_process.jsp" onchange="return getValue();">
-=======
-<form action="spenden_erstellen_process.jsp" >
->>>>>>> branch 'master' of https://github.com/domi-95/InDon.git
+
+<form method="GET" action="spende_erstellen.jsp">
+
+
+
 Bezeichnung  <input type="text" name="bezeichnung" />	<br />
 Beschreibung:  <input type="text" name="beschreibung" />	<br />
 Zustand:  <input type="text" name="zustand" />	<br />
@@ -34,7 +34,8 @@ Zustand:  <input type="text" name="zustand" />	<br />
  - Methode in DB Klasse implementieren um die Spende in der DB zu speichern
  - spenden_erstellen_process anpassen-->
 
-Anlaufstellen:  <select id="anlauf" name="anlauf" >
+Anlaufstellen:  <select name="anlauf" onchange="submit();" >
+<option value="all" selected>Wählen Sie eine Anlaufstelle</option>
 <%! ResultSet myRs = Datenbank.holeAnlaufstelle(); %>
 	<%while(myRs.next())	{ %>
 	<option value="test"><%= myRs.getString("bezeichnung")%></option>
@@ -45,12 +46,16 @@ Anlaufstellen:  <select id="anlauf" name="anlauf" >
 
 </select>	<br />
 
-Kategorie:  <select name="item">
-<%! ResultSet myKRs = Datenbank.holeKategorien(1); %>
-	<%while(myKRs.next())	{ %>
-	<option><%= myKRs.getString("bezeichnung")%></option>
-<%
-} 
+Kategorie:  <select name="kat">
+
+<%  
+if (request.getParameter("anlauf") != null){
+int id = Integer.parseInt(request.getParameter( "anlauf" ));
+ResultSet myRsK = Datenbank.holeKategorien(id);
+	while(myRsK.next())	{ %>
+	<option><%= myRsK.getString("bezeichnung")%></option>
+<% 
+ }} 
 %>
 
   </select>	<br />
@@ -66,30 +71,6 @@ Bild: 									<br />
 <input type="submit" value="Spendenangebot senden">
 </fieldset>
 </form>
-
-<%
-        String colour = request.getParameter("anlauf");
-        out.println(colour);
-    %>
-    <%= colour %>
-    
-    <form name="f1" method="get" action="#" >
-       <select name="clr" onchange="this.form.submit()">
-           <option>Red</option>
-           <option>Blue</option>   
-           <option>Green</option>
-           <option>Pink</option>
-       </select>
-     <input type="submit" name="submit" value="Select Color"/>
-    </form>
-    <%-- To display selected value from dropdown list. --%>
-     <% 
-                String s=request.getParameter("clr");
-                if (s !=null)
-                {
-                    out.println("Selected Color is : "+s);
-                }
-      %>
    
         
 </body>
