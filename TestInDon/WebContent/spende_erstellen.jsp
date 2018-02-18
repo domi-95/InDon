@@ -23,7 +23,12 @@ Zustand:  <input type="text" name="zustand" />	<br />
  gewählten Anlaufstelle aus. Musst dir noch ein paar Testdaten in PHPMYADMIN machen Anlaufstelle und Kategorie hat eine m:n Beziehung 
  die Kompositionstabelle ist anlaufstelle_kategorie die musst du mit pflegen. Außerdem musst du zusätzlich im ResulSet das du zurück bekommst
  für die Kategorien prüfen ob die Spalte "stark_gefragt" eine 1 hat dann muss das im Dropdown gekennzeichnet werden (ist aber zweitrangig nur nice to have)
- mit dem ResultSet kannst du die Bezeichnung mit Resultsetobjekt.getString("k.bezeichnung") und stark gefragt mit ("ak.stark_gefragt") holen. -->
+ mit dem ResultSet kannst du die Bezeichnung mit Resultsetobjekt.getString("k.bezeichnung") und stark gefragt mit ("ak.stark_gefragt") holen. 
+ 
+ Nächste Steps wären:
+ - Bild hinzufügen und schauen wie wir das in die DB bekommen
+ - Methode in DB Klasse implementieren um die Spende in der DB zu speichern
+ - spenden_erstellen_process anpassen-->
 
 Anlaufstellen:  <select name="item">
 <%  
