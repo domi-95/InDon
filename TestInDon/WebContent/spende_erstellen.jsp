@@ -31,9 +31,9 @@
 			</select> <br /> Menge: <input type="text" name="menge" /> <br /> Bild: <br />
 			<input type="radio" name="lieferung/abholung" checked>
 			Lieferung <input type="radio" name="lieferung/abholung">
-			Abholung <br /> <input type="submit" value="Spendenangebot senden"
-				form="regForm"
-				onclick='this.form.action="spende_erstellen_process.jsp";' />
+			Abholung <br /> 
+			
+			<input type="submit" value="Spendenangebot senden" form="regForm" onclick='this.form.action="spende_erstellen_process.jsp";' />
 	</fieldset>
 
 	</form>
