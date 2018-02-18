@@ -36,6 +36,7 @@ Zustand:  <input type="text" name="zustand" />	<br />
 
 Anlaufstellen:  <select name="anlauf" onchange="submit();" >
 
+
  <option value="all" selected>Wählen Sie eine Anlaufstelle</option>
 
 <%  
