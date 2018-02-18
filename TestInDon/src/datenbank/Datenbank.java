@@ -39,5 +39,8 @@ public class Datenbank {
 		}
 		return null;
 	}
-
+	
+	public static void speichereSpende () {
+		return;
+	}
 }
