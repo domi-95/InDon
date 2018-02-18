@@ -11,24 +11,28 @@
 <%@page import="java.sql.*"%>  
 <fieldset>
 
-<form action="spende_erstellen.jsp">
+<form action="spende_erstellen_process.jsp" >
 Bezeichnung  <input type="text" name="bezeichnung" />	<br />
 Beschreibung:  <input type="text" name="beschreibung" />	<br />
 Zustand:  <input type="text" name="zustand" />	<br />
-Kategorie:  <select name="item">
+
+ <!-- Also Domi mit der Methode Datenbank.holeAnlaufstelle() bekommst du ein Resultset mit dem alle Anlaufstellen sind.
+ Wenn jetzt eine Anlaufstelle gewählt wird soll die Seite erneut aufgerufen werden und über die POST Methode musst du der Methode
+ Datenbank.holeKategorien (int ID_DER_ANLAUFSTELLE) mitgeben welche Anlaufstelle im Dropdown gewählt wurde. Im Dropdown sollen jedoch nur
+ die Bezeichnungen stehen. Die Methode Datenbank.holeKategorien gibt dir dann ein Resultset mit allen korrospondierden Kategorien zu der
+ gewählten Anlaufstelle aus. Musst dir noch ein paar Testdaten in PHPMYADMIN machen Anlaufstelle und Kategorie hat eine m:n Beziehung 
+ die Kompositionstabelle ist anlaufstelle_kategorie die musst du mit pflegen. Außerdem musst du zusätzlich im ResulSet das du zurück bekommst
+ für die Kategorien prüfen ob die Spalte "stark_gefragt" eine 1 hat dann muss das im Dropdown gekennzeichnet werden (ist aber zweitrangig nur nice to have)
+ mit dem ResultSet kannst du die Bezeichnung mit Resultsetobjekt.getString("k.bezeichnung") und stark gefragt mit ("ak.stark_gefragt") holen. -->
+
+Anlaufstellen:  <select name="item">
 <%  
-ResultSet myRs = Datenbank.holeKategorien("Mosbach Alte Mälzerei");
+ResultSet myRs = Datenbank.holeAnlaufstelle();
 	while(myRs.next())	{ %>
-	<option><%= myRs.getString("k.Bezeichnung")%></option>
+	<option><%= myRs.getString("bezeichnung")%></option>
 <% 
  } 
-
-
-
 %>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
   </select>	<br />
 Menge:  <input type="text" name="menge" />	<br />
 Bild: 									<br />
