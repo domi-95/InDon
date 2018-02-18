@@ -38,7 +38,7 @@ Anlaufstellen:  <select name="anlauf" onchange="submit();" >
 <option value="all" selected>Wählen Sie eine Anlaufstelle</option>
 <%! ResultSet myRs = Datenbank.holeAnlaufstelle(); %>
 	<%while(myRs.next())	{ %>
-	<option value="test"><%= myRs.getString("bezeichnung")%></option>
+	<option><%= myRs.getString("bezeichnung")%></option>
 	
 <%
 } 
