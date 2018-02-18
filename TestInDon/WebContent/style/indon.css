@@ -119,10 +119,14 @@ form{
 }
 
 .btn-login{
-	padding: 20px 30 px;
+	padding: 20px 30px;
 	color: 969ea8;
 	border-radius: 150px;
 	background-color: #FFFFFF;
+	border-style: solid;
+    border-width: 1px;
+    border-color: #707070;
+    
 	
 	
 }

@@ -18,7 +18,7 @@
 			<form action="loginprocess.jsp" method="post">
 			<br />
 			<br /> 
-			<p class="formnames"></p>
+			
 			<div class= "form-input">
 			<input type="text" name="benutzername"
 			placeholder ="Enter Username" >
@@ -26,7 +26,7 @@
 			<br />
 			<br /> 
 			<br/>
-			<p class="formnames"></p>
+			
 			<div class= "form-input2">
 			<input type="password" name="passwort" 
 			placeholder ="Enter Password">
