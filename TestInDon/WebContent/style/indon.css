@@ -65,14 +65,28 @@ body{
 	margin: 2.5px 0 0 0; 
 }
 input{
-	text-align: center;
+	//text-align: center;
 	width: 100%;
+	height: 30px;
+	font-size: 18px;
+	padding-left: 30px;
+	//margin-top: 2px;
+	//margin-bottom: 10px;
+	
+}
+.form-input:before{
+	content:"\f007";
+	position: absolute;
+	font-family: FontAwesome;
+	padding-left: 5px;
+	padding-top: 5px;
+	font-size: 30px;
 }
 
 .login{
 	margin: auto;
 	margin-top: 50px;
-    width: 400px;
+	width: 400px;
     border: 1px solid #ED842A;
     padding: 10px;
     background: #ffffff;
@@ -90,5 +104,18 @@ form{
 	text-align: left;
 	padding: 0 !important;
 	margin: 0 !important;
-	opacity: 0.5;
+	opacity: 0.8;
+}
+
+.btn-login{
+	padding: 20px 30 px;
+	color: 969ea8;
+	border-radius: 150px;
+	background-color: #FFFFFF;
+	
+	
+}
+
+h1{
+	font-family: sans-serif ;
 }

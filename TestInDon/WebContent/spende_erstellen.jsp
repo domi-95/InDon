@@ -11,7 +11,11 @@
 <%@page import="java.sql.*"%>  
 <fieldset>
 
+<<<<<<< HEAD
 <form method="post" name="spende_erstellen_form" action="spende_erstellen_process.jsp" onchange="return getValue();">
+=======
+<form action="spenden_erstellen_process.jsp" >
+>>>>>>> branch 'master' of https://github.com/domi-95/InDon.git
 Bezeichnung  <input type="text" name="bezeichnung" />	<br />
 Beschreibung:  <input type="text" name="beschreibung" />	<br />
 Zustand:  <input type="text" name="zustand" />	<br />
