@@ -26,8 +26,6 @@ public class LoginDao {
 			Connection con = ConnectionProvider.getCon();
 			Statement myst = con.createStatement();
 
-			// ResultSet myRs = myst.executeQuery("select * from Benutzer where Benutzername
-			// = '" + benutzername+ "' and Passwort = '" + passwort + "'");
 			ResultSet myRs = myst.executeQuery(
 					"SELECT b.id, b.benutzername, b.passwort, b.name, b.vorname, a.id, a.bezeichnung, r.bezeichnung FROM Benutzer b, art a, rettungsorganisation r WHERE b.ret_id = r.id AND b.art_id = a.id AND Benutzername = '"
 							+ benutzername + "' and Passwort = '" + passwort + "'");

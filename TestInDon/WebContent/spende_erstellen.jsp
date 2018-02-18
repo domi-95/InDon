@@ -7,12 +7,25 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@page import="datenbank.Datenbank"%>  
+<%@page import="java.sql.*"%>  
 <fieldset>
-<form action="some.jsp">
+
+<form action="spende_erstellen.jsp">
 Bezeichnung  <input type="text" name="bezeichnung" />	<br />
 Beschreibung:  <input type="text" name="beschreibung" />	<br />
 Zustand:  <input type="text" name="zustand" />	<br />
 Kategorie:  <select name="item">
+<%  
+ResultSet myRs = Datenbank.holeKategorien("Mosbach Alte Mälzerei");
+	while(myRs.next())	{ %>
+	<option><%= myRs.getString("k.Bezeichnung")%></option>
+<% 
+ } 
+
+
+
+%>
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
