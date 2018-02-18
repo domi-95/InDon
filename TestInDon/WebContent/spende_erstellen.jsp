@@ -11,7 +11,7 @@
 <%@page import="java.sql.*"%>  
 <fieldset>
 
-<form action="spende_erstellen_process.jsp" >
+<form action="spenden_erstellen_process.jsp" >
 Bezeichnung  <input type="text" name="bezeichnung" />	<br />
 Beschreibung:  <input type="text" name="beschreibung" />	<br />
 Zustand:  <input type="text" name="zustand" />	<br />
