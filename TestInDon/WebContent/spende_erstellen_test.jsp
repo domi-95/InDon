@@ -30,12 +30,13 @@ ResultSet myRs = Datenbank.holeAnlaufstelle();
 
 Kategorie:  <select name="item2">
 <%  
-int id = Integer.parseInt(getParameter( "modelS" ));
-ResultSet myRsK = Datenbank.holeKategorien();
+if (request.getParameter("modelS") != null){
+int id = Integer.parseInt(request.getParameter( "modelS" ));
+ResultSet myRsK = Datenbank.holeKategorien(id);
 	while(myRsK.next())	{ %>
 	<option><%= myRsK.getString("bezeichnung")%></option>
 <% 
- } 
+ }} 
 %>
   </select>	<br />
 
