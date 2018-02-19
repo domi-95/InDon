@@ -3,8 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="style/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="style/indon.css" />
-<link rel="stylesheet" type="text/css" href="style/fontawesome-all.css" />
+
 <!--  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Login</title>
@@ -17,16 +18,21 @@
 			<form action="loginprocess.jsp" method="post">
 			<br />
 			<br /> 
+<<<<<<< HEAD
+			
+			<div class= "form-input">
+=======
 			<p class="formnames"></p>
 			<div class="form-input">
+>>>>>>> branch 'master' of https://github.com/domi-95/InDon.git
 			<input type="text" name="benutzername"
 			placeholder ="Enter Username" >
 			</div>
 			<br />
 			<br /> 
 			<br/>
-			<p class="formnames"></p>
-			<div class= "form-input">
+			
+			<div class= "form-input2">
 			<input type="password" name="passwort" 
 			placeholder ="Enter Password">
 			</div>

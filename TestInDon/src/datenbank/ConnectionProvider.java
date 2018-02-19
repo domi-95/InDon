@@ -11,6 +11,7 @@ public class ConnectionProvider {
 			Class.forName(DRIVER);
 			con = DriverManager.getConnection("jdbc:mysql://server2.febas.net/InDon","InDonAdmin","InDon123");
 		} catch (Exception e) {
+			System.out.println("Connection nicht möglich zum DB");
 		}
 	}
 

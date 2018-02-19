@@ -36,7 +36,7 @@
 			<input type="submit" value="Spendenangebot senden" form="regForm" onclick='this.form.action="spende_erstellen_process.jsp";' />
 	</fieldset>
 
-	</form>
+
 
 
 </body>
