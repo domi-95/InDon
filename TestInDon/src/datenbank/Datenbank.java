@@ -62,10 +62,26 @@ public class Datenbank {
 		return null;
 	}
 	
-	public static Spende[] holeSpenden (int anlaufstelle_id) {
-		
-		
+	public static List<Spende> holeSpenden (int anlaufstelle_id) {
+		List<Spende> result = new LinkedList<Spende>();
+		Connection con = ConnectionProvider.getCon();
+		try {
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery("SELECT * FROM Spende WHERE anlaufstelle_id '" + anlaufstelle_id + "'");
+			while (myRs.next()) {
+				result.add(new Spende(myRs.getInt("id"), myRs.getString("bezeichnung_spende"), myRs.getString("beschreibung"), myRs.getString("zustand"), myRs.getInt("abholung"), myRs.getInt("lieferung"), myRs.getString("bild"), myRs.getString("String"), myRs.getInt("anonym"), myRs.getString("vorname"), myRs.getString("nachname"), myRs.getString("adresse"), myRs.getInt("plz")));
+			}
+			
+			return result;
+			
+		} catch (SQLException e) {
+			System.out.println("FEHLER beim holen der Anlaufstelle");
+			e.printStackTrace();
+		}
+		return null;
 	}
+		
+	
 	
 	public static void speichereSpende () {
 		return;
