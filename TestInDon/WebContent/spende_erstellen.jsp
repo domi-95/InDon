@@ -36,57 +36,7 @@
 			<input type="submit" value="Spendenangebot senden" form="regForm" onclick='this.form.action="spende_erstellen_process.jsp";' />
 	</fieldset>
 
-<<<<<<< HEAD
- <!-- Also Domi mit der Methode Datenbank.holeAnlaufstelle() bekommst du ein Resultset mit dem alle Anlaufstellen sind.
- Wenn jetzt eine Anlaufstelle gewählt wird soll die Seite erneut aufgerufen werden und über die POST Methode musst du der Methode
- Datenbank.holeKategorien (int ID_DER_ANLAUFSTELLE) mitgeben welche Anlaufstelle im Dropdown gewählt wurde. Im Dropdown sollen jedoch nur
- die Bezeichnungen stehen. Die Methode Datenbank.holeKategorien gibt dir dann ein Resultset mit allen korrospondierden Kategorien zu der
- gewählten Anlaufstelle aus. Musst dir noch ein paar Testdaten in PHPMYADMIN machen Anlaufstelle und Kategorie hat eine m:n Beziehung 
- die Kompositionstabelle ist anlaufstelle_kategorie die musst du mit pflegen. Außerdem musst du zusätzlich im ResulSet das du zurück bekommst
- für die Kategorien prüfen ob die Spalte "stark_gefragt" eine 1 hat dann muss das im Dropdown gekennzeichnet werden (ist aber zweitrangig nur nice to have)
- mit dem ResultSet kannst du die Bezeichnung mit Resultsetobjekt.getString("k.bezeichnung") und stark gefragt mit ("ak.stark_gefragt") holen. 
- 
- Nächste Steps wären:
- - Bild hinzufügen und schauen wie wir das in die DB bekommen
- - Methode in DB Klasse implementieren um die Spende in der DB zu speichern
- - spenden_erstellen_process anpassen-->
 
-Anlaufstellen:  <select name="anlauf" onchange="submit();" >
-
-
- <option value="all" selected>Wählen Sie eine Anlaufstelle</option>
-
-<%  
-ResultSet myRs = Datenbank.holeAnlaufstelle();
-	
-	while(myRs.next())	{ %>
-	<option value="<%= myRs.getString("id")%>"><%= myRs.getString("bezeichnung")%> </option>
-<% 
- } 
-%>
-
-</select>	<br />
-
-Kategorie:  <select name="kat">
-
-<%  
-if (request.getParameter("anlauf") != null){
-int id = Integer.parseInt(request.getParameter( "anlauf" ));
-ResultSet myRsK = Datenbank.holeKategorien(id);
-	while(myRsK.next())	{ %>
-	<option><%= myRsK.getString("bezeichnung")%></option>
-<% 
- }} 
-%>
-
-  </select>	<br />
-Menge:  <input type="text" name="menge" />	<br />
-Bild: 									<br />
-<input type="radio" name="lieferung/abholung" checked> Lieferung        
-<input type="radio" name="lieferung/abholung"> Abholung <br/>
-=======
-	</form>
->>>>>>> branch 'master' of https://github.com/domi-95/InDon.git
 
 
 </body>
