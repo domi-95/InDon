@@ -8,10 +8,8 @@ import java.sql.Statement;
 public class Datenbank {
 	
 	public static void main(String[] args) throws Exception{
-		ResultSet myRs =Datenbank.holeKategorien(1);
-
-		System.out.println(myRs.next());
-		
+		ResultSet myRs = Datenbank.holeAnlaufstelle();
+		System.out.println(myRs);
 	}
 	
 	public static ResultSet holeKategorien (int id_anlaufstelle) {			
