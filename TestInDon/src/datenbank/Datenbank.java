@@ -1,6 +1,7 @@
 package datenbank;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,11 +11,12 @@ import java.util.List;
 import spende.Anlaufstelle;
 import spende.Spende;
 
+
+
 public class Datenbank {
 	
 	public static void main(String[] args) throws Exception{
-		ResultSet myRs = Datenbank.holeAnlaufstelle();
-		System.out.println(myRs);
+		Datenbank.speichereSpendeTest("i bims eine testspende");
 	}
 	
 	public static ResultSet holeKategorien (int id_anlaufstelle) {			
@@ -37,7 +39,7 @@ public class Datenbank {
 			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle ");
 			return myRs;
 		} catch (SQLException e) {
-			System.out.println("FEHLER beim Holen der Anlaufstelle");
+			System.out.println("FEHLER beim holen der Anlaufstelle");
 			e.printStackTrace();
 		}
 		return null;
@@ -56,7 +58,7 @@ public class Datenbank {
 			return result;
 			
 		} catch (SQLException e) {
-			System.out.println("FEHLER beim Holen der Anlaufstelle");
+			System.out.println("FEHLER beim holen der Anlaufstelle");
 			e.printStackTrace();
 		}
 		return null;
@@ -75,15 +77,32 @@ public class Datenbank {
 			return result;
 			
 		} catch (SQLException e) {
-			System.out.println("FEHLER beim holen der Anlaufstelle");
+			System.out.println("FEHLER beim holen der Spende");
 			e.printStackTrace();
 		}
 		return null;
 	}
 		
 	
+	public static void speichereSpendeTest (String bezeichnung) {
+		try{
+			 Connection con = ConnectionProvider.getCon();
+		
+		String sql = "INSERT INTO Spende ('bezeichnung_spende') VALUES ('" + bezeichnung + "' )";
+		Statement st = con.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		}
+		catch (Exception e) {
+			System.out.println("Fehler beim Einfügen der Spende");
+			e.printStackTrace();
+		}
+	}
 	
-	public static void speichereSpende () {
-		return;
+	public static boolean speichereSpende (String beschreibung, String bezeichnung, String zustand, int abholung, int lieferung, String bild_url, String mhd, int anonym, String vorname, String name, String adresse, int plz, String ort, int ret_id, int kat_id) {
+		
+		
+		
+		
+		return false;
 	}
 }
