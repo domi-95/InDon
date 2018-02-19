@@ -14,7 +14,7 @@
  out.print (m);
  
  
- // mit der Methode datenbank.holeAnlaufstelle (int id_ret) bekommst du ein Anlaufstelle Objekt zurück über getter bekommst du dann 
+ // mit der Methode datenbank.holeAnlaufstelle (int id_ret) bekommst du ein Anlaufstellen LISTE zurück in dem Anlaufsetllen Objekte drin sind zurück über getter bekommst du dann 
  //die Bezeichnung mit der du das Dropdown ersetllen kannst. Die id_ret des Mitarbeiters bekommst du mit dem mitarbeiter objekt getter
  
 
