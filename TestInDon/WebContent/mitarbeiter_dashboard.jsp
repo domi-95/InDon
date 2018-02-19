@@ -7,7 +7,7 @@
 <title>Mitarbeiter Dashboard</title>
 </head>
 <body>	 
-
+<jsp:include page="Header_Standard.jsp"></jsp:include>
 
 <%@page import="benutzer.*"%>  
 
