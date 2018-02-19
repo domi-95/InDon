@@ -31,7 +31,7 @@
       factory.setSizeThreshold(maxMemSize);
       
       // Location to save data that is larger than maxMemSize.
-      factory.setRepository(new File("c:\\temp"));
+      factory.setRepository(new File("C:\\Test"));
 
       // Create a new file upload handler
       ServletFileUpload upload = new ServletFileUpload(factory);
