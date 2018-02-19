@@ -11,7 +11,25 @@
 <body>
 <jsp:include page="Header.jsp"></jsp:include>
 <div class="login">
+<%
+String beschreibung = request.getParameter("");
+String bezeichnung = request.getParameter("");
+String zustand = request.getParameter("");
+// boolean Abholung = request.getParameter(""); NOCH TESTN WIE FORM EIN RADIOBUTTON ZURÜCKGIBT
+String bild_url = request.getParameter("");
+// DATE STRING FRAGE mhd
+ // boolean anonym = request.getParameter(""); NOCH TEST WIE FROM RADIOBUTTON MITGIBT
+String vorname = request.getParameter(""); 
+String name = request.getParameter(""); 
+String adresse = request.getParameter(""); 
+int plz = Integer.parseInt(request.getParameter(""));
+String ort = request.getParameter(""); 
+int ak_id = Integer.parseInt(request.getParameter(""));
 
+
+
+
+%>
 
 
 <h3>Vielen Dank, dass sie gespendet haben!</h3>
