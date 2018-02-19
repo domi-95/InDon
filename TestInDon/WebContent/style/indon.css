@@ -105,6 +105,7 @@ input{
     border-radius: 15px;
 
 }
+
 form{
 	margin: auto;
 	padding: 0% 20% 10% 20%;
@@ -132,5 +133,9 @@ form{
 }
 
 h1{
+	font-family: sans-serif ;
+}
+
+h3{
 	font-family: sans-serif ;
 }
