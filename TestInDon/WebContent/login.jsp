@@ -18,13 +18,7 @@
 			<form action="loginprocess.jsp" method="post">
 			<br />
 			<br /> 
-<<<<<<< HEAD
-			
-			<div class= "form-input">
-=======
-			<p class="formnames"></p>
-			<div class="form-input">
->>>>>>> branch 'master' of https://github.com/domi-95/InDon.git
+
 			<input type="text" name="benutzername"
 			placeholder ="Enter Username" >
 			</div>

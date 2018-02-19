@@ -4,6 +4,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
+
+import spende.Anlaufstelle;
+import spende.Spende;
 
 public class Datenbank {
 	
@@ -29,13 +34,37 @@ public class Datenbank {
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle");
+			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle ");
 			return myRs;
 		} catch (SQLException e) {
 			System.out.println("FEHLER beim Holen der Anlaufstelle");
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public static List<Anlaufstelle> holeAnlaufstelle (int id_ret) {
+		List<Anlaufstelle> result = new LinkedList<Anlaufstelle>();
+		Connection con = ConnectionProvider.getCon();
+		try {
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle WHERE ret_id '" + id_ret + "'");
+			while (myRs.next()) {
+				result.add(new Anlaufstelle(myRs.getString("bezeichnung"), myRs.getString("adresse"), myRs.getString("ort"), myRs.getShort("plz")));
+			}
+			
+			return result;
+			
+		} catch (SQLException e) {
+			System.out.println("FEHLER beim Holen der Anlaufstelle");
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static Spende[] holeSpenden (int anlaufstelle_id) {
+		
+		
 	}
 	
 	public static void speichereSpende () {
