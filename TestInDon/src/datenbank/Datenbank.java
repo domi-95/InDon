@@ -88,9 +88,9 @@ public class Datenbank {
 		try{
 			 Connection con = ConnectionProvider.getCon();
 		
-		String sql = "INSERT INTO Spende ('bezeichnung_spende') VALUES ('" + bezeichnung + "' )";
+		String sql = "INSERT INTO Spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id)" + "VALUES ('test','" + bezeichnung + "', 'top', 1, 1, 'test', '123', 1, 'hans', 'peter', 'kack', '123456', 'dir', 1, 2)";
 		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery(sql);
+		st.executeUpdate(sql);
 		}
 		catch (Exception e) {
 			System.out.println("Fehler beim Einfügen der Spende");
