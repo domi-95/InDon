@@ -15,10 +15,15 @@
 String beschreibung = request.getParameter("");
 String bezeichnung = request.getParameter("");
 String zustand = request.getParameter("");
-// boolean Abholung = request.getParameter(""); NOCH TESTN WIE FORM EIN RADIOBUTTON ZURÜCKGIBT
+if (request.getParameter(" ")!= null ) {
+	int Abholung = Integer.parseInt(request.getParameter(""));// gib eine 1 oder nichts zurück
+}
+
 String bild_url = request.getParameter("");
-// DATE STRING FRAGE mhd
- // boolean anonym = request.getParameter(""); NOCH TEST WIE FROM RADIOBUTTON MITGIBT
+String mhd = request.getParameter( ""); //irgendwie in Date Parsen oder in String speichern
+if (request.getParameter(" ")!= null ){
+	int anonym = Integer.parseInt(request.getParameter(""));  // gib eine 1 oder nichts zurück
+}
 String vorname = request.getParameter(""); 
 String name = request.getParameter(""); 
 String adresse = request.getParameter(""); 
