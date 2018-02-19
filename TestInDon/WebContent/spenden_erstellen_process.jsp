@@ -11,6 +11,9 @@
 <body>
 <jsp:include page="Header.jsp"></jsp:include>
 <div class="login">
+
+
+
 <h3>Vielen Dank, dass sie gespendet haben!</h3>
 </div>
 
