@@ -17,7 +17,11 @@ String bezeichnung = request.getParameter("");
 String zustand = request.getParameter("");
 
 if (request.getParameter(" ")!= null ) {
-	int Abholung = Integer.parseInt(request.getParameter(""));// gib eine 1 oder nichts zurück
+	int abholung = Integer.parseInt(request.getParameter(""));// gib eine 1 oder nichts zurück
+}
+
+if (request.getParameter(" ")!= null ) {
+	int lieferung = Integer.parseInt(request.getParameter(""));// gib eine 1 oder nichts zurück
 }
 
 String bild_url = request.getParameter("");
@@ -34,7 +38,8 @@ String name = request.getParameter("");
 String adresse = request.getParameter(""); 
 int plz = Integer.parseInt(request.getParameter(""));
 String ort = request.getParameter(""); 
-int ak_id = Integer.parseInt(request.getParameter(""));
+int ret_id = Integer.parseInt(request.getParameter(""));
+int kat_id = Integer.parseInt(request.getParameter(""));
 
 %>
 

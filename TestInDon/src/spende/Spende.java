@@ -1,23 +1,27 @@
 package spende;
-import java.util.Date;
+import java.util.List;
+
+import datenbank.Datenbank;
 
 public class Spende {
 	
-	private int id;
+	private int id;	
 	private String bezeichnung_spende;
 	private String beschreibung;
 	private String zustand;
 	private int abholung; //boolean
 	private int lieferung; //boolean
-	private Date mhd;
+	private String bild;
+	private String mhd;
 	private int anonym;	//boolean
 	private String name;
 	private String vorname;
 	private String adresse;
 	private int plz;
 	
+
 	public Spende(int id, String bezeichnung_spende, String beschreibung, String zustand, int abholung, int lieferung,
-			Date mhd, int anonym, String name, String vorname, String adresse, int plz) {
+			String bild, String mhd, int anonym, String name, String vorname, String adresse, int plz) {
 		super();
 		this.id = id;
 		this.bezeichnung_spende = bezeichnung_spende;
@@ -25,6 +29,7 @@ public class Spende {
 		this.zustand = zustand;
 		this.abholung = abholung;
 		this.lieferung = lieferung;
+		this.bild = bild;
 		this.mhd = mhd;
 		this.anonym = anonym;
 		this.name = name;
@@ -33,9 +38,8 @@ public class Spende {
 		this.plz = plz;
 	}
 
-
-	public static Spende[] spendenmatchen() {
-		return null;
+	public static List<Spende> spendenmatchen(int anlaufstelle_id) {
+		return Datenbank.holeSpenden(anlaufstelle_id);
 	}
 	
 	
