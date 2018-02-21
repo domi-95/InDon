@@ -11,7 +11,11 @@
 	<%@page import="java.sql.*"%>
 	
 	<fieldset>
+<<<<<<< HEAD
 		<form id="regForm" method="GET" action="spende_erstellen.jsp">
+=======
+		<form id="regForm" method="get" action="spende_erstellen_process.jsp" enctype="multipart/form-data">
+>>>>>>> branch 'NewMaster' of https://github.com/domi-95/InDon.git
 
 			Bezeichnung <input type="text" name="bezeichnung" /> <br />
 			Beschreibung: <input type="text" name="beschreibung" /> <br />

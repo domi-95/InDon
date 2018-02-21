@@ -49,7 +49,11 @@
 				int startPos = ((file.substring(0, pos)).getBytes()).length;
 				int endPos = ((file.substring(0, boundaryLocation)).getBytes()).length;
 
+<<<<<<< HEAD
 				saveFile = "C:/uploadDir2/"+ saveFile;
+=======
+				saveFile = "/Users/Domi/Downloads/"+ saveFile;
+>>>>>>> branch 'NewMaster' of https://github.com/domi-95/InDon.git
 				
 				File ff = new File(saveFile);
 
