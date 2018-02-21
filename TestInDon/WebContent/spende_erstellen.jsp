@@ -19,7 +19,7 @@
 	<%@page import="java.sql.*"%>
 	
 	<fieldset>
-		<form id="regForm" method="GET" action="spende_erstellen_process.jsp" enctype="multipart/form-data">
+		<form id="regForm" method="get" action="spende_erstellen_process.jsp" enctype="multipart/form-data">
 
 			Bezeichnung <input type="text" name="bezeichnung" /> <br />
 			Beschreibung: <input type="text" name="beschreibung" /> <br />

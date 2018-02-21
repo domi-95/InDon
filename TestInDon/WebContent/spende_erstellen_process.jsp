@@ -1,5 +1,6 @@
 <%@page import="java.io.*"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@page import= "javax.servlet.*"%>
+<%@ page language="java" contentType ="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -78,12 +79,30 @@ out.print(menge);
 %>
 
 <%
+
+		try{
 			String saveFile = new String();
 			String contentType = request.getContentType();
-
+			Part filePart = request.getPart("bild");
+			InputStream in = null;
+			
+				if (filePart != null) {
+		            // prints out some information for debugging
+		            System.out.println(filePart.getName());
+		            System.out.println(filePart.getSize());
+		            System.out.println(filePart.getContentType());
+		             
+		            // obtains input stream of the upload file
+		            in = filePart.getInputStream();
+		        }
+			
+			File f= new File("/Users/Domi/Downloads/test.png"); 
+			FileOutputStream		fos = new FileOutputStream (f); 
+			/*
 			if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) {
-				DataInputStream in = new DataInputStream(request.getInputStream());
+				in = filePart.getInputStream();
 
+				
 				int formDataLength = request.getContentLength();
 				byte dataBytes[] = new byte[formDataLength];
 				int byteRead = 0;
@@ -119,15 +138,20 @@ out.print(menge);
 				
 				File ff = new File(saveFile);
 
-				try {
-					FileOutputStream fileOut = new FileOutputStream(ff);
-					fileOut.write(dataBytes, startPos, (endPos - startPos));
-					fileOut.flush();
-					fileOut.close();
-				} catch (Exception e) {
-					out.println(e);
+					try {
+						FileOutputStream fileOut = new FileOutputStream(ff);
+						fileOut.write(dataBytes, startPos, (endPos - startPos));
+						fileOut.flush();
+						fileOut.close();
+					} catch (Exception e) {
+						out.println(e);
+					}*/
+			
+		}
+				catch (Exception e) {
+					System.out.println("FEHLER beim holen der Anlaufstelle");
+					e.printStackTrace();
 				}
-			}
 		%>
 
 
