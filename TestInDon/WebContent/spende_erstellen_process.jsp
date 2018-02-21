@@ -115,7 +115,7 @@ out.print(menge);
 				int startPos = ((file.substring(0, pos)).getBytes()).length;
 				int endPos = ((file.substring(0, boundaryLocation)).getBytes()).length;
 
-				saveFile = "/Users/Domi/Downloads"+ saveFile;
+				saveFile = "/Users/Domi/Downloads/"+ saveFile;
 				
 				File ff = new File(saveFile);
 
