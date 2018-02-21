@@ -49,7 +49,7 @@
 				int startPos = ((file.substring(0, pos)).getBytes()).length;
 				int endPos = ((file.substring(0, boundaryLocation)).getBytes()).length;
 
-				saveFile = "C:/uploadDir2/"+ saveFile;
+				saveFile = "/Users/Domi/Downloads"+ saveFile;
 				
 				File ff = new File(saveFile);
 

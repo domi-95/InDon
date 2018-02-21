@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="utf-8">
 <title>Insert title here</title>
 
 <style>
@@ -19,11 +19,12 @@
 	<%@page import="java.sql.*"%>
 	
 	<fieldset>
-		<form id="regForm" method="GET" action="spende_erstellen_process.jsp">
+		<form id="regForm" method="GET" action="spende_erstellen_process.jsp" enctype="multipart/form-data">
 
 			Bezeichnung <input type="text" name="bezeichnung" /> <br />
 			Beschreibung: <input type="text" name="beschreibung" /> <br />
 			Zustand: <input type="text" name="zustand" /> <br />
+			Mindeshaltbarkeitsdatum: <input type="date" name="mhd" /> <br />
 			Kategorie: <select name="kategorie">
 				<%
 					if (request.getParameter("anlauf") != null) {
@@ -37,7 +38,8 @@
 					}
 				%>
 
-			</select> <br /> Menge: <input type="text" name="menge" /> <br /> Bild: <br />
+			</select> <br /> Menge: <input type="text" name="menge" /> <br /> 
+			Bild: <input type="file" name="bild" value"" width="100" /><br />
 			<input type="radio" name="lieferungabholung" id="lieferung" value="1" checked >
 			Lieferung <input type="radio" name="lieferungabholung" id="abholung" value="2">
 			Abholung <br /> 
@@ -53,7 +55,7 @@
 			<div class="abholung">
 				Name: <input type="text" name="name" /> <br />
 				Vorname: <input type="text" name="vorname" /> <br />
-				Straße, Hausnummer: <input type="text" name="adresse" /> <br />
+				StraÃŸe, Hausnummer: <input type="text" name="adresse" /> <br />
 				Ort: <input type="text" name="ort" /> <br />
 				PLZ: <input type="text" name="plz" /> <br />
 				Land: <input type="text" name="land" /> <br />
