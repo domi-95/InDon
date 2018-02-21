@@ -10,22 +10,34 @@
 
 
 
-#show:not(:checked) ~ p { display: none };
-#show:not(:checked) ~ h1 { display: none };
+#show:not(:checked) ~ .test { display: none }
+#show:not(:checked) ~ h1 { display: none }
+#lieferung:not(:checked) ~ .lieferung { display: none }
+#abholung:not(:checked) ~ .abholung { display: none }
 </style>
 
 </head>
 <body>
 
 <input type="radio" name = "show" id="show" /> <label for="show">Show</label>
-<input type="radio" name = "show" id="noshow" /> <label for="noshow">NO</label>
+<input type="radio" name = "show" id="noshow" /> <label for="show">NO</label>
+
+<input type="radio" name="lieferung/abholung" id="lieferung" checked>
+Lieferung <input type="radio" name="lieferung/abholung" id="abholung">
+Abholung <br /> 
+
 <h1>Why use jQuery when you can use CSS?</h1>
 <aside>Checkbox is the correct UI element for this, BTW.</aside>
 
-		<input type="radio" name="lieferung/abholung" checked>
-Lieferung <input type="radio" name="lieferung/abholung">
-Abholung <br /> 
 
+<div class="lieferung">
+				Test Lieferung
+			
+			</div>
+			
+<div class="abholung">
+				Test Abholung
+			</div>
 
 </body>
 </html>

@@ -5,6 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<style>
+
+
+#lieferung:not(:checked) ~ .lieferung { display: none }
+#abholung:not(:checked) ~ .abholung { display: none }
+</style>
+
 </head>
 <body>
 	<%@page import="datenbank.Datenbank"%>
@@ -30,10 +38,27 @@
 				%>
 
 			</select> <br /> Menge: <input type="text" name="menge" /> <br /> Bild: <br />
-			<input type="radio" name="lieferung/abholung" checked>
-			Lieferung <input type="radio" name="lieferung/abholung">
+			<input type="radio" name="lieferung/abholung" id="lieferung" checked >
+			Lieferung <input type="radio" name="lieferung/abholung" id="abholung">
 			Abholung <br /> 
 			
+			<div class="lieferung">
+				E-Mail: <input type="text" name="mail" /> <br />
+				Telefon: <input type="text" name="telefon" /> <br />
+				Name: <input type="text" name="name" /> <br />
+				Vorname: <input type="text" name="vorname" /> <br />
+			
+			</div>
+			
+			<div class="abholung">
+				Name: <input type="text" name="name" /> <br />
+				Vorname: <input type="text" name="vorname" /> <br />
+				Straße, Hausnummer: <input type="text" name="strasse" /> <br />
+				Ort: <input type="text" name="ort" /> <br />
+				PLZ: <input type="text" name="plz" /> <br />
+				Land: <input type="text" name="land" /> <br />
+			</div>
+			<br/>
 			<input type="submit" value="Spendenangebot senden" form="regForm" onclick='this.form.action="spende_erstellen_process.jsp";' />
 	</fieldset>
 
