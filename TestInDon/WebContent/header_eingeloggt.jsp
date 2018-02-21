@@ -29,7 +29,7 @@
                      <!-- Main navigation -->
                     <div class= "nav">
 	                    <div class="elements">
-	                    		<a class="bclogin" href="#Clogin">Logout</a>
+	                    		<a class="bclogin" href="./index.jsp">Logout</a>
                     		</div>
                     </div>
                     <!-- End main navigation -->  
