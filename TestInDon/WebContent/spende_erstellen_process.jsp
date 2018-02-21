@@ -57,7 +57,6 @@ if(request.getParameter("adresse")!=""){
 
 if(request.getParameter("plz")!=""){	
 	int plz = Integer.parseInt(request.getParameter("plz"));
-	//String plz = request.getParameter("plz");
 	out.print(plz);
 }
 if(request.getParameter("ort")!=""){		 
@@ -115,7 +114,7 @@ out.print(menge);
 				int startPos = ((file.substring(0, pos)).getBytes()).length;
 				int endPos = ((file.substring(0, boundaryLocation)).getBytes()).length;
 
-				saveFile = "/Users/Domi/Downloads"+ saveFile;
+				saveFile = "C:/Users/Kevin/workspace"+ saveFile;
 				
 				File ff = new File(saveFile);
 

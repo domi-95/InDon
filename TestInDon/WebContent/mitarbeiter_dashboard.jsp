@@ -23,17 +23,37 @@
   	
   	List<Spende> liste = Datenbank.holeSpenden(a.getId());
   	
-  	
+  	%><form action="dashboard_process.jsp" method="post"><% 
   	for (int i = 0; i<liste.size(); i++){
-  		out.print(liste.get(i).getBeschreibung());
-  	}
+  		
+  		 %><fieldset> <%
+  		out.print (liste.get(i).getId());
+  		out.print(liste.get(i).getName()); %><br/> <%
+  		out.print(liste.get(i).getBezeichnung_spende()); %><br/> <%
+  		out.print(liste.get(i).getZustand()); %><br/> <%
+  		if (liste.get(i).getAbholung() == 1){
+  			out.print("Die Spende muss abgeholt werden");%><br/> <%
+  		}
+  		if (liste.get(i).getLieferung() == 1){
+  			out.print ("Die Spende wird geliefert vom Spender");%><br/> <%
+  		}
+  		
+  		if( liste.get(i).getAnonym() != 1){
+  			out.print(liste.get(i).getVorname()+ " "+ liste.get(i).getName()); %><br/> <%
+  		}
+  		out.print ("----------------------------------------------------"); %><br/> <%
+  		%><input type="submit" name= "submit" value="Interesse bekunden"  /><br/> 
+  				<input type="hidden" name="id" value="<%out.print (liste.get(i).getId()); %>"><%
+  		 %></fieldset> <%
+  	}%>
   	
-  	
-  	// rechts oben z.B. in der Leiste soll der Name vom Mitarbeiter stehen, diese holst du mit dem Objekt mitarbeiter m und seinen gettern
-  	// genauso könnt ihr mit den gettern von der Spende aus alle Daten holen
+  	</form>
+  
+  	<% // rechts oben z.B. in der Leiste soll der Name vom Mitarbeiter stehen, diese holst du mit dem Objekt mitarbeiter m und seinen gettern
+  	// genauso könnt ihr mit den gettern von der Spende aus alle Daten holen%>
   	
 
-  %>
+  
 
 <h2>Sie sind im Mitarbeiter Dashboard</h2>
 </body>
