@@ -29,7 +29,7 @@
                      <!-- Main navigation -->
                     <div class= "nav">
 	                    <div class="elements">
-	                    		<a class="blogin" href="#login">Login</a>
+	                    		<a class="blogin" href="./login.jsp">Login</a>
 	                    		<a class="bclogin" href="#Clogin">Unternehmenslogin</a>
                     		</div>
                     </div>
