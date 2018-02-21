@@ -4,23 +4,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Spende anbieten</title>
 </head>
 <body>
+	
+	<jsp:include page="Header.jsp"></jsp:include>
 	<%@page import="datenbank.Datenbank"%>
 	<%@page import="java.sql.*"%>
-	
 	<fieldset>
-<<<<<<< HEAD
-		<form id="regForm" method="GET" action="spende_erstellen.jsp">
-=======
-		<form id="regForm" method="get" action="spende_erstellen_process.jsp" enctype="multipart/form-data">
->>>>>>> branch 'NewMaster' of https://github.com/domi-95/InDon.git
 
-			Bezeichnung <input type="text" name="bezeichnung" /> <br />
+		<form id="regForm" method="GET" action="spende_erstellen.jsp">
+
+		<form id="regForm" method="get" action="spende_erstellen_process.jsp" enctype="multipart/form-data">
+
+
+			Bezeichnung: <input type="text" name="bezeichnung" /> <br />
 			Beschreibung: <input type="text" name="beschreibung" /> <br />
-			Zustand: <input type="text" name="zustand" /> <br /> Anlaufstellen:
-			 <br /> Kategorie: <select name="kat">
+			Zustand: <input type="text" name="zustand" /> <br /> 
+			Anlaufstellen:<br />
+			<select name="anlauf" onchange="submit()">
+				<option value="all" selected>Kein Anlaufstelle ausgewählt.</option>
+				<%
+					ResultSet myRs = Datenbank.holAnlaufstelle();
+					while (myRs.next()) {
+				%>
+				<option value="<%=myRs.getString("id")%>"><%=myRs.getString("bezeichnung")%>
+				</option>
+				<%
+					}
+				%>
+			</select> <br /> 
+			Kategorie: <br />
+			<select name="kat">
 				<%
 					if (request.getParameter("anlauf") != null) {
 						int id = Integer.parseInt(request.getParameter("anlauf"));
@@ -40,7 +55,6 @@
 			
 			<input type="submit" value="Spendenangebot senden" form="regForm" onclick='this.form.action="spende_erstellen_process.jsp";' />
 	</fieldset>
-
 
 
 
