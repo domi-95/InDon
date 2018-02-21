@@ -12,9 +12,12 @@
 <jsp:include page="Header.jsp"></jsp:include>
 <div class="login">
 <%
-String beschreibung = request.getParameter("");
-String bezeichnung = request.getParameter("");
-String zustand = request.getParameter("");
+String bezeichnung = request.getParameter("bezeichnung");
+String beschreibung = request.getParameter("beschreibung");
+String zustand = request.getParameter("zustand");
+String kategorie = request.getParameter("kategorie");
+String menge = request.getParameter("menge");
+
 
 if (request.getParameter(" ")!= null ) {
 	int abholung = Integer.parseInt(request.getParameter(""));// gib eine 1 oder nichts zurück
@@ -33,11 +36,11 @@ if (request.getParameter(" ")!= null ){
 
  //alle Felder die optional sind und eventuell kein Wert zurückgeben weil das Inputfeld nicht gefüllt ist musst noch eine Verzweigung mit if .. =! null einfügen
 
-String vorname = request.getParameter(""); 
-String name = request.getParameter(""); 
-String adresse = request.getParameter(""); 
-int plz = Integer.parseInt(request.getParameter(""));
-String ort = request.getParameter(""); 
+String vorname = request.getParameter("vorname"); 
+String name = request.getParameter("name"); 
+String adresse = request.getParameter("adresse"); 
+int plz = Integer.parseInt(request.getParameter("plz"));
+String ort = request.getParameter("ort"); 
 int ret_id = Integer.parseInt(request.getParameter(""));
 int kat_id = Integer.parseInt(request.getParameter(""));
 

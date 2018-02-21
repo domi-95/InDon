@@ -23,8 +23,8 @@
 
 			Bezeichnung <input type="text" name="bezeichnung" /> <br />
 			Beschreibung: <input type="text" name="beschreibung" /> <br />
-			Zustand: <input type="text" name="zustand" /> <br /> Anlaufstellen:
-			 <br /> Kategorie: <select name="kat">
+			Zustand: <input type="text" name="zustand" /> <br />
+			Kategorie: <select name="kategorie">
 				<%
 					if (request.getParameter("anlauf") != null) {
 						int id = Integer.parseInt(request.getParameter("anlauf"));
@@ -53,11 +53,13 @@
 			<div class="abholung">
 				Name: <input type="text" name="name" /> <br />
 				Vorname: <input type="text" name="vorname" /> <br />
-				Straﬂe, Hausnummer: <input type="text" name="strasse" /> <br />
+				Straﬂe, Hausnummer: <input type="text" name="adresse" /> <br />
 				Ort: <input type="text" name="ort" /> <br />
 				PLZ: <input type="text" name="plz" /> <br />
 				Land: <input type="text" name="land" /> <br />
 			</div>
+			<input type="checkbox" name="anonym"> Anonym
+			<br/>
 			<br/>
 			<input type="submit" value="Spendenangebot senden" form="regForm" onclick='this.form.action="spende_erstellen_process.jsp";' />
 	</fieldset>
