@@ -85,7 +85,7 @@ out.print(menge);
 			String contentType = request.getContentType();
 			Part filePart = request.getPart("bild");
 			InputStream in = null;
-			
+			in = filePart.getInputStream();
 				if (filePart != null) {
 		            // prints out some information for debugging
 		            System.out.println(filePart.getName());
@@ -93,11 +93,14 @@ out.print(menge);
 		            System.out.println(filePart.getContentType());
 		             
 		            // obtains input stream of the upload file
-		            in = filePart.getInputStream();
+		            
 		        }
-			
-			File f= new File("/Users/Domi/Downloads/test.png"); 
+			in.close();
+			File f= new File("/Users/Domi/Downloads/test1234.png"); 
 			FileOutputStream		fos = new FileOutputStream (f); 
+			FileWriter fw = new FileWriter(f); 
+			fw.close();
+			fos.close();
 			/*
 			if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) {
 				in = filePart.getInputStream();
