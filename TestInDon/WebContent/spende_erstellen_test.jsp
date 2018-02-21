@@ -20,7 +20,7 @@
   
 	<option value="all" selected>Wählen Sie eine Anlaufstelle</option>
 <%  
-ResultSet myRs = Datenbank.holAnlaufstelle();
+ResultSet myRs = Datenbank.holeAnlaufstelle();
 	while(myRs.next())	{ %>
 	<option value="<%= myRs.getString("id")%>"><%= myRs.getString("bezeichnung")%> </option>
 <% 

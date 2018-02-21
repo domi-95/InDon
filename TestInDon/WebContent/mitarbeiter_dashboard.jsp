@@ -12,27 +12,21 @@
 
 <%@page import="benutzer.*"%>  
 <%@page import="spende.*"%>  
-<%@page import="java.util.*"%>  
 
 <%
-	
   	Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
   	Anlaufstelle a = Datenbank.holAnlaufstelle(m.getId_ret()); //Anlaufstellen Objekt
-  	session.setAttribute("anlaufstelle", a);
-  	
-  	
   	List<Spende> liste = Datenbank.holeSpenden(a.getId());
   	
   	
-  	for (int i = 0; i<liste.size(); i++){
-  		out.print(liste.get(i).getBeschreibung());
-  	}
   	
+  	session.setAttribute("anlaufstelle", a);
   	
-  	// rechts oben z.B. in der Leiste soll der Name vom Mitarbeiter stehen, diese holst du mit dem Objekt mitarbeiter m und seinen gettern
-  	// genauso könnt ihr mit den gettern von der Spende aus alle Daten holen
-  	
+  	out.print(m);
+  	out.print (a.getBezeichnunganlaufstelle());
 
+  	// mit der Methode datenbank.holeAnlaufstelle (int id_ret) bekommst du ein Anlaufstellen LISTE zurück in dem Anlaufsetllen Objekte drin sind zurück über getter bekommst du dann 
+  	//die Bezeichnung mit der du das Dropdown ersetllen kannst. Die id_ret des Mitarbeiters bekommst du mit dem mitarbeiter objekt getter
   %>
 
 <h2>Sie sind im Mitarbeiter Dashboard</h2>

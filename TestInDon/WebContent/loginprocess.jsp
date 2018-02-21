@@ -7,16 +7,10 @@
 
 <title>Insert title here</title>
 </head>
-
 <body>
-
-<jsp:include page="login.jsp"></jsp:include>
 <%@page import="datenbank.*"%>  
 <%@page import="benutzer.*"%>  
-<div class="login">  
-
-<h3>
-
+   
 <%  
  String benutzername = request.getParameter( "benutzername" );
  String passwort = request.getParameter( "passwort" );
@@ -24,7 +18,7 @@
 	Benutzer b = LoginDao.validate(benutzername, passwort);
 	
 	if (b == null){
-		out.print("Sorry, invalid Username or Password");		
+		out.print("Sorry, email or password error");		
 		}
 	session.setAttribute("objekt", b);
 	
@@ -38,14 +32,9 @@
 	}
 	
 	
-%> 
+%>  
 
-
-</h3>
-
-</div>
-
+<jsp:include page="index.jsp"></jsp:include>  
 
 </body>
-
 </html>

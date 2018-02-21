@@ -1,3 +1,4 @@
+
 body{
 	margin: 0;
 	background-color: #969EA8;
@@ -66,18 +67,15 @@ body{
 	margin: 2.5px 0 0 0; 
 }
 input{
-	text-align: center;
+	//text-align: center;
 	width: 100%;
 	height: 30px;
 	font-size: 18px;
-	//padding-left: 30px;
-
+	padding-left: 30px;
 	//margin-top: 2px;
 	//margin-bottom: 10px;
 	
 }
- 
-
 .form-input::before{
 	content:"\f007";
 	position: absolute;
@@ -124,24 +122,34 @@ form{
 }
 
 .btn-login{
-	color: #fff;
+<<<<<<< HEAD
+	padding: 20px 30px;
+=======
+	//padding: 20px 30 px;
+>>>>>>> branch 'master' of https://github.com/domi-95/InDon.git
+	color: 969ea8;
 	border-radius: 150px;
-	background-color: #ed842a;
-	//border-style: solid;
-    //border-width: 1px;
-    //border-color: #707070;
-    border: none;
-    border-bottom: 4px solid  #E48028;
+	background-color: #FFFFFF;
+<<<<<<< HEAD
+	border-style: solid;
+    border-width: 1px;
+    border-color: #707070;
+    
+=======
 	width: 50%;
 	text-align: center;
-	opacity: 0.95;
+>>>>>>> branch 'master' of https://github.com/domi-95/InDon.git
+	
+	
 }
 
 h1{
 	font-family: sans-serif ;
 }
-
+<<<<<<< HEAD
 
 h3{
 	font-family: sans-serif ;
 }
+=======
+>>>>>>> branch 'master' of https://github.com/domi-95/InDon.git

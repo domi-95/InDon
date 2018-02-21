@@ -1,31 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-
-<style>
-
-
-#lieferung:not(:checked) ~ .lieferung { display: none }
-#abholung:not(:checked) ~ .abholung { display: none }
-</style>
-
 </head>
 <body>
 	<%@page import="datenbank.Datenbank"%>
 	<%@page import="java.sql.*"%>
 	
 	<fieldset>
-		<form id="regForm" method="GET" action="spende_erstellen_process.jsp" enctype="multipart/form-data">
+		<form id="regForm" method="GET" action="spende_erstellen.jsp">
 
 			Bezeichnung <input type="text" name="bezeichnung" /> <br />
 			Beschreibung: <input type="text" name="beschreibung" /> <br />
-			Zustand: <input type="text" name="zustand" /> <br />
-			Mindeshaltbarkeitsdatum: <input type="date" name="mhd" /> <br />
-			Kategorie: <select name="kategorie">
+			Zustand: <input type="text" name="zustand" /> <br /> Anlaufstellen:
+			 <br /> Kategorie: <select name="kat">
 				<%
 					if (request.getParameter("anlauf") != null) {
 						int id = Integer.parseInt(request.getParameter("anlauf"));
@@ -38,32 +29,12 @@
 					}
 				%>
 
-			</select> <br /> Menge: <input type="text" name="menge" /> <br /> 
-			Bild: <input type="file" name="bild" value"" width="100" /><br />
-			<input type="radio" name="lieferungabholung" id="lieferung" value="1" checked >
-			Lieferung <input type="radio" name="lieferungabholung" id="abholung" value="2">
+			</select> <br /> Menge: <input type="text" name="menge" /> <br /> Bild: <br />
+			<input type="radio" name="lieferung/abholung" checked>
+			Lieferung <input type="radio" name="lieferung/abholung">
 			Abholung <br /> 
 			
-			<div class="lieferung">
-				E-Mail: <input type="text" name="mail" /> <br />
-				Telefon: <input type="text" name="telefon" /> <br />
-				Name: <input type="text" name="name" /> <br />
-				Vorname: <input type="text" name="vorname" /> <br />
-			
-			</div>
-			
-			<div class="abholung">
-				Name: <input type="text" name="name" /> <br />
-				Vorname: <input type="text" name="vorname" /> <br />
-				Straße, Hausnummer: <input type="text" name="adresse" /> <br />
-				Ort: <input type="text" name="ort" /> <br />
-				PLZ: <input type="text" name="plz" /> <br />
-				Land: <input type="text" name="land" /> <br />
-			</div>
-			<input type="checkbox" name="anonym"> Anonym
-			<br/>
-			<br/>
-			<input type="submit" value="Spendenangebot senden" form="regForm" />
+			<input type="submit" value="Spendenangebot senden" form="regForm" onclick='this.form.action="spende_erstellen_process.jsp";' />
 	</fieldset>
 
 
