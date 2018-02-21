@@ -12,6 +12,7 @@
 
 <%@page import="benutzer.*"%>  
 <%@page import="spende.*"%>  
+<%@page import="java.util.*"%>  
 
 <%
   	Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
@@ -19,9 +20,14 @@
   	List<Spende> liste = Datenbank.holeSpenden(a.getId());
   	
   	
+  	for (int i = 0; i<liste.size(); i++){
+  		out.print(liste.get(i).getBeschreibung());
+  	}
+  	
+  	
   	
   	session.setAttribute("anlaufstelle", a);
-  	
+
   	out.print(m);
   	out.print (a.getBezeichnunganlaufstelle());
 

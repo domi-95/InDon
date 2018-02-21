@@ -1,5 +1,6 @@
 package datenbank;
 
+import java.util.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -16,7 +17,8 @@ import spende.Spende;
 public class Datenbank {
 	
 	public static void main(String[] args) throws Exception{
-
+		List<Spende> list = Datenbank.holeSpenden(1);
+		list.get(1).getAbholung();
 		
 	}
 	
