@@ -19,7 +19,7 @@
 	<%@page import="java.sql.*"%>
 	
 	<fieldset>
-		<form id="regForm" method="GET" action="spende_erstellen.jsp">
+		<form id="regForm" method="GET" action="spende_erstellen_process.jsp">
 
 			Bezeichnung <input type="text" name="bezeichnung" /> <br />
 			Beschreibung: <input type="text" name="beschreibung" /> <br />
@@ -38,8 +38,8 @@
 				%>
 
 			</select> <br /> Menge: <input type="text" name="menge" /> <br /> Bild: <br />
-			<input type="radio" name="lieferung/abholung" id="lieferung" checked >
-			Lieferung <input type="radio" name="lieferung/abholung" id="abholung">
+			<input type="radio" name="lieferungabholung" id="lieferung" value="1" checked >
+			Lieferung <input type="radio" name="lieferungabholung" id="abholung" value="2">
 			Abholung <br /> 
 			
 			<div class="lieferung">
@@ -61,7 +61,7 @@
 			<input type="checkbox" name="anonym"> Anonym
 			<br/>
 			<br/>
-			<input type="submit" value="Spendenangebot senden" form="regForm" onclick='this.form.action="spende_erstellen_process.jsp";' />
+			<input type="submit" value="Spendenangebot senden" form="regForm" />
 	</fieldset>
 
 

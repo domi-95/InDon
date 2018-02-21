@@ -19,30 +19,60 @@ String kategorie = request.getParameter("kategorie");
 String menge = request.getParameter("menge");
 
 
-if (request.getParameter(" ")!= null ) {
-	int abholung = Integer.parseInt(request.getParameter(""));// gib eine 1 oder nichts zurück
+if(request.getParameter("lieferungabholung")== "1"){
+	int abholung = 1;
+}
+if(request.getParameter("lieferungabholung")=="2"){
+	int lieferung = 1;
 }
 
-if (request.getParameter(" ")!= null ) {
-	int lieferung = Integer.parseInt(request.getParameter(""));// gib eine 1 oder nichts zurück
-}
 
 String bild_url = request.getParameter("");
 String mhd = request.getParameter( ""); //irgendwie in Date Parsen oder in String speichern
 
-if (request.getParameter(" ")!= null ){
-	int anonym = Integer.parseInt(request.getParameter(""));  // gib eine 1 oder nichts zurück
+if (request.getParameter("anonym") == "on" ){
+	int anonym = 1;  // gib eine 1 oder nichts zurück
+	out.print(anonym);
+}
+else{
+	int anonym = 0;
 }
 
  //alle Felder die optional sind und eventuell kein Wert zurückgeben weil das Inputfeld nicht gefüllt ist musst noch eine Verzweigung mit if .. =! null einfügen
 
-String vorname = request.getParameter("vorname"); 
-String name = request.getParameter("name"); 
-String adresse = request.getParameter("adresse"); 
-int plz = Integer.parseInt(request.getParameter("plz"));
-String ort = request.getParameter("ort"); 
-int ret_id = Integer.parseInt(request.getParameter(""));
-int kat_id = Integer.parseInt(request.getParameter(""));
+if(request.getParameter("vorname")!=""){		 
+	String vorname = request.getParameter("vorname");
+	out.print("Testausgabe");
+	out.print(vorname);
+}
+if(request.getParameter("name")!=""){		 
+	String name = request.getParameter("name");
+	out.print(name);
+}
+if(request.getParameter("adresse")!=""){		 
+	String adresse = request.getParameter("adresse");
+	out.print(adresse);
+}
+
+if(request.getParameter("plz")!=""){	
+	int plz = Integer.parseInt(request.getParameter("plz"));
+	//String plz = request.getParameter("plz");
+	out.print(plz);
+}
+if(request.getParameter("ort")!=""){		 
+	String ort = request.getParameter("ort"); 
+	out.print(ort);
+}
+
+	//int ret_id = Integer.parseInt(request.getParameter(""));
+	//int kat_id = Integer.parseInt(request.getParameter(""));
+
+out.print(bezeichnung);
+out.print(beschreibung);
+out.print(zustand);
+out.print(kategorie);
+out.print(menge);
+
 
 %>
 

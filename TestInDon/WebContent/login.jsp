@@ -31,6 +31,7 @@
 			</div>
 			<br />
 			<br /> 
+
 			
 			<div class= "form-input2">
 			<input type="password" name="passwort" 
@@ -38,7 +39,7 @@
 			</div>
 			<br />
 			<br />
-			<input type="submit" name= "submit" value="Login" class="btn-login" />
+			<input type="submit" name= "submit" value="login" class="btn-login" />
 			</form>
 		</div>
 	</div>
