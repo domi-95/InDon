@@ -14,7 +14,7 @@
 	<select name="anlauf" onchange="submit()">
 				<option value="all" selected>Wählen Sie eine Anlaufstelle</option>
 				<%
-					ResultSet myRs = Datenbank.holeAnlaufstelle();
+					ResultSet myRs = Datenbank.holAnlaufstelle();
 					while (myRs.next()) {
 				%>
 				<option value="<%=myRs.getString("id")%>"><%=myRs.getString("bezeichnung")%>

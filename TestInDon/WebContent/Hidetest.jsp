@@ -17,14 +17,8 @@ input[type="radio"]:not(:checked) ~ .p { display: none }
 </head>
 <body>
 
-<div>
-<input type="radio" id="show"  /> <label for="show">Show</label>
-<input type="radio" id="show" /> <label for="show">Show</label>
-</div>
-<p>Why use jQuery when you can use CSS?</p>
-<aside>Checkbox is the correct UI element for this, BTW.</aside>
-
-<input type="radio" id="show" /> <label for="show">Show</label>
+<input type="radio" name = "hallo" id="show" /> <label for="show">Show</label>
+<input type="radio" name = "hallo" id="show" /> <label for="show">NO</label>
 <h1>Why use jQuery when you can use CSS?</1>
 <aside>Checkbox is the correct UI element for this, BTW.</aside>
 

@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h3>Uploading Files</h3>
-	<form name="uploadForm" action="index.jsp" method="Post"
+	<form name="uploadForm" action="uploadDon.jsp" method="Post"
 		enctype="multipart/form-data">
 		<%
 			String saveFile = new String();
