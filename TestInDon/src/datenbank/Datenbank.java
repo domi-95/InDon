@@ -16,7 +16,8 @@ import spende.Spende;
 public class Datenbank {
 	
 	public static void main(String[] args) throws Exception{
-		Datenbank.speichereSpendeTest("i bims eine testspende");
+
+		
 	}
 	
 	public static ResultSet holeKategorien (int id_anlaufstelle) {			
@@ -32,7 +33,9 @@ public class Datenbank {
 		return null;
 	}
 	
-	public static ResultSet holeAnlaufstelle () {			//haben wir in unserem Fall über ein Resultset implementiert und nicht Objektorientiert da es perfomanter ist
+
+	
+	public static ResultSet holAnlaufstelle () {
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
@@ -44,15 +47,30 @@ public class Datenbank {
 		}
 		return null;
 	}
+	public static Anlaufstelle holAnlaufstelle (int ret_id) {
+		Connection con = ConnectionProvider.getCon();
+		try {
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle WHERE  ret_id = '"+ ret_id +"'");
+			myRs.next();
+			return new Anlaufstelle(myRs.getInt("id"), myRs.getString("bezeichnung"), myRs.getString("adresse"), myRs.getString("ort"), myRs.getInt("plz"));
+		} catch (SQLException e) {
+			System.out.println("FEHLER beim holen der Anlaufstelle");
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+
 	
 	public static List<Anlaufstelle> holeAnlaufstelle (int id_ret) {
 		List<Anlaufstelle> result = new LinkedList<Anlaufstelle>();
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle WHERE ret_id '" + id_ret + "'");
+			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle WHERE ret_id =  '" + id_ret + "'");
 			while (myRs.next()) {
-				result.add(new Anlaufstelle(myRs.getString("bezeichnung"), myRs.getString("adresse"), myRs.getString("ort"), myRs.getShort("plz")));
+				result.add(new Anlaufstelle(myRs.getInt("id"), myRs.getString("bezeichnung"), myRs.getString("adresse"), myRs.getString("ort"), myRs.getInt("plz")));
 			}
 			
 			return result;
@@ -73,9 +91,7 @@ public class Datenbank {
 			while (myRs.next()) {
 				result.add(new Spende(myRs.getInt("id"), myRs.getString("bezeichnung_spende"), myRs.getString("beschreibung"), myRs.getString("zustand"), myRs.getInt("abholung"), myRs.getInt("lieferung"), myRs.getString("bild"), myRs.getString("String"), myRs.getInt("anonym"), myRs.getString("vorname"), myRs.getString("nachname"), myRs.getString("adresse"), myRs.getInt("plz")));
 			}
-			
 			return result;
-			
 		} catch (SQLException e) {
 			System.out.println("FEHLER beim holen der Spende");
 			e.printStackTrace();
@@ -84,25 +100,32 @@ public class Datenbank {
 	}
 		
 	
-	public static void speichereSpendeTest (String bezeichnung) {
-		try{
-			 Connection con = ConnectionProvider.getCon();
-		
-		String sql = "INSERT INTO Spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id)" + "VALUES ('test','" + bezeichnung + "', 'top', 1, 1, 'test', '123', 1, 'hans', 'peter', 'kack', '123456', 'dir', 1, 2)";
-		Statement st = con.createStatement();
-		st.executeUpdate(sql);
-		}
-		catch (Exception e) {
-			System.out.println("Fehler beim Einfügen der Spende");
-			e.printStackTrace();
-		}
-	}
+//	public static void speichereSpendeTest (String bezeichnung) {
+//		try{
+//			 Connection con = ConnectionProvider.getCon();
+//		
+//		String sql = "INSERT INTO Spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id)" + "VALUES ('test','" + bezeichnung + "', 'top', 1, 1, 'test', '123', 1, 'hans', 'peter', 'kack', '123456', 'dir', 1, 2)";
+//		Statement st = con.createStatement();
+//		st.executeUpdate(sql);
+//		}
+//		catch (Exception e) {
+//			System.out.println("Fehler beim Einfügen der Spende");
+//			e.printStackTrace();
+//		}
+//	}
 	
 	public static boolean speichereSpende (String beschreibung, String bezeichnung, String zustand, int abholung, int lieferung, String bild_url, String mhd, int anonym, String vorname, String name, String adresse, int plz, String ort, int ret_id, int kat_id) {
-		
-		
-		
-		
+		try{
+			 Connection con = ConnectionProvider.getCon();
+				String sql ="INSERT INTO Spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id)" + "VALUES ('"+ beschreibung+"','" + bezeichnung + "', '" + zustand + "', "+abholung+","+lieferung+", '"+bild_url+"', '"+mhd+"',"+anonym+", '" + vorname + "' , '" + name + "', '" + adresse + "', " + plz + ", '" + ort + "',"+ret_id+","+kat_id+")";
+				Statement st = con.createStatement();
+				st.executeUpdate(sql);
+				}
+				catch (Exception e) {
+					System.out.println("Fehler beim Einfügen der Spende");
+					e.printStackTrace();
+				}		
+
 		return false;
 	}
 }

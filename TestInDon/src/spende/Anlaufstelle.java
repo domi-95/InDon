@@ -3,13 +3,16 @@ import benutzer.Rettungsorganisation;
 
 public class Anlaufstelle {
 	
+	private int id;
 	private String bezeichnunganlaufstelle;
 	private String adresse;
 	private String ort;
 	private int plz;
 	
-	public Anlaufstelle(String bezeichnunganlaufstelle, String adresse, String ort, int plz) {
+
+	public Anlaufstelle(int id, String bezeichnunganlaufstelle, String adresse, String ort, int plz) {
 		super();
+		this.id = id;
 		this.bezeichnunganlaufstelle = bezeichnunganlaufstelle;
 		this.adresse = adresse;
 		this.ort = ort;
@@ -47,7 +50,16 @@ public class Anlaufstelle {
 	public void setPlz(int plz) {
 		this.plz = plz;
 	}
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 	
 	
 	

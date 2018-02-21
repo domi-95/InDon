@@ -10,27 +10,32 @@
 <title>Krisengebiet auswählen</title>
 </head>
 <body bgcolor="#969EA8">
-<jsp:include page="Header_Standard.jsp"></jsp:include>
+<jsp:include page="header_eingeloggt.jsp"></jsp:include>
 	<%@page import="datenbank.Datenbank"%>
 	<%@page import="java.sql.*"%>
-	<%@page import="benutzer.Mitarbeiter"%>
+	<%@page import="benutzer.*"%>
+	<%@page import="spende.*"%>
+	<%@page import="java.util.*"%>
 <div class="login">
-<form method="GET" action="mitarbeiter_dashboard.jsp">
+<form method="post" action="mitarbeiter_dashboard.jsp" onchange="submit()">
 
 	<br />
 	<br />
-	<select name="anlauf" onchange="submit()">
-				<option value="all" selected>Wählen Sie eine Anlaufstelle</option>
+	<select name= anlaufstelle >
+				<option  selected>Wählen Sie eine Anlaufstelle</option>
 				<%
-					ResultSet myRs = Datenbank.holeAnlaufstelle();
-					while (myRs.next()) {
-				%>
-				<option value="<%=myRs.getString("id")%>"><%=myRs.getString("bezeichnung")%>
-				</option>
-				<%
+					Mitarbeiter m = (Mitarbeiter)session.getAttribute("objekt");
+					
+					LinkedList<Anlaufstelle> anlaufstellen =(LinkedList<Anlaufstelle>) Datenbank.holeAnlaufstelle(m.getId_ret());
+					
+					for(int i = 0;  i<anlaufstellen.size(); i++){
+						%>
+						<option value="<%=anlaufstellen.get(i)%>"><%=anlaufstellen.get(i).getBezeichnunganlaufstelle()%>
+						</option>
+						<%
 					}
 				%>
-			</select>
+	</select>
 	</form>
 </div>
 </body>
