@@ -4,12 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Insert title here</title>
 </head>
+
 <body>
-<%@page import="datenbank.LoginDao"%>  
+
+<jsp:include page="login.jsp"></jsp:include>
+<%@page import="datenbank.*"%>  
 <%@page import="benutzer.*"%>  
-   
+<div class="login">  
+
+<h3>
+
 <%  
  String benutzername = request.getParameter( "benutzername" );
  String passwort = request.getParameter( "passwort" );
@@ -17,12 +24,12 @@
 	Benutzer b = LoginDao.validate(benutzername, passwort);
 	
 	if (b == null){
-		out.print("Sorry, email or password error");		
+		out.print("Sorry, invalid Username or Password");		
 		}
 	session.setAttribute("objekt", b);
 	
 	if (b instanceof Mitarbeiter){
-		response.sendRedirect("mitarbeiter_dashboard.jsp");
+		response.sendRedirect("Anlaufstelle Dashboard.jsp");
 		
 	}
 	
@@ -31,9 +38,14 @@
 	}
 	
 	
-%>  
+%> 
 
-<jsp:include page="index.jsp"></jsp:include>  
+
+</h3>
+
+</div>
+
 
 </body>
+
 </html>
