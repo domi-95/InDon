@@ -9,6 +9,7 @@
 <body>
 	<%@page import="datenbank.Datenbank"%>
 	<%@page import="java.sql.*"%>
+	
 	<fieldset>
 		<form id="regForm" method="GET" action="spende_erstellen.jsp">
 
