@@ -18,7 +18,7 @@ public class Datenbank {
 	
 	public static void main(String[] args) throws Exception{
 		List<Spende> list = Datenbank.holeSpenden(1);
-		list.get(1).getAbholung();
+		System.out.println(list.get(0).getAbholung());
 		
 	}
 	
@@ -89,9 +89,9 @@ public class Datenbank {
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT * FROM Spende WHERE anlaufstelle_id '" + anlaufstelle_id + "'");
+			ResultSet myRs = myst.executeQuery("SELECT * FROM Spende WHERE anlaufstelle_id = 1");
 			while (myRs.next()) {
-				result.add(new Spende(myRs.getInt("id"), myRs.getString("bezeichnung_spende"), myRs.getString("beschreibung"), myRs.getString("zustand"), myRs.getInt("abholung"), myRs.getInt("lieferung"), myRs.getString("bild"), myRs.getString("String"), myRs.getInt("anonym"), myRs.getString("vorname"), myRs.getString("nachname"), myRs.getString("adresse"), myRs.getInt("plz")));
+				result.add(new Spende(myRs.getInt("id"), myRs.getString("bezeichnung_spende"), myRs.getString("beschreibung"), myRs.getString("zustand"), myRs.getInt("abholung"), myRs.getInt("lieferung"), myRs.getString("bild"), myRs.getString("mhd"), myRs.getInt("anonym"), myRs.getString("vorname"), myRs.getString("nachname"), myRs.getString("adresse"), myRs.getInt("plz")));
 			}
 			return result;
 		} catch (SQLException e) {
