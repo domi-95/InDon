@@ -41,6 +41,110 @@ public class Spende {
 	public static List<Spende> spendenmatchen(int anlaufstelle_id) {
 		return Datenbank.holeSpenden(anlaufstelle_id);
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getBezeichnung_spende() {
+		return bezeichnung_spende;
+	}
+
+	public void setBezeichnung_spende(String bezeichnung_spende) {
+		this.bezeichnung_spende = bezeichnung_spende;
+	}
+
+	public String getBeschreibung() {
+		return beschreibung;
+	}
+
+	public void setBeschreibung(String beschreibung) {
+		this.beschreibung = beschreibung;
+	}
+
+	public String getZustand() {
+		return zustand;
+	}
+
+	public void setZustand(String zustand) {
+		this.zustand = zustand;
+	}
+
+	public int getAbholung() {
+		return abholung;
+	}
+
+	public void setAbholung(int abholung) {
+		this.abholung = abholung;
+	}
+
+	public int getLieferung() {
+		return lieferung;
+	}
+
+	public void setLieferung(int lieferung) {
+		this.lieferung = lieferung;
+	}
+
+	public String getBild() {
+		return bild;
+	}
+
+	public void setBild(String bild) {
+		this.bild = bild;
+	}
+
+	public String getMhd() {
+		return mhd;
+	}
+
+	public void setMhd(String mhd) {
+		this.mhd = mhd;
+	}
+
+	public int getAnonym() {
+		return anonym;
+	}
+
+	public void setAnonym(int anonym) {
+		this.anonym = anonym;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getVorname() {
+		return vorname;
+	}
+
+	public void setVorname(String vorname) {
+		this.vorname = vorname;
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+	public int getPlz() {
+		return plz;
+	}
+
+	public void setPlz(int plz) {
+		this.plz = plz;
+	}
 	
 	
 
