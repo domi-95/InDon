@@ -30,7 +30,7 @@
 					
 					for(int i = 0;  i<anlaufstellen.size(); i++){
 						%>
-						<option value="<%=anlaufstellen.get(i)%>"><%=anlaufstellen.get(i).getBezeichnunganlaufstelle()%>
+						<option value="<%=anlaufstellen.get(i).getId()%>"><%=anlaufstellen.get(i).getBezeichnunganlaufstelle()%>
 						</option>
 						<%
 					}

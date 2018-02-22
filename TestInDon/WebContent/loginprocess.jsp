@@ -30,8 +30,6 @@
 	if (b instanceof Beduerftiger){
 		response.sendRedirect("beduerftigen_dashboard.jsp");
 	}
-	
-	
 %>  
 
 <jsp:include page="index.jsp"></jsp:include>  

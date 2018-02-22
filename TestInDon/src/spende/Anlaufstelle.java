@@ -59,6 +59,12 @@ public class Anlaufstelle {
 		this.id = id;
 	}
 
+	@Override
+	public String toString() {
+		return "Anlaufstelle [id=" + id + ", bezeichnunganlaufstelle=" + bezeichnunganlaufstelle + ", adresse="
+				+ adresse + ", ort=" + ort + ", plz=" + plz + "]";
+	}
+
 
 	
 	

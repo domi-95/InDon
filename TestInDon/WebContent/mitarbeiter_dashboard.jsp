@@ -12,22 +12,57 @@
 
 <%@page import="benutzer.*"%>  
 <%@page import="spende.*"%>  
+<%@page import="java.util.*"%>  
 
 <%
   	Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
-  	Anlaufstelle a = Datenbank.holAnlaufstelle(m.getId_ret()); //Anlaufstellen Objekt
+  	Anlaufstelle a = Datenbank.holAnlaufstelle(Integer.parseInt(request.getParameter("anlaufstelle")));
+  	// Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle"); //Anlaufstellen Objekt
   	List<Spende> liste = Datenbank.holeSpenden(a.getId());
-  	
-  	
-  	
   	session.setAttribute("anlaufstelle", a);
   	
-  	out.print(m);
-  	out.print (a.getBezeichnunganlaufstelle());
+  	%><h1><%out.print (a.getBezeichnunganlaufstelle()); %></h1><%
+  	
+  	
+  	for(Spende s: liste){
+  	%><form  action ="dashboard_process.jsp" method = "post"><%
+  		%> 	<fieldset>	<%
+  	
+  	out.print (s.getBezeichnung_spende()); %> <br/> <%
+   	out.print (s.getBeschreibung());%> <br/> <%
+   	out.print (s.getZustand());%> <br/> <%
+   	
+   	if (s.getAbholung() != 0){
+		out.print ("Die Spende wird abgeholt");  %> <br/> <% 		
+   	}
+   	
+  	if (s.getLieferung() != 0){
+		out.print ("Die Spende wird geliefert");   	%> <br/> <%	
+   	}
+  	
+  	// out.print (s.getMhd()); //Ausgabe erst bei Kategorie Lebensmittel muss noch implementiert werden
+
+  	if (s.getAnonym() != 1){
+  		out.print(s.getVorname() + " " + s.getName());%> <br/> <%
+  		
+  	}
+  	else {
+  		out.print ("Spende ist anonym");%> <br/> <%
+  	}
+  	
+  	
+  	%> 	<input type ="submit" name = "interesse" value = "Interesse bekunden">		
+  		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>">
+  		 </fieldset>	
+  		  </form><%
+  }
+  	
+  	
+  
 
   	// mit der Methode datenbank.holeAnlaufstelle (int id_ret) bekommst du ein Anlaufstellen LISTE zurück in dem Anlaufsetllen Objekte drin sind zurück über getter bekommst du dann 
   	//die Bezeichnung mit der du das Dropdown ersetllen kannst. Die id_ret des Mitarbeiters bekommst du mit dem mitarbeiter objekt getter
-  %>
+  	%>
 
 <h2>Sie sind im Mitarbeiter Dashboard</h2>
 </body>

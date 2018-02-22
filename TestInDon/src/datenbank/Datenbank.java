@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import spende.Anlaufstelle;
+import spende.Kategorie;
 import spende.Spende;
 
 
@@ -16,7 +17,14 @@ import spende.Spende;
 public class Datenbank {
 	
 	public static void main(String[] args) throws Exception{
-
+		 Anlaufstelle a = Datenbank.holAnlaufstelle(2);
+		 System.out.println(a.getBezeichnunganlaufstelle());
+		 
+		 List<Spende> liste = Datenbank.holeSpendentest(1);
+		for (Spende s : liste) {
+			System.out.println(s);
+		}
+		
 		
 	}
 	
@@ -47,11 +55,11 @@ public class Datenbank {
 		}
 		return null;
 	}
-	public static Anlaufstelle holAnlaufstelle (int ret_id) {
+	public static Anlaufstelle holAnlaufstelle (int id) {
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle WHERE  ret_id = '"+ ret_id +"'");
+			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle WHERE  id = '"+ id +"'");
 			myRs.next();
 			return new Anlaufstelle(myRs.getInt("id"), myRs.getString("bezeichnung"), myRs.getString("adresse"), myRs.getString("ort"), myRs.getInt("plz"));
 		} catch (SQLException e) {
@@ -82,14 +90,31 @@ public class Datenbank {
 		return null;
 	}
 	
+	public static List<Spende> holeSpendenOhneObjekteKatundAnlauf (int anlaufstelle_id) {
+		List<Spende> result = new LinkedList<Spende>();
+		Connection con = ConnectionProvider.getCon();
+		try {
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery("SELECT * FROM Spende WHERE anlaufstelle_id ='" + anlaufstelle_id + "'");
+			while (myRs.next()) {
+				result.add(new Spende(myRs.getInt("id"), myRs.getString("bezeichnung_spende"), myRs.getString("beschreibung"), myRs.getString("zustand"), myRs.getInt("abholung"), myRs.getInt("lieferung"), myRs.getString("bild"), myRs.getString("mhd"), myRs.getInt("anonym"), myRs.getString("vorname"), myRs.getString("nachname"), myRs.getString("adresse"), myRs.getInt("plz")));
+			}
+			return result;
+		} catch (SQLException e) {
+			System.out.println("FEHLER beim holen der Spende");
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public static List<Spende> holeSpenden (int anlaufstelle_id) {
 		List<Spende> result = new LinkedList<Spende>();
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT * FROM Spende WHERE anlaufstelle_id '" + anlaufstelle_id + "'");
+			ResultSet myRs = myst.executeQuery("SELECT * from Spende s, anlaufstelle a, kategorie k WHERE s.anlaufstelle_id = a.id AND s.kategorie_id = k.id AND a.id = '"+anlaufstelle_id+"'");
 			while (myRs.next()) {
-				result.add(new Spende(myRs.getInt("id"), myRs.getString("bezeichnung_spende"), myRs.getString("beschreibung"), myRs.getString("zustand"), myRs.getInt("abholung"), myRs.getInt("lieferung"), myRs.getString("bild"), myRs.getString("String"), myRs.getInt("anonym"), myRs.getString("vorname"), myRs.getString("nachname"), myRs.getString("adresse"), myRs.getInt("plz")));
+				result.add(new Spende(myRs.getInt("id"), myRs.getString("s.bezeichnung_spende"), myRs.getString("s.beschreibung"), myRs.getString("zustand"), myRs.getInt("s.abholung"), myRs.getInt("s.lieferung"), myRs.getString("s.bild"), myRs.getString("s.mhd"), myRs.getInt("s.anonym"), myRs.getString("s.vorname"), myRs.getString("s.nachname"), myRs.getString("s.adresse"), myRs.getInt("s.plz"), new Anlaufstelle(myRs.getInt("a.id"), myRs.getString("a.bezeichnung"), myRs.getString("a.adresse"), myRs.getString("ort"), myRs.getInt("plz")), new Kategorie(myRs.getInt("id"), myRs.getString("bezeichnung"))));
 			}
 			return result;
 		} catch (SQLException e) {
