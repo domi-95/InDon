@@ -14,7 +14,7 @@
 
 
 <%
-Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
+	Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
   	Anlaufstelle a = Datenbank.holAnlaufstelle(Integer.parseInt(request.getParameter("anlaufstelle")));
   	// Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle"); //Anlaufstellen Objekt
   	List<Spende> liste = Datenbank.holeSpenden(a.getId());

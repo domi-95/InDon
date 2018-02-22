@@ -14,9 +14,10 @@
 <%@page import="spende.*"%>  
 <%@page import="java.util.*"%>  
 <%@page import="datenbank.Datenbank"%>
+<jsp:include page="header_eingeloggt.jsp"></jsp:include>
+<input type = "submit" value = "Spenden zuordnen" onClick="spenden_matchen.jsp">
 <jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include>
   
-<input type = "submit" value = "Spenden zuordnen">
 
 <%-- <%
   	Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
