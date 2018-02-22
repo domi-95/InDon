@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	<jsp:include page="Header.jsp"></jsp:include>
+	<!--<jsp:include page="Header.jsp"></jsp:include>-->
 	<%@page import="datenbank.Datenbank"%>
 	<%@page import="java.sql.*"%>
 	<fieldset>
