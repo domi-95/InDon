@@ -7,7 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<h1><%out.print(request.getParameter( "id")); %></h1>
+	<%@page import="benutzer.*"%>
+	<%@page import="datenbank.*"%>
+	<%@page import="spende.*"%>
+	<%
+		Benutzer b = (Benutzer) session.getAttribute("objekt");
+	
+		if (Datenbank.speichereInteresse(Integer.parseInt(request.getParameter("id")), b.getId()))
+		{
+			out.print("Vielen Danke, ihr Interesse wurde efolgreich bekundet"); //ggf. noch mit Click-Dummy Text abgleichen
+		}
+		
+		else {
+			out.print ("Sie haben schonmal das Interesse an dieser Spende bekundet!"); //ggf. noch zurück button um wieder zum dashboard zu kommen
+		}
+	%>
 </body>
 </html>

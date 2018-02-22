@@ -11,6 +11,15 @@ public class Benutzer {
 		this.benutzername = benutzername;
 		this.passwort = passwort;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+
+
+
+
 	
 
 	

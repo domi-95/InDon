@@ -17,13 +17,9 @@ import spende.Spende;
 public class Datenbank {
 	
 	public static void main(String[] args) throws Exception{
-		 Anlaufstelle a = Datenbank.holAnlaufstelle(2);
-		 System.out.println(a.getBezeichnunganlaufstelle());
-		 
-		 List<Spende> liste = Datenbank.holeSpendentest(1);
-		for (Spende s : liste) {
-			System.out.println(s);
-		}
+//		 Anlaufstelle a = Datenbank.holAnlaufstelle(2);
+//		 System.out.println(a.getBezeichnunganlaufstelle());
+		System.out.println( Datenbank.speichereInteresse(3, 2));
 		
 		
 	}
@@ -153,4 +149,22 @@ public class Datenbank {
 
 		return false;
 	}
+	
+	public static boolean speichereInteresse (int s_id, int b_id) {
+		try{
+			 Connection con = ConnectionProvider.getCon();
+				String sql ="INSERT INTO interesse (b_id, s_id)  VALUES ('"+ s_id+"','" + b_id + "')";
+				Statement st = con.createStatement();
+				st.executeUpdate(sql);
+				}
+				catch (Exception e) {
+					System.out.println("Fehler beim Einfügen einer Interessensbekundung");
+					e.printStackTrace();
+					return false;
+				}		
+
+		return true;
+	}
+		
+	
 }
