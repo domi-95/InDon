@@ -11,9 +11,10 @@
 	<%@page import="datenbank.*"%>
 	<%@page import="spende.*"%>
 	<%
+	
 		Benutzer b = (Benutzer) session.getAttribute("objekt");
 	
-		if (Datenbank.speichereInteresse(Integer.parseInt(request.getParameter("id")), b.getId()))
+		if (Datenbank.speichereInteresse((b.getId()), Integer.parseInt(request.getParameter("id"))))
 		{
 			out.print("Vielen Danke, ihr Interesse wurde efolgreich bekundet"); //ggf. noch mit Click-Dummy Text abgleichen
 		}
