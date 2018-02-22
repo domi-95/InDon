@@ -49,9 +49,11 @@
 				%>
 
 			</select> <br /> Menge: <input type="text" name="menge" /> <br /> Bild: <br />
-			<input type="radio" name="lieferung/abholung" checked>
-			Lieferung <input type="radio" name="lieferung/abholung">
-			Abholung <br /> 
+			<div class="radiobutton">
+				Lieferung <input type="radio" name="lieferung/abholung" checked> <br/>
+				Abholung<input type="radio" name="lieferung/abholung">
+				<br /> 
+			</div>
 			
 			<input type="submit" value="Spendenangebot senden" form="regForm" onclick='this.form.action="spende_erstellen_process.jsp";' />
 	</fieldset>
