@@ -98,9 +98,8 @@ out.print(menge);
 			in.close();
 			File f= new File("/Users/Domi/Downloads/test1234.png"); 
 			FileOutputStream		fos = new FileOutputStream (f); 
-			FileWriter fw = new FileWriter(f); 
-			fw.close();
 			fos.close();
+	
 			/*
 			if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) {
 				in = filePart.getInputStream();
@@ -156,6 +155,9 @@ out.print(menge);
 					e.printStackTrace();
 				}
 		%>
+		
+		
+
 
 
 <h3>Vielen Dank, dass sie gespendet haben!</h3>
