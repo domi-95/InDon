@@ -41,13 +41,13 @@ Benutzer b = (Benutzer)session.getAttribute("objekt");%>
 <%
 if (b instanceof Mitarbeiter){
 	
-	Mitarbeiter m =(Mitarbeiter) b;
+	Mitarbeiter m =(Mitarbeiter)b;
 	%><h5><%out.print(m.getName()+" "+m.getVorname()); %></h5><%
 
 }
 %>
 <% if (b instanceof Beduerftiger){
-	Beduerftiger bed =(Beduerftiger) b;
+	Beduerftiger bed =(Beduerftiger)b;
 	%><h5><%out.print(bed.getNachname()+" "+bed.getVorname()); %></h5><%
 }
 %></div>

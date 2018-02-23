@@ -26,7 +26,19 @@ public class Mitarbeiter extends Rettungsorganisation{
 	public int holeId_ret () {
 		return super.getId_ret();
 	}
-	
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public String getVorname() {
+		return vorname;
+	}
+
+
+
 	
 
 	

@@ -11,6 +11,18 @@ public class Beduerftiger extends Benutzer{
 		this.vorname = vorname;
 		this.nachname = nachname;
 	}
+
+
+	public String getVorname() {
+		return vorname;
+	}
+
+
+
+	public String getNachname() {
+		return nachname;
+	}
+
 	
 	
 	
