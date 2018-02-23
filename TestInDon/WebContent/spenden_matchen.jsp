@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<jsp:include page="header_eingeloggt.jsp"></jsp:include>
+<%session.setAttribute("inhalt", "Spende zuordnen"); %>
+<jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include> 
 </body>
 </html>

@@ -15,10 +15,10 @@
 
 <%
 	Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
-  	Anlaufstelle a = Datenbank.holAnlaufstelle(Integer.parseInt(request.getParameter("anlaufstelle")));
   	// Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle"); //Anlaufstellen Objekt
+  	Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
   	List<Spende> liste = Datenbank.holeSpenden(a.getId());
-  	session.setAttribute("anlaufstelle", a);
+  	//session.setAttribute("anlaufstelle", a);
   	
   	%><h1><%out.print (a.getBezeichnunganlaufstelle()); %></h1><%
   	
@@ -50,7 +50,7 @@
   	}
   	
   	
-  	%> 	<input type ="submit" name = "interesse" value = "Interesse bekunden">		
+  	%> 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>">		
   		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>">
   		 </fieldset>	
   		  </form><%

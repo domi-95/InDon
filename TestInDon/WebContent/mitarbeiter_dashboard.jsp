@@ -14,8 +14,15 @@
 <%@page import="spende.*"%>  
 <%@page import="java.util.*"%>  
 <%@page import="datenbank.Datenbank"%>
+<% Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
+	session.setAttribute("anlaufstelle", a);
+%>
 <jsp:include page="header_eingeloggt.jsp"></jsp:include>
-<input type = "submit" value = "Spenden zuordnen" onClick="spenden_matchen.jsp">
+<form action = "spenden_matchen.jsp">
+<input type = "submit" value = "Spenden zuordnen" onClick="">
+</form>
+
+<% session.setAttribute("inhalt", "Interesse bekunden"); %>
 <jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include>
   
 
