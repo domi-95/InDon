@@ -9,7 +9,7 @@ public class ConnectionProvider {
 	static {
 		try {
 			Class.forName(DRIVER);
-			con = DriverManager.getConnection("jdbc:mysql://db725808780.db.1and1.com","dbo725808780","InDon123");
+			con = DriverManager.getConnection("jdbc:mysql://db725808780.db.1and1.com:3306","dbo725808780","InDon123");
 		} catch (Exception e) {
 			System.out.println("Connection nicht m�glich zum DB");
 		}
