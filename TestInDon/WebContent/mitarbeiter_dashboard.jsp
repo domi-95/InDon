@@ -14,7 +14,7 @@
 <%@page import="spende.*"%>  
 <%@page import="java.util.*"%>  
 <%@page import="datenbank.Datenbank"%>
-<% Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
+<%	Anlaufstelle a = Datenbank.holAnlaufstelle(Integer.parseInt(request.getParameter("anlaufstelle")));
 	session.setAttribute("anlaufstelle", a);
 %>
 <jsp:include page="header_eingeloggt.jsp"></jsp:include>
@@ -23,12 +23,12 @@
 </form>
 
 <% session.setAttribute("inhalt", "Interesse bekunden"); %>
-<jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include>
+<jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include> 
   
-
-<%-- <%
+<%-- 
+ <%
   	Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
-  	Anlaufstelle a = Datenbank.holAnlaufstelle(Integer.parseInt(request.getParameter("anlaufstelle")));
+   //	Anlaufstelle a = Datenbank.holAnlaufstelle(Integer.parseInt(request.getParameter("anlaufstelle")));
   	// Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle"); //Anlaufstellen Objekt
   	List<Spende> liste = Datenbank.holeSpenden(a.getId());
   	session.setAttribute("anlaufstelle", a);
@@ -67,8 +67,8 @@
   		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>">
   		 </fieldset>	
   		  </form><%
-  } --%>
-  
+  } 
+   --%>
   
   	
   

@@ -20,6 +20,7 @@ public class Datenbank {
 //		 Anlaufstelle a = Datenbank.holAnlaufstelle(2);
 //		 System.out.println(a.getBezeichnunganlaufstelle());
 		System.out.println( Datenbank.speichereInteresse(3, 2));
+		System.out.println(Datenbank.holeAnlaufstelle(1));
 		
 		
 	}
