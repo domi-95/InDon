@@ -9,10 +9,9 @@ public class ConnectionProvider {
 	static {
 		try {
 			Class.forName(DRIVER);
-		//	con = DriverManager.getConnection("jdbc:mysql://server2.febas.net/InDon","InDonAdmin","InDon123");
-			con = DriverManager.getConnection(CONNECTION_URL, USERNAME, PASSWORD);
+			con = DriverManager.getConnection("jdbc:mysql://db725808780.db.1and1.com","dbo725808780","InDon123");
 		} catch (Exception e) {
-			System.out.println("Connection nicht möglich zum DB");
+			System.out.println("Connection nicht mï¿½glich zum DB");
 		}
 	}
 
