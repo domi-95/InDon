@@ -103,10 +103,10 @@ out.print(menge);
 		            // obtains input stream of the upload file
 		            
 		        }
-			in.close();
-			File f= new File("/Users/Domi/Downloads/test1234.png"); 
-			FileOutputStream		fos = new FileOutputStream (f); 
-			fos.close();
+				if (in != null) {
+	                // fetches input stream of the upload file for the blob column
+	                statement.setBlob(3, in);
+	            }
 	
 			/*
 			if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) {
