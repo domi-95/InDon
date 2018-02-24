@@ -22,6 +22,7 @@ public class Datenbank {
 		
 //		date =  DateFormat.getTimeInstance(DateFormat.MEDIUM);
 //		System.out.println(date.getTime());
+		Datenbank.holeAnlaufstelle(1);
 		
 		
 		
@@ -167,7 +168,7 @@ public class Datenbank {
 		return false;
 	}
 	
-	public static boolean speichereInteresse (int s_id, int b_id, ) {
+	public static boolean speichereInteresse (int s_id, int b_id, String timestamp ) {
 		try{
 			 Connection con = ConnectionProvider.getCon();
 				String sql ="INSERT INTO interesse (b_id, s_id)  VALUES ('"+ s_id+"','" + b_id + "')";
