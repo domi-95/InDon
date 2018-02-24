@@ -10,7 +10,7 @@
 <title>Krisengebiet auswählen</title>
 </head>
 <body bgcolor="#969EA8">
-<jsp:include page="header_eingeloggt.jsp"></jsp:include>
+
 	<%@page import="datenbank.Datenbank"%>
 	<%@page import="java.sql.*"%>
 	<%@page import="benutzer.*"%>
