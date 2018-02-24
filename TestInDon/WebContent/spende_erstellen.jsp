@@ -6,6 +6,14 @@
 <link rel="stylesheet" type="text/css" href="style/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="style/indon.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<style>
+
+
+#lieferung:not(:checked) ~ .lieferung { display: none }
+#abholung:not(:checked) ~ .abholung { display: none }
+</style>
+
 <title>Spende anbieten</title>
 </head>
 <body>
@@ -14,30 +22,12 @@
 	<%@page import="datenbank.Datenbank"%>
 	<%@page import="java.sql.*"%>
 	<fieldset>
+		<form id="regForm" method="GET" action="spende_erstellen_process.jsp">
 
-		<form id="regForm" method="GET" action="spende_erstellen.jsp">
-
-		<form id="regForm" method="get" action="spende_erstellen_process.jsp" enctype="multipart/form-data">
-
-
-			Bezeichnung: <input type="text" name="bezeichnung" /> <br />
+			Bezeichnung <input type="text" name="bezeichnung" /> <br />
 			Beschreibung: <input type="text" name="beschreibung" /> <br />
-			Zustand: <input type="text" name="zustand" /> <br /> 
-			Anlaufstellen:<br />
-			<select name="anlauf" onchange="submit()">
-				<option value="all" selected>Kein Anlaufstelle ausgewählt.</option>
-				<%
-					ResultSet myRs = Datenbank.holAnlaufstelle();
-					while (myRs.next()) {
-				%>
-				<option value="<%=myRs.getString("id")%>"><%=myRs.getString("bezeichnung")%>
-				</option>
-				<%
-					}
-				%>
-			</select> <br /> 
-			Kategorie: <br />
-			<select name="kat">
+			Zustand: <input type="text" name="zustand" /> <br />
+			Kategorie: <select name="kategorie">
 				<%
 					if (request.getParameter("anlauf") != null) {
 						int id = Integer.parseInt(request.getParameter("anlauf"));
@@ -51,13 +41,30 @@
 				%>
 
 			</select> <br /> Menge: <input type="text" name="menge" /> <br /> Bild: <br />
-			<div class="radiobutton">
-				Lieferung <input type="radio" name="lieferung/abholung" checked> <br/>
-				Abholung<input type="radio" name="lieferung/abholung">
-				<br /> 
+			<input type="radio" name="lieferungabholung" id="lieferung" value="1" checked >
+			Lieferung <input type="radio" name="lieferungabholung" id="abholung" value="2">
+			Abholung <br /> 
+			
+			<div class="lieferung">
+				E-Mail: <input type="text" name="mail" /> <br />
+				Telefon: <input type="text" name="telefon" /> <br />
+				Name: <input type="text" name="name" /> <br />
+				Vorname: <input type="text" name="vorname" /> <br />
+			
 			</div>
 			
-			<input type="submit" value="Spendenangebot senden" form="regForm" onclick='this.form.action="spende_erstellen_process.jsp";' />
+			<div class="abholung">
+				Name: <input type="text" name="name" /> <br />
+				Vorname: <input type="text" name="vorname" /> <br />
+				Straße, Hausnummer: <input type="text" name="adresse" /> <br />
+				Ort: <input type="text" name="ort" /> <br />
+				PLZ: <input type="text" name="plz" /> <br />
+				Land: <input type="text" name="land" /> <br />
+			</div>
+			<input type="checkbox" name="anonym"> Anonym
+			<br/>
+			<br/>
+			<input type="submit" value="Spendenangebot senden" form="regForm" />
 	</fieldset>
 
 
