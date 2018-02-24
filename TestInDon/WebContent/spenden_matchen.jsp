@@ -9,6 +9,7 @@
 <body>
 <jsp:include page="header_eingeloggt.jsp"></jsp:include>
 <%session.setAttribute("inhalt", "Spende zuordnen"); %>
+<%session.setAttribute("weiterleitung", "spenden_matchen_zuorndung.jsp"); %>
 <jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include> 
 </body>
 </html>

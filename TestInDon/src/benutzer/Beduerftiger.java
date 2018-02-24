@@ -4,6 +4,7 @@ public class Beduerftiger extends Benutzer{
 	
 	private String vorname;
 	private String nachname;
+	private int persHaushalt;
 	
 	
 	public Beduerftiger(int id, String benutzername, String passwort, String vorname, String nachname) {

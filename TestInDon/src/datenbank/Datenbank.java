@@ -1,17 +1,14 @@
 package datenbank;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.LinkedList;
-import java.util.List;
-
+import java.text.DateFormat;
+import java.util.*;
 import spende.Anlaufstelle;
 import spende.Kategorie;
 import spende.Spende;
-
 
 
 public class Datenbank {
@@ -19,8 +16,13 @@ public class Datenbank {
 	public static void main(String[] args) throws Exception{
 //		 Anlaufstelle a = Datenbank.holAnlaufstelle(2);
 //		 System.out.println(a.getBezeichnunganlaufstelle());
-		System.out.println( Datenbank.speichereInteresse(3, 2));
-		System.out.println(Datenbank.holeAnlaufstelle(1));
+//		System.out.println( Datenbank.speichereInteresse(3, 2));
+//		System.out.println(Datenbank.holeAnlaufstelle(1));
+		//System.out.println(Datenbank.holeSpende(4));
+		
+//		date =  DateFormat.getTimeInstance(DateFormat.MEDIUM);
+//		System.out.println(date.getTime());
+		
 		
 		
 	}
@@ -120,7 +122,21 @@ public class Datenbank {
 		}
 		return null;
 	}
-		
+	
+	public static Spende holeSpende (int spenden_id) {
+		Connection con = ConnectionProvider.getCon();
+		try {
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery("SELECT * from spende s, anlaufstelle a, kategorie k WHERE s.anlaufstelle_id = a.id AND s.kategorie_id = k.id AND s.id = '"+spenden_id+"'");
+			myRs.next();
+			return new Spende(myRs.getInt("id"), myRs.getString("s.bezeichnung_spende"), myRs.getString("s.beschreibung"), myRs.getString("zustand"), myRs.getInt("s.abholung"), myRs.getInt("s.lieferung"), myRs.getString("s.bild"), myRs.getString("s.mhd"), myRs.getInt("s.anonym"), myRs.getString("s.vorname"), myRs.getString("s.nachname"), myRs.getString("s.adresse"), myRs.getInt("s.plz"), new Anlaufstelle(myRs.getInt("a.id"), myRs.getString("a.bezeichnung"), myRs.getString("a.adresse"), myRs.getString("ort"), myRs.getInt("plz")), new Kategorie(myRs.getInt("id"), myRs.getString("bezeichnung")));
+			
+			} catch (SQLException e) {
+			System.out.println("FEHLER beim holen der Spende");
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 //	public static void speichereSpendeTest (String bezeichnung) {
 //		try{
@@ -151,7 +167,7 @@ public class Datenbank {
 		return false;
 	}
 	
-	public static boolean speichereInteresse (int s_id, int b_id) {
+	public static boolean speichereInteresse (int s_id, int b_id, ) {
 		try{
 			 Connection con = ConnectionProvider.getCon();
 				String sql ="INSERT INTO interesse (b_id, s_id)  VALUES ('"+ s_id+"','" + b_id + "')";

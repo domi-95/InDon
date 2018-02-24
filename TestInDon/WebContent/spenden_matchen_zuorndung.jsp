@@ -7,25 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+<fieldset>	
 <%@page import="benutzer.*"%>  
 <%@page import="spende.*"%>  
 <%@page import="java.util.*"%>  
 <%@page import="datenbank.Datenbank"%>
 
-
 <%
-	Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
-  	// Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle"); //Anlaufstellen Objekt
-  	Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
-  	List<Spende> liste = Datenbank.holeSpenden(a.getId());
-  	//session.setAttribute("anlaufstelle", a);
-  	
-  	%><h1><% out.print (a.getBezeichnunganlaufstelle()); %></h1><%
-  	
-  	
-  	for(Spende s: liste){
-  	%><form  action ="<%out.print(session.getAttribute("weiterleitung")); %>" method = "post"><%
-  		%> 	<fieldset>	<%
+
+Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
+Spende s = Datenbank.holeSpende(Integer.parseInt(request.getParameter("id")));
+
+%><h1><% out.print (a.getBezeichnunganlaufstelle()); %></h1><%
   	
   	out.print (s.getBezeichnung_spende()); %> <br/> <%
    	out.print (s.getBeschreibung());%> <br/> <%
@@ -50,12 +43,25 @@
   	}
   	
   	
-  	%> 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>">		
-  		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>">
-  		 </fieldset>	
-  		  </form><%
-  }
   	
   	%>
+  	</fieldset>
+  	
+	  <table>
+
+		<tr>
+		<td>Benutzername</td>
+		<td>Name</td>
+		<td>Vorname</td>
+		<td>Priorität</td>
+		<td>Zeitstempel</td>
+		<td>Anzahl Personen im Haushalt</td>
+		<td>Anzahl der bereits erhaltenen Spenden</td>
+		</tr>
+		
+		
+
+	</table>
+
 </body>
 </html>

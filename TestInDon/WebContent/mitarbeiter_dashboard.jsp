@@ -22,8 +22,9 @@
 <input type = "submit" value = "Spenden zuordnen" onClick="">
 </form>
 
-<% session.setAttribute("inhalt", "Interesse bekunden"); %>
-<jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include> 
+<% session.setAttribute("inhalt", "Interesse bekunden");
+   session.setAttribute("weiterleitung", "dashboard_process.jsp");%>
+<jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include> --%>
   
 <%-- 
  <%
