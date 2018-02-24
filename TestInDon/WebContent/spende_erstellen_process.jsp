@@ -1,5 +1,6 @@
 <%@page import="java.io.*"%>
 <%@page import= "javax.servlet.*"%>
+<%@page import="datenbank.Datenbank"%>
 <%@ page language="java" contentType ="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -19,13 +20,20 @@ String beschreibung = request.getParameter("beschreibung");
 String zustand = request.getParameter("zustand");
 String kategorie = request.getParameter("kategorie");
 String menge = request.getParameter("menge");
-
+String vorname =null;
+String name = null;
+String adresse = null;
+String ort = null;
+int abholung = 0;
+int lieferung = 0;
+int anonym = 0;
+int plz = 0;
 
 if(request.getParameter("lieferungabholung")== "1"){
-	int abholung = 1;
+	abholung = 1;
 }
 if(request.getParameter("lieferungabholung")=="2"){
-	int lieferung = 1;
+	lieferung = 1;
 }
 
 
@@ -33,36 +41,36 @@ String bild_url = request.getParameter("");
 String mhd = request.getParameter("mhd"); //irgendwie in Date Parsen oder in String speichern
 
 if (request.getParameter("anonym") == "on" ){
-	int anonym = 1;  // gib eine 1 oder nichts zurück
+	anonym = 1;  // gib eine 1 oder nichts zurück
 	out.print(anonym);
 }
 else{
-	int anonym = 0;
+	anonym = 0;
 }
 
  //alle Felder die optional sind und eventuell kein Wert zurückgeben weil das Inputfeld nicht gefüllt ist musst noch eine Verzweigung mit if .. =! null einfügen
 
 if(request.getParameter("vorname")!=""){		 
-	String vorname = request.getParameter("vorname");
+	vorname = request.getParameter("vorname");
 	out.print("Testausgabe");
 	out.print(vorname);
 }
 if(request.getParameter("name")!=""){		 
-	String name = request.getParameter("name");
+	name = request.getParameter("name");
 	out.print(name);
 }
 if(request.getParameter("adresse")!=""){		 
-	String adresse = request.getParameter("adresse");
+	adresse = request.getParameter("adresse");
 	out.print(adresse);
 }
 
 if(request.getParameter("plz")!=""){	
-	int plz = Integer.parseInt(request.getParameter("plz"));
+	plz = Integer.parseInt(request.getParameter("plz"));
 	//String plz = request.getParameter("plz");
 	out.print(plz);
 }
 if(request.getParameter("ort")!=""){		 
-	String ort = request.getParameter("ort"); 
+	ort = request.getParameter("ort"); 
 	out.print(ort);
 }
 
@@ -74,7 +82,7 @@ out.print(beschreibung);
 out.print(zustand);
 out.print(kategorie);
 out.print(menge);
-
+	Datenbank.speichereSpende(beschreibung, bezeichnung, zustand, abholung, lieferung, bild_url, mhd, anonym, vorname, name , adresse, plz, ort, 1, 1);
 
 %>
 
