@@ -9,6 +9,8 @@
 
 <title>Krisengebiet auswählen</title>
 </head>
+<jsp:include page="Header_eingeloggt.jsp"></jsp:include>
+
 <body bgcolor="#969EA8">
 
 	<%@page import="datenbank.Datenbank"%>
