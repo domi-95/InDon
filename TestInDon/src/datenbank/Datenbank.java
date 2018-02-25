@@ -1,6 +1,9 @@
 package datenbank;
 
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -147,27 +150,29 @@ public class Datenbank {
 //		st.executeUpdate(sql);
 //		}
 //		catch (Exception e) {
-//			System.out.println("Fehler beim Einfügen der Spende");
+//			System.out.println("Fehler beim Einfï¿½gen der Spende");
 //			e.printStackTrace();
 //		}
 //	}
 	
-	public static boolean speichereSpende (String beschreibung, String bezeichnung, String zustand, int abholung, int lieferung, String bild_url, String mhd, int anonym, String vorname, String name, String adresse, int plz, String ort, int ret_id, int kat_id) {
+	public static boolean speichereSpende (String beschreibung, String bezeichnung, String zustand, int abholung, int lieferung, Blob in, String mhd, int anonym, String vorname, String name, String adresse, int plz, String ort, int ret_id, int kat_id) {
 		try{
 			 Connection con = ConnectionProvider.getCon();
-				String sql ="INSERT INTO Spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id)" + "VALUES ('"+ beschreibung+"','" + bezeichnung + "', '" + zustand + "', "+abholung+","+lieferung+", '"+bild_url+"', '"+mhd+"',"+anonym+", '" + vorname + "' , '" + name + "', '" + adresse + "', " + plz + ", '" + ort + "',"+ret_id+","+kat_id+")";
+				String sql ="INSERT INTO Spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id)" + "VALUES ('"+ beschreibung+"','" + bezeichnung + "', '" + zustand + "', "+abholung+","+lieferung+", '"+in+"'+, '"+mhd+"',"+anonym+", '" + vorname + "' , '" + name + "', '" + adresse + "', " + plz + ", '" + ort + "',"+ret_id+","+kat_id+")";
 				Statement st = con.createStatement();
+				//PreparedStatement st = con.prepareStatement(sql);
+				//st.setBlob(1, in);
 				st.executeUpdate(sql);
 				}
 				catch (Exception e) {
-					System.out.println("Fehler beim Einfügen der Spende");
+					System.out.println("Fehler beim Einfï¿½gen der Spende");
 					e.printStackTrace();
 				}		
 
 		return false;
 	}
 	
-	public static boolean speichereInteresse (int s_id, int b_id, ) {
+	public static boolean speichereInteresse (int s_id, int b_id ) {
 		try{
 			 Connection con = ConnectionProvider.getCon();
 				String sql ="INSERT INTO interesse (b_id, s_id)  VALUES ('"+ s_id+"','" + b_id + "')";
@@ -175,7 +180,7 @@ public class Datenbank {
 				st.executeUpdate(sql);
 				}
 				catch (Exception e) {
-					System.out.println("Fehler beim Einfügen einer Interessensbekundung");
+					System.out.println("Fehler beim Einfï¿½gen einer Interessensbekundung");
 					e.printStackTrace();
 					return false;
 				}		
