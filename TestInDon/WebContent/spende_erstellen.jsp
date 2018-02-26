@@ -22,7 +22,7 @@
 	<%@page import="datenbank.Datenbank"%>
 	<%@page import="java.sql.*"%>
 	<fieldset>
-		<form id="regForm" method="GET" action="spende_erstellen_process.jsp">
+	<form id="regForm" method="GET" action="spende_erstellen_process.jsp">
 
 			Bezeichnung <input type="text" name="bezeichnung" /> <br />
 			Beschreibung: <input type="text" name="beschreibung" /> <br />
@@ -44,7 +44,8 @@
 			<input type="radio" name="lieferungabholung" id="lieferung" value="1" checked >
 			Lieferung <input type="radio" name="lieferungabholung" id="abholung" value="2">
 			Abholung <br /> 
-			Bild: <input type="file" name="photo" size="50"/>
+			<!-- Bild: <input type="file" name="photo" size="50"/> -->
+			Bild: <input type="file" name="photo" />
 			
 			<div class="lieferung">
 				E-Mail: <input type="text" name="mail" /> <br />
@@ -67,6 +68,7 @@
 			<br/>
 			<input type="submit" value="Spendenangebot senden" form="regForm" />
 	</fieldset>
+	</form id = "regForm">
 
 
 

@@ -9,7 +9,7 @@
 <body>
 
 <%@page import="benutzer.*"%>  
-
+<jsp:include page="header_eingeloggt.jsp"></jsp:include>
 <%
  Beduerftiger bd = (Beduerftiger)session.getAttribute("objekt");
  out.print (bd);

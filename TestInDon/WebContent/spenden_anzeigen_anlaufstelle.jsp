@@ -12,6 +12,14 @@
 <%@page import="java.util.*"%>  
 <%@page import="datenbank.Datenbank"%>
 
+<!-- Diese Spendenanzeige brauch folgende Sessions:
+	"objekt" : Für die Zuordnung des Benutzers
+	"anlaufstelle" Für die Zuordnung welche Spenden ausgegeben werden
+	"value" Inhalt was in den Buttons stehen sollen pro Spenden
+
+
+ -->
+
 
 <%
 	Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 

@@ -1,9 +1,11 @@
 package benutzer;
+import spende.Anlaufstelle;
 
 public class Beduerftiger extends Benutzer{
 	
 	private String vorname;
 	private String nachname;
+	private Anlaufstelle anlaufstelle;
 	private int persHaushalt;
 	
 	
@@ -12,6 +14,17 @@ public class Beduerftiger extends Benutzer{
 		this.vorname = vorname;
 		this.nachname = nachname;
 	}
+	
+	public Beduerftiger(int id, String benutzername, String passwort, String vorname, String nachname,
+			Anlaufstelle anlaufstelle, int persHaushalt) {
+		super(id, benutzername, passwort);
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.anlaufstelle = anlaufstelle;
+		this.persHaushalt = persHaushalt;
+	}
+
+
 
 
 	public String getVorname() {

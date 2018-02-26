@@ -93,7 +93,7 @@ Blob pic = null;
 		try{
 			String saveFile = new String();
 			String contentType = request.getContentType();
-			Part filePart = request.getPart("bild");
+			Part filePart = request.getPart("photo");
 			
 			in = filePart.getInputStream();
 			
@@ -165,7 +165,7 @@ Blob pic = null;
 			
 		}
 				catch (Exception e) {
-					System.out.println("FEHLER beim speichern des Bild");
+					System.out.println("FEHLER beim speichern des Bild ");
 					e.printStackTrace();
 				}
 				

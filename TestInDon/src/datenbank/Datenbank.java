@@ -9,6 +9,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.util.*;
+
+import benutzer.Beduerftiger;
+import benutzer.Benutzer;
+import benutzer.Mitarbeiter;
 import spende.Anlaufstelle;
 import spende.Kategorie;
 import spende.Spende;
@@ -26,7 +30,7 @@ public class Datenbank {
 //		date =  DateFormat.getTimeInstance(DateFormat.MEDIUM);
 //		System.out.println(date.getTime());
 		
-		
+		Datenbank.validate("kevin", "123");
 		
 	}
 	
@@ -92,22 +96,22 @@ public class Datenbank {
 		return null;
 	}
 	
-	public static List<Spende> holeSpendenOhneObjekteKatundAnlauf (int anlaufstelle_id) {
-		List<Spende> result = new LinkedList<Spende>();
-		Connection con = ConnectionProvider.getCon();
-		try {
-			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT * FROM Spende WHERE anlaufstelle_id ='" + anlaufstelle_id + "'");
-			while (myRs.next()) {
-				result.add(new Spende(myRs.getInt("id"), myRs.getString("bezeichnung_spende"), myRs.getString("beschreibung"), myRs.getString("zustand"), myRs.getInt("abholung"), myRs.getInt("lieferung"), myRs.getString("bild"), myRs.getString("mhd"), myRs.getInt("anonym"), myRs.getString("vorname"), myRs.getString("nachname"), myRs.getString("adresse"), myRs.getInt("plz")));
-			}
-			return result;
-		} catch (SQLException e) {
-			System.out.println("FEHLER beim holen der Spende");
-			e.printStackTrace();
-		}
-		return null;
-	}
+//	public static List<Spende> holeSpendenOhneObjekteKatundAnlauf (int anlaufstelle_id) {
+//		List<Spende> result = new LinkedList<Spende>();
+//		Connection con = ConnectionProvider.getCon();
+//		try {
+//			Statement myst = con.createStatement();
+//			ResultSet myRs = myst.executeQuery("SELECT * FROM Spende WHERE anlaufstelle_id ='" + anlaufstelle_id + "'");
+//			while (myRs.next()) {
+//				result.add(new Spende(myRs.getInt("id"), myRs.getString("bezeichnung_spende"), myRs.getString("beschreibung"), myRs.getString("zustand"), myRs.getInt("abholung"), myRs.getInt("lieferung"), myRs.getString("bild"), myRs.getString("mhd"), myRs.getInt("anonym"), myRs.getString("vorname"), myRs.getString("nachname"), myRs.getString("adresse"), myRs.getInt("plz")));
+//			}
+//			return result;
+//		} catch (SQLException e) {
+//			System.out.println("FEHLER beim holen der Spende");
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
 	
 	public static List<Spende> holeSpenden (int anlaufstelle_id) {
 		List<Spende> result = new LinkedList<Spende>();
@@ -187,6 +191,45 @@ public class Datenbank {
 
 		return true;
 	}
+	
+	public static Benutzer validate(String benutzername, String passwort) {
+
+		try {
+			//ResultSet beduerftiger = null;
+			Connection con = ConnectionProvider.getCon();
+			Statement myst = con.createStatement();
+		//	ResultSet mitarbeiter = null;
+			ResultSet mitarbeiter = myst.executeQuery("SELECT * FROM mitarbeiter m, rettungsorganisation r WHERE m.ret_id = r.id AND m.benutzername = '"+benutzername+"' AND m.passwort = '"+passwort+"'");
+			ResultSet beduerftiger = myst.executeQuery("SELECT * FROM beduerftiger b, anlaufstelle a WHERE b.anlauf_id = a.id AND b.benutzername = '"+benutzername+"' AND b.passwort = '"+passwort+"'");
+//			ResultSet myRs = myst.executeQuery(
+//					"SELECT b.id, b.benutzername, b.passwort, b.name, b.vorname, a.id, a.bezeichnung, r.bezeichnung, r.id FROM Benutzer b, art a, rettungsorganisation r WHERE b.ret_id = r.id AND b.art_id = a.id AND b.benutzername = '"+benutzername+"' AND b.passwort = '"+passwort+"' '"
+//							+ benutzername + "' and Passwort = '" + passwort + "'");
+
+			if (mitarbeiter.next()) {
+				return new Mitarbeiter(mitarbeiter.getInt("m.id"), mitarbeiter.getString("m.benutzername"), mitarbeiter.getString("m.passwort"), mitarbeiter.getString("r.bezeichnung"), mitarbeiter.getInt("r.id"), mitarbeiter.getString("m.name"), mitarbeiter.getString("m.vorname"));
+				
+			}
+			
+			if (beduerftiger.next()) {
+				Anlaufstelle a = new Anlaufstelle(beduerftiger.getInt("a.id"), beduerftiger.getString("a.bezeichnung"), beduerftiger.getString("a.adresse"), beduerftiger.getString("a.ort"), beduerftiger.getInt("a.plz"));
+				return new Beduerftiger(beduerftiger.getInt("b.id"), beduerftiger.getString("b.benutzername"), beduerftiger.getString("passwort"), beduerftiger.getString("b.name"), beduerftiger.getString("b.vorname"), a, beduerftiger.getInt("personenHaushalt"));
+			}
+				
+
+			else {
+				return null;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Validation failed");
+		}
+		return null;
+	}
+
+	
+	
+	
 		
 	
 }
