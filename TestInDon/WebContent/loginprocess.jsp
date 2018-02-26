@@ -10,7 +10,11 @@
 <body>
 <%@page import="datenbank.*"%>  
 <%@page import="benutzer.*"%>  
-   
+
+
+<jsp:include page="login.jsp"></jsp:include>  
+<div class="login">
+<h3>
 <%  
  String benutzername = request.getParameter( "benutzername" );
  String passwort = request.getParameter( "passwort" );
@@ -19,7 +23,7 @@
 	Benutzer b = Datenbank.validate(benutzername, passwort);
 	
 	if (b == null){
-		out.print("Sorry, email or password error");		
+		out.print("Sorry, invalid Email or Password ");		
 		}
 	session.setAttribute("objekt", b);
 	
@@ -31,9 +35,6 @@
 	if (b instanceof Beduerftiger){
 		response.sendRedirect("beduerftigen_dashboard.jsp");
 	}
-%>  
-
-<jsp:include page="index.jsp"></jsp:include>  
-
+%></h3>   </div>  
 </body>
 </html>
