@@ -1,7 +1,8 @@
 <%@page import="java.io.*"%>
 <%@page import= "javax.servlet.*"%>
 <%@page import="datenbank.Datenbank"%>
-<%@page import="java.sql.Blob"%>
+<%@page import="datenbank.ConnectionProvider" %>
+<%@page import="java.sql.*"%>
 <%@ page language="java" contentType ="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -90,7 +91,9 @@ out.print(menge);
 <%
 InputStream in = null;
 Blob pic = null;
+Connection con = ConnectionProvider.getCon();
 		try{
+			
 			String saveFile = new String();
 			String contentType = request.getContentType();
 			Part filePart = request.getPart("photo");
@@ -109,9 +112,11 @@ Blob pic = null;
 				if (in != null) {
 	                // fetches input stream of the upload file for the blob colum
 	               // statement.setBlob(3, in);
-					pic = Blob.class.cast(in);
-	                		
-	                		
+					String sql ="INSERT INTO Spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id)" + "VALUES ('"+ beschreibung+"','" + bezeichnung + "', '" + zustand + "', "+abholung+","+lieferung+", ?, '"+mhd+"',"+anonym+", '" + vorname + "' , '" + name + "', '" + adresse + "', " + plz + ", '" + ort + "',"+"1"+","+"1"+")";
+					PreparedStatement statement = con.prepareStatement(sql);
+					
+					statement.setBlob(1, in);
+					statement.executeUpdate();	
 	            }
 	
 			/*
@@ -168,8 +173,8 @@ Blob pic = null;
 					System.out.println("FEHLER beim speichern des Bild ");
 					e.printStackTrace();
 				}
-				
-				Datenbank.speichereSpende(beschreibung, bezeichnung, zustand, abholung, lieferung, pic, mhd, anonym, vorname, name , adresse, plz, ort, 1, 1);
+
+				//Datenbank.speichereSpende(beschreibung, bezeichnung, zustand, abholung, lieferung, pic, mhd, anonym, vorname, name , adresse, plz, ort, 1, 1);
 		%>
 		
 		
