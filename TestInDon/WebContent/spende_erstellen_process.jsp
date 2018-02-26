@@ -34,12 +34,11 @@ int plz = 0;
 if(request.getParameter("lieferungabholung")== "1"){
 	abholung = 1;
 }
+
 if(request.getParameter("lieferungabholung")=="2"){
 	lieferung = 1;
 }
 
-
-String bild_url = request.getParameter("");
 String mhd = request.getParameter("mhd"); //irgendwie in Date Parsen oder in String speichern
 
 if (request.getParameter("anonym") == "on" ){

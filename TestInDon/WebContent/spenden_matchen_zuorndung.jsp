@@ -45,11 +45,11 @@ session.setAttribute("spende", s);
   	}
   	
   	
-  	
+  	List<Interesse>interesse = Datenbank.holeInteresse(s.getId());
   	%>
   	</fieldset>
   	
-	  <table style="table-layout: fixed">
+	  <table >
 		<thead>
 		<tr>
 		<th>Zuordnung</th>
@@ -63,7 +63,7 @@ session.setAttribute("spende", s);
 		</tr>
 		</thead>
 		<%
-		List<Interesse>interesse = Datenbank.holeInteresse(s.getId());
+		
 		
 	%><form action = "zuordnung_process.jsp" method = get>
 	<table><%
@@ -82,19 +82,11 @@ session.setAttribute("spende", s);
 		%></tr><%
 		}
 		%> 
-</table>
-</form>
-		
-		<p>Unterkunft:<br>
-<input type="radio" name="uk" value="EZ BR" checked> EZ Frühstück<br>
-<input type="radio" name="uk" value="DZ BR"> DZ Frühstück<br>
-<input type="radio" name="uk" value="EZ HP"> EZ Halbpension<br>
-<input type="radio" name="uk" value="DZ HP"> DZ Halbpension<br>
-<input type="radio" name="uk" value="EZ VP"> EZ Vollpension<br>
-<input type="radio" name="uk" value="DZ VP"> DZ Vollpension
-</p>
-
+		<input type = "submit" name = "ordne">
+	
 	</table>
+	</form>
+
 
 </body>
 </html>
