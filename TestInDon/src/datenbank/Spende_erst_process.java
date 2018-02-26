@@ -16,13 +16,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 @WebServlet("/uploadServlet")
-@MultipartConfig(maxFileSize = 16177215)	// upload file's size up to 16MB
+@MultipartConfig(maxFileSize = 1617721599)	// upload file's size up to 16MB
 public class Spende_erst_process extends HttpServlet {
 	
 	// database connection settings
 	private String dbURL = "jdbc:mysql://server2.febas.net/InDon";
 	private String dbUser = "InDonAdmin";
 	private String dbPass = "InDon123";
+	
+	private String vorname;
+	private String name;
+	private int abholung = 10;
 	
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -32,12 +36,15 @@ public class Spende_erst_process extends HttpServlet {
 		String zustand = request.getParameter("zustand");
 		String kategorie = request.getParameter("kategorie");
 		String menge = request.getParameter("menge");
-		String vorname =null;
-		String name = null;
-		String adresse = null;
-		String ort = null;
-		String mhd = null;
-		int abholung = 0;
+		vorname = "Testv";
+		name = "TN";
+		String adresse = "Adre";
+		String ort = "TO";
+		String mhd = "hw";
+		String mail = "awm";
+		int telefon = 0;
+		//int abholung = 5;
+		abholung = 5;
 		int lieferung = 0;
 		int anonym = 0;
 		int plz = 0;
@@ -46,38 +53,19 @@ public class Spende_erst_process extends HttpServlet {
 		
 		InputStream inputStream = null;	// input stream of the upload file
 		
-		// set variables
-		if(request.getParameter("lieferungabholung")== "1"){
-			abholung = 1;
-		}
-		if(request.getParameter("lieferungabholung")=="2"){
-			lieferung = 1;
-		}
-		if (request.getParameter("anonym") == "on" ){
-			anonym = 1;  // gib eine 1 oder nichts zurück
-			
-		}
-		else{
-			anonym = 0;
-		}
 		
-		if(request.getParameter("vorname")!=null){		 
-			vorname = request.getParameter("vorname");
-		}
-		if(request.getParameter("name")!=null){		 
-			name = request.getParameter("name");
-		}
-		if(request.getParameter("adresse")!=null){		 
-			adresse = request.getParameter("adresse");
-		}
-
-		if(request.getParameter("plz")!=null){	
-			plz = Integer.parseInt(request.getParameter("plz"));
-		}
-		if(request.getParameter("ort")!=null){		 
-			ort = request.getParameter("ort"); 
-		}
 		
+		
+		anonym = 0;
+		vorname = request.getParameter("vorname");
+		name = request.getParameter("name");
+		adresse = request.getParameter("adresse");
+		plz = Integer.parseInt(request.getParameter("plz"));
+		ort = request.getParameter("ort"); 
+		mail = request.getParameter("mail");
+		telefon = Integer.parseInt(request.getParameter("telefon"));
+		abholung = 10;
+		System.out.println("Abholung: " + abholung);
 		
 		// obtains the upload file part in this multipart request
 		Part filePart = request.getPart("photo");
@@ -98,10 +86,10 @@ public class Spende_erst_process extends HttpServlet {
 			// connects to the database
 			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 			conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
-
+			abholung = 1;
+			lieferung = 0;
 			// constructs SQL statement
-			String sql ="INSERT INTO Spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id)" + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			//String sql = "INSERT INTO contacts (first_name, last_name, photo) values (?, ?, ?)";
+			String sql ="INSERT INTO Spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id, verfuegbar, beduerftiger_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?, ?)";
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, beschreibung);
 			statement.setString(2, bezeichnung);
