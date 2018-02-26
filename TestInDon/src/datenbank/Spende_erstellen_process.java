@@ -55,36 +55,41 @@ public class Spende_erstellen_process extends HttpServlet {
 				
 				
 				
-				
-				anonym = 0;
+				if("on".equals(request.getParameter("anonym"))) {
+					anonym = 1;
+				}
+				else {
+					anonym = 0;
+				}
+
 				vorname = request.getParameter("vorname");
 				name = request.getParameter("name");
 				adresse = request.getParameter("adresse");
-				if(request.getParameter("plz") != "") {
-					plz = Integer.parseInt(request.getParameter("plz"));
+				
+				if("".equals(request.getParameter("plz"))) {
+					plz = 0;
 				}
 				else {
-					plz = 0;
+					plz = Integer.parseInt(request.getParameter("plz"));
 				}
 				
 				ort = request.getParameter("ort"); 
 				mail = request.getParameter("mail");
 				
-//				if(request.getParameter("telefon") != "") {
-//					telefon = Integer.parseInt(request.getParameter("telefon"));
-//				}
-//				else {
-//					telefon = 0;
-//				}
+				if("".equals(request.getParameter("telefon"))) {
+					telefon = 0;
+				}
+				else {
+					telefon = Integer.parseInt(request.getParameter("telefon"));
+				}
 				
-				if(request.getParameter("lieferungabholung") == "1"){
+				if("2".equals(request.getParameter("lieferungabholung"))){
 					abholung = 1;
 				}
-				if(request.getParameter("lieferungabholung") =="2"){
+				if("1".equals(request.getParameter("lieferungabholung"))){
 					lieferung = 1;
 				}
-				//System.out.println(request.getParameter("lieferungabholung"));
-				System.out.println("Abholung: " + abholung);
+				
 				
 				// obtains the upload file part in this multipart request
 				Part filePart = request.getPart("photo");
@@ -106,13 +111,35 @@ public class Spende_erstellen_process extends HttpServlet {
 					DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 					conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
 
+					int count = 0;
+					
 					// constructs SQL statement
 					String sql = "INSERT INTO spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id, verfuegbar, beduerftiger_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 					PreparedStatement statement = conn.prepareStatement(sql);
 					
-					statement.setString(1, beschreibung);
-					statement.setString(2, bezeichnung);
-					statement.setString(3, zustand);
+					if("".equals(beschreibung)) {
+						
+					}
+					else {
+						statement.setString(1, beschreibung);
+						count++;
+					}
+					
+					if("".equals(bezeichnung)) {
+						
+					}
+					else {
+						statement.setString(2, bezeichnung);
+						count++;
+					}
+					
+					if("".equals(zustand)) {
+						
+					}else {
+						statement.setString(3, zustand);
+						count++;
+					}
+					
 					statement.setInt(4, abholung);
 					statement.setInt(5, lieferung);
 					
@@ -121,10 +148,44 @@ public class Spende_erstellen_process extends HttpServlet {
 						statement.setBlob(6, inputStream);
 					}
 					
+//					if("".equals(mhd)) {
+//						
+//					}
+//					else {
+//						statement.setString(7, mhd);
+//						count++;
+//					}
 					statement.setString(7, mhd);
 					statement.setInt(8, anonym);
-					statement.setString(9, vorname);
-					statement.setString(10, name);
+					
+					if("".equals(vorname)) {
+						
+					}
+					else {
+						statement.setString(9, vorname);
+						count++;
+					}
+					
+					if("".equals(name)) {
+						
+					}
+					else {
+						statement.setString(10, name);
+						count++;
+					}
+					
+					if("1".equals(request.getParameter("lieferungabholung"))){
+						count++;
+					}
+					System.out.println("Abholung: " + abholung);
+					if("2".equals(request.getParameter("lieferungabholung"))){
+						if("".equals(adresse)|| plz==0 || "".equals(ort)) {
+							
+						}
+						else {
+							count++;
+						}
+					}
 					statement.setString(11, adresse);
 					statement.setInt(12, plz);
 					statement.setString(13, ort);
@@ -133,11 +194,17 @@ public class Spende_erstellen_process extends HttpServlet {
 					statement.setInt(16, verfuegbar);
 					statement.setInt(17, bed_id);
 					
-					
+					System.out.println("Zähler: " +count);
 					// sends the statement to the database server
+					
+					if(count==6) {
 					int row = statement.executeUpdate();
 					if (row > 0) {
 						message = "Vielen Dank, dass sie gespendet haben!";
+					}
+					}
+					else {
+						message = "Bitte füllen Sie alle Pflichtfelder!";
 					}
 				} catch (SQLException ex) {
 					message = "ERROR: " + ex.getMessage();
