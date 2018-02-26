@@ -225,7 +225,7 @@ public class Datenbank {
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT * from interesse i, beduerftiger b, spende s WHERE i.b_id = b.id AND i.s_id = s.id AND s.id = '"+spenden_id+"'");
+			ResultSet myRs = myst.executeQuery("SELECT * from interesse i, beduerftiger b, spende s WHERE i.b_id = b.id AND i.s_id = s.id AND s.id = '"+spenden_id+"' AND ");
 			while (myRs.next()) {
 				result.add(new Interesse(Datenbank.holeSpende(spenden_id), new Beduerftiger(myRs.getInt("b.id"), myRs.getString("b.benutzername"), myRs.getString("b.passwort"), myRs.getString("b.name"), myRs.getString("b.vorname"), myRs.getInt("b.personenHaushalt")), myRs.getString("i.timestamp")));
 			}
@@ -241,7 +241,7 @@ public class Datenbank {
 	public static boolean setSpendeNV (int s_id) {
 		try{
 			 Connection con = ConnectionProvider.getCon();
-				String sql ="UPDATE Spende SET verfuegbar = '1' WHERE id = '"+s_id+"'";
+				String sql ="UPDATE spende SET verfuegbar = '1' WHERE id = '"+s_id+"'";
 				Statement st = con.createStatement();
 				st.execute(sql);
 				
@@ -253,7 +253,21 @@ public class Datenbank {
 		return false;
 	}
 	
-	
+	public static boolean speichereZuordnung (int s_id, int bd_id ) {
+		try{
+			 Connection con = ConnectionProvider.getCon();
+			 String sql ="UPDATE spende SET beduerftiger_id = '"+bd_id+"' WHERE id = '"+s_id+"'";
+			Statement st = con.createStatement();
+				st.executeUpdate(sql);
+				}
+				catch (Exception e) {
+					System.out.println("Fehler beim Einfuegen der Zuordnung");
+					e.printStackTrace();
+					return false;
+				}		
+
+		return true;
+	}
 		
 	
 }
