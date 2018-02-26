@@ -44,6 +44,7 @@
 			<input type="radio" name="lieferungabholung" id="lieferung" value="1" checked >
 			Lieferung <input type="radio" name="lieferungabholung" id="abholung" value="2">
 			Abholung <br /> 
+			Bild: <input type="file" name="photo" size="50"/>
 			
 			<div class="lieferung">
 				E-Mail: <input type="text" name="mail" /> <br />

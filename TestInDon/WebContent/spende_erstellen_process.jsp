@@ -1,6 +1,7 @@
 <%@page import="java.io.*"%>
 <%@page import= "javax.servlet.*"%>
 <%@page import="datenbank.Datenbank"%>
+<%@page import="java.sql.Blob"%>
 <%@ page language="java" contentType ="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -82,18 +83,20 @@ out.print(beschreibung);
 out.print(zustand);
 out.print(kategorie);
 out.print(menge);
-	Datenbank.speichereSpende(beschreibung, bezeichnung, zustand, abholung, lieferung, bild_url, mhd, anonym, vorname, name , adresse, plz, ort, 1, 1);
+	//Datenbank.speichereSpende(beschreibung, bezeichnung, zustand, abholung, lieferung, bild_url, mhd, anonym, vorname, name , adresse, plz, ort, 1, 1);
 
 %>
 
 <%
-
+InputStream in = null;
+Blob pic = null;
 		try{
 			String saveFile = new String();
 			String contentType = request.getContentType();
 			Part filePart = request.getPart("bild");
-			InputStream in = null;
+			
 			in = filePart.getInputStream();
+			
 				if (filePart != null) {
 		            // prints out some information for debugging
 		            System.out.println(filePart.getName());
@@ -103,10 +106,13 @@ out.print(menge);
 		            // obtains input stream of the upload file
 		            
 		        }
-			in.close();
-			File f= new File("/Users/Domi/Downloads/test1234.png"); 
-			FileOutputStream		fos = new FileOutputStream (f); 
-			fos.close();
+				if (in != null) {
+	                // fetches input stream of the upload file for the blob colum
+	               // statement.setBlob(3, in);
+					pic = Blob.class.cast(in);
+	                		
+	                		
+	            }
 	
 			/*
 			if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) {
@@ -162,6 +168,8 @@ out.print(menge);
 					System.out.println("FEHLER beim holen der Anlaufstelle");
 					e.printStackTrace();
 				}
+				
+				Datenbank.speichereSpende(beschreibung, bezeichnung, zustand, abholung, lieferung, pic, mhd, anonym, vorname, name , adresse, plz, ort, 1, 1);
 		%>
 		
 		
