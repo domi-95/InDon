@@ -15,8 +15,8 @@
  String benutzername = request.getParameter( "benutzername" );
  String passwort = request.getParameter( "passwort" );
  // out.print(benutzername + passwort);
-Benutzer b = LoginDao.validate(benutzername, passwort);
-	//Benutzer b = Datenbank.validate(benutzername, passwort);
+	//Benutzer b = LoginDao.validate(benutzername, passwort);
+	Benutzer b = Datenbank.validate(benutzername, passwort);
 	
 	if (b == null){
 		out.print("Sorry, email or password error");		

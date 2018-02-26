@@ -10,14 +10,25 @@
 
 <%@page import="benutzer.*"%>  
 <jsp:include page="header_eingeloggt.jsp"></jsp:include>
+<h2>Sie sind im Beduerftigen Dashboard</h2>
+
 <%
- Beduerftiger bd = (Beduerftiger)session.getAttribute("objekt");
- out.print (bd);
+/* Beduerftiger bd = (Beduerftiger)session.getAttribute("objekt");
+out.print (bd);
+ */
+	session.setAttribute("inhalt", "Interesse bekunden");
+ session.setAttribute("weiterleitung", "dashboard_process.jsp");
+%>
+
+<jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include> 
+
+
+<%
+
 
 
 
 
 %>
-<h2>Sie sind im Beduerftigen Dashboard</h2>
 </body>
 </html>

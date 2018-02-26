@@ -22,9 +22,9 @@
 <input type = "submit" value = "Spenden zuordnen" onClick="">
 </form>
 
-<% session.setAttribute("inhalt", "Interesse bekunden");
+<% session.setAttribute("inhalt", "Spende für Rettungsorganisation / Anlaufstelle einnehmen");
    session.setAttribute("weiterleitung", "dashboard_process.jsp");%>
-<jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include> --%>
+<jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include> 
   
 <%-- 
  <%

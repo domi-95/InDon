@@ -17,6 +17,8 @@
 
 Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
 Spende s = Datenbank.holeSpende(Integer.parseInt(request.getParameter("id")));
+session.setAttribute("spende", s);
+
 
 %><h1><% out.print (a.getBezeichnunganlaufstelle()); %></h1><%
   	
@@ -58,6 +60,20 @@ Spende s = Datenbank.holeSpende(Integer.parseInt(request.getParameter("id")));
 		<td>Anzahl Personen im Haushalt</td>
 		<td>Anzahl der bereits erhaltenen Spenden</td>
 		</tr>
+		<% 
+		List<Interesse>interesse = Datenbank.holeInteresse(s.getId());
+
+		for(Interesse i : interesse) {
+		%><td><%out.print ("muss noch implementiert werden");	%></td><%
+		%><td><%out.print (i.getBeduerftiger().getVorname());	%></td><%
+		%><td><%out.print (i.getBeduerftiger().getNachname());	%></td><%
+		%><td><%out.print ("muss noch implementiert werden");	%></td><%
+		%><td><%out.print (i.getTimestamp());	%></td><%
+		%><td><%out.print (i.getBeduerftiger().getPersHaushalt());	%></td><%
+		%><td><%out.print ("muss noch implementiert werden");	%></td><%
+		}
+		
+		%>
 		
 		
 

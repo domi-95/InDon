@@ -24,18 +24,29 @@ public class Beduerftiger extends Benutzer{
 		this.persHaushalt = persHaushalt;
 	}
 
-
-
+	public Beduerftiger(int id, String benutzername, String passwort, String vorname, String nachname,
+			int persHaushalt) {
+		super(id, benutzername, passwort);
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.persHaushalt = persHaushalt;
+	}
 
 	public String getVorname() {
 		return vorname;
 	}
 
-
-
 	public String getNachname() {
 		return nachname;
 	}
+
+	public int getPersHaushalt() {
+		return persHaushalt;
+	}
+
+
+	
+	
 
 	
 	

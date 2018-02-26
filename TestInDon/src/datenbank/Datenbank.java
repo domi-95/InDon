@@ -1,21 +1,12 @@
 package datenbank;
 
 import java.io.InputStream;
-import java.sql.Blob;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.DateFormat;
 import java.util.*;
 
-import benutzer.Beduerftiger;
-import benutzer.Benutzer;
-import benutzer.Mitarbeiter;
-import spende.Anlaufstelle;
-import spende.Kategorie;
-import spende.Spende;
+import benutzer.*;
+import spende.*;
 
 
 public class Datenbank {
@@ -26,12 +17,9 @@ public class Datenbank {
 //		System.out.println( Datenbank.speichereInteresse(3, 2));
 //		System.out.println(Datenbank.holeAnlaufstelle(1));
 		//System.out.println(Datenbank.holeSpende(4));
-		
-//		date =  DateFormat.getTimeInstance(DateFormat.MEDIUM);
-//		System.out.println(date.getTime());
-		
-		Datenbank.validate("kevin", "123");
-		
+	
+	//	System.out.println(Datenbank.validate("kevin", "123"));
+		System.out.println(Datenbank.holeInteresse(4));
 	}
 	
 	public static ResultSet holeKategorien (int id_anlaufstelle) {			
@@ -47,7 +35,7 @@ public class Datenbank {
 		return null;
 	}
 	
-
+	
 	
 	public static ResultSet holAnlaufstelle () {
 		Connection con = ConnectionProvider.getCon();
@@ -176,10 +164,10 @@ public class Datenbank {
 		return false;
 	}
 	
-	public static boolean speichereInteresse (int s_id, int b_id ) {
+	public static boolean speichereInteresse (int s_id, int b_id, String timestamp ) {
 		try{
 			 Connection con = ConnectionProvider.getCon();
-				String sql ="INSERT INTO interesse (b_id, s_id)  VALUES ('"+ s_id+"','" + b_id + "')";
+				String sql ="INSERT INTO interesse (b_id, s_id, timestamp)  VALUES ('"+ s_id+"','" + b_id + "', '"+timestamp+"')";
 				Statement st = con.createStatement();
 				st.executeUpdate(sql);
 				}
@@ -197,18 +185,20 @@ public class Datenbank {
 		try {
 			//ResultSet beduerftiger = null;
 			Connection con = ConnectionProvider.getCon();
+			//ResultSet beduerftiger = null;
 			Statement myst = con.createStatement();
-		//	ResultSet mitarbeiter = null;
 			ResultSet mitarbeiter = myst.executeQuery("SELECT * FROM mitarbeiter m, rettungsorganisation r WHERE m.ret_id = r.id AND m.benutzername = '"+benutzername+"' AND m.passwort = '"+passwort+"'");
-			ResultSet beduerftiger = myst.executeQuery("SELECT * FROM beduerftiger b, anlaufstelle a WHERE b.anlauf_id = a.id AND b.benutzername = '"+benutzername+"' AND b.passwort = '"+passwort+"'");
 //			ResultSet myRs = myst.executeQuery(
 //					"SELECT b.id, b.benutzername, b.passwort, b.name, b.vorname, a.id, a.bezeichnung, r.bezeichnung, r.id FROM Benutzer b, art a, rettungsorganisation r WHERE b.ret_id = r.id AND b.art_id = a.id AND b.benutzername = '"+benutzername+"' AND b.passwort = '"+passwort+"' '"
-//							+ benutzername + "' and Passwort = '" + passwort + "'");
+//							+s benutzername + "' and Passwort = '" + passwort + "'");
 
 			if (mitarbeiter.next()) {
 				return new Mitarbeiter(mitarbeiter.getInt("m.id"), mitarbeiter.getString("m.benutzername"), mitarbeiter.getString("m.passwort"), mitarbeiter.getString("r.bezeichnung"), mitarbeiter.getInt("r.id"), mitarbeiter.getString("m.name"), mitarbeiter.getString("m.vorname"));
 				
 			}
+			
+			myst = con.createStatement();
+			ResultSet beduerftiger = myst.executeQuery("SELECT * FROM beduerftiger b, anlaufstelle a WHERE b.anlauf_id = a.id AND b.benutzername = '"+benutzername+"' AND b.passwort = '"+passwort+"'");
 			
 			if (beduerftiger.next()) {
 				Anlaufstelle a = new Anlaufstelle(beduerftiger.getInt("a.id"), beduerftiger.getString("a.bezeichnung"), beduerftiger.getString("a.adresse"), beduerftiger.getString("a.ort"), beduerftiger.getInt("a.plz"));
@@ -226,8 +216,24 @@ public class Datenbank {
 		}
 		return null;
 	}
-
 	
+	public static List<Interesse> holeInteresse (int spenden_id) {
+		List<Interesse>result = new LinkedList<Interesse>();
+		Connection con = ConnectionProvider.getCon();
+		try {
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery("SELECT * from interesse i, beduerftiger b, spende s WHERE i.b_id = b.id AND i.s_id = s.id AND s.id = '"+spenden_id+"'");
+			while (myRs.next()) {
+				result.add(new Interesse(Datenbank.holeSpende(spenden_id), new Beduerftiger(myRs.getInt("b.id"), myRs.getString("b.benutzername"), myRs.getString("b.passwort"), myRs.getString("b.name"), myRs.getString("b.vorname"), myRs.getInt("b.personenHaushalt")), myRs.getString("i.timestamp")));
+			}
+			return result;
+		} catch (SQLException e) {
+			System.out.println("FEHLER beim holen der Spende");
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
 	
 	
 		

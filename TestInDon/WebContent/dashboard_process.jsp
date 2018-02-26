@@ -10,11 +10,20 @@
 	<%@page import="benutzer.*"%>
 	<%@page import="datenbank.*"%>
 	<%@page import="spende.*"%>
+	<%@page import="java.sql.*"%>
+	<%@page import="java.util.Date"%>
 	<%
 	
 		Benutzer b = (Benutzer) session.getAttribute("objekt");
+		
+		if (b instanceof Mitarbeiter){
+			
+		}
+		
+	  	Date date = new Date();
+	   	String time = new Timestamp(date.getTime()).toString();
 	
-		if (Datenbank.speichereInteresse((b.getId()), Integer.parseInt(request.getParameter("id"))))
+		if (Datenbank.speichereInteresse((b.getId()), Integer.parseInt(request.getParameter("id")), time))
 		{
 			out.print("Vielen Danke, ihr Interesse wurde efolgreich bekundet"); //ggf. noch mit Click-Dummy Text abgleichen
 		}

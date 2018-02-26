@@ -22,19 +22,19 @@
 
 
 <%
-	Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
+	//Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
   	// Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle"); //Anlaufstellen Objekt
   	Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
   	List<Spende> liste = Datenbank.holeSpenden(a.getId());
   	//session.setAttribute("anlaufstelle", a);
   	
   	%><h1><% out.print (a.getBezeichnunganlaufstelle()); %></h1><%
-  	
+ 	
   	
   	for(Spende s: liste){
   	%><form  action ="<%out.print(session.getAttribute("weiterleitung")); %>" method = "post"><%
-  		%> 	<fieldset>	<%
-  	
+  		%> 	<fieldset>	
+  	Spendennummer:<% out.print (s.getId()); %> <br/> <%
   	out.print (s.getBezeichnung_spende()); %> <br/> <%
    	out.print (s.getBeschreibung());%> <br/> <%
    	out.print (s.getZustand());%> <br/> <%
