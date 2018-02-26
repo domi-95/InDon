@@ -9,7 +9,7 @@
 
 <title>Krisengebiet auswählen</title>
 </head>
-<jsp:include page="Header_eingeloggt.jsp"></jsp:include>
+<jsp:include page="header_eingeloggt.jsp"></jsp:include>
 
 <body bgcolor="#969EA8">
 
