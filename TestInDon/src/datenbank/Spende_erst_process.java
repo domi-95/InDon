@@ -61,21 +61,20 @@ public class Spende_erst_process extends HttpServlet {
 			anonym = 0;
 		}
 		
-		if(request.getParameter("vorname")!=""){		 
+		if(request.getParameter("vorname")!=null){		 
 			vorname = request.getParameter("vorname");
 		}
-		if(request.getParameter("name")!=""){		 
+		if(request.getParameter("name")!=null){		 
 			name = request.getParameter("name");
 		}
-		if(request.getParameter("adresse")!=""){		 
+		if(request.getParameter("adresse")!=null){		 
 			adresse = request.getParameter("adresse");
 		}
 
-		if(request.getParameter("plz")!=""){	
+		if(request.getParameter("plz")!=null){	
 			plz = Integer.parseInt(request.getParameter("plz"));
-			//String plz = request.getParameter("plz");
 		}
-		if(request.getParameter("ort")!=""){		 
+		if(request.getParameter("ort")!=null){		 
 			ort = request.getParameter("ort"); 
 		}
 		
