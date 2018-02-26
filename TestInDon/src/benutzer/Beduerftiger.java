@@ -44,4 +44,13 @@ public class Beduerftiger extends Benutzer {
 		return persHaushalt;
 	}
 
+	public Anlaufstelle getAnlaufstelle() {
+		return anlaufstelle;
+	}
+
+	public void setAnlaufstelle(Anlaufstelle anlaufstelle) {
+		this.anlaufstelle = anlaufstelle;
+	}
+	
+
 }

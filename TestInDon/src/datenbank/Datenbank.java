@@ -18,8 +18,11 @@ public class Datenbank {
 //		System.out.println(Datenbank.holeAnlaufstelle(1));
 		//System.out.println(Datenbank.holeSpende(4));
 	
-	//	System.out.println(Datenbank.validate("kevin", "123"));
-		System.out.println(Datenbank.holeInteresse(4));
+		//Beduerftiger bd = (Beduerftiger)Datenbank.validate("domi", "123");
+		//System.out.println(bd.getAnlaufstelle().getId());
+		//System.out.println(Datenbank.holeInteresse(4));
+		//Datenbank.setSpendeNV(3);
+		System.out.println(Datenbank.holeSpende(4));
 	}
 	
 	public static ResultSet holeKategorien (int id_anlaufstelle) {			
@@ -106,7 +109,7 @@ public class Datenbank {
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT * from Spende s, anlaufstelle a, kategorie k WHERE s.anlaufstelle_id = a.id AND s.kategorie_id = k.id AND a.id = '"+anlaufstelle_id+"'");
+			ResultSet myRs = myst.executeQuery("SELECT * from spende s, anlaufstelle a, kategorie k WHERE s.anlaufstelle_id = a.id AND s.kategorie_id = k.id AND a.id = '"+anlaufstelle_id+"' AND s.verfuegbar = '0'");
 			while (myRs.next()) {
 				result.add(new Spende(myRs.getInt("id"), myRs.getString("s.bezeichnung_spende"), myRs.getString("s.beschreibung"), myRs.getString("zustand"), myRs.getInt("s.abholung"), myRs.getInt("s.lieferung"), myRs.getString("s.bild"), myRs.getString("s.mhd"), myRs.getInt("s.anonym"), myRs.getString("s.vorname"), myRs.getString("s.nachname"), myRs.getString("s.adresse"), myRs.getInt("s.plz"), new Anlaufstelle(myRs.getInt("a.id"), myRs.getString("a.bezeichnung"), myRs.getString("a.adresse"), myRs.getString("ort"), myRs.getInt("plz")), new Kategorie(myRs.getInt("id"), myRs.getString("bezeichnung"))));
 			}
@@ -122,7 +125,7 @@ public class Datenbank {
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT * from spende s, anlaufstelle a, kategorie k WHERE s.anlaufstelle_id = a.id AND s.kategorie_id = k.id AND s.id = '"+spenden_id+"'");
+			ResultSet myRs = myst.executeQuery("SELECT * from spende s, anlaufstelle a, kategorie k WHERE s.anlaufstelle_id = a.id AND s.kategorie_id = k.id AND s.id = '"+spenden_id+"'AND s.verfuegbar = '0'");
 			myRs.next();
 			return new Spende(myRs.getInt("id"), myRs.getString("s.bezeichnung_spende"), myRs.getString("s.beschreibung"), myRs.getString("zustand"), myRs.getInt("s.abholung"), myRs.getInt("s.lieferung"), myRs.getString("s.bild"), myRs.getString("s.mhd"), myRs.getInt("s.anonym"), myRs.getString("s.vorname"), myRs.getString("s.nachname"), myRs.getString("s.adresse"), myRs.getInt("s.plz"), new Anlaufstelle(myRs.getInt("a.id"), myRs.getString("a.bezeichnung"), myRs.getString("a.adresse"), myRs.getString("ort"), myRs.getInt("plz")), new Kategorie(myRs.getInt("id"), myRs.getString("bezeichnung")));
 			
@@ -150,7 +153,7 @@ public class Datenbank {
 	public static boolean speichereSpende (String beschreibung, String bezeichnung, String zustand, int abholung, int lieferung, Blob in, String mhd, int anonym, String vorname, String name, String adresse, int plz, String ort, int ret_id, int kat_id) {
 		try{
 			 Connection con = ConnectionProvider.getCon();
-				String sql ="INSERT INTO Spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id)" + "VALUES ('"+ beschreibung+"','" + bezeichnung + "', '" + zustand + "', "+abholung+","+lieferung+", '"+in+"'+, '"+mhd+"',"+anonym+", '" + vorname + "' , '" + name + "', '" + adresse + "', " + plz + ", '" + ort + "',"+ret_id+","+kat_id+")";
+				String sql ="INSERT INTO spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id)" + "VALUES ('"+ beschreibung+"','" + bezeichnung + "', '" + zustand + "', "+abholung+","+lieferung+", '"+in+"'+, '"+mhd+"',"+anonym+", '" + vorname + "' , '" + name + "', '" + adresse + "', " + plz + ", '" + ort + "',"+ret_id+","+kat_id+")";
 				Statement st = con.createStatement();
 				//PreparedStatement st = con.prepareStatement(sql);
 				//st.setBlob(1, in);
@@ -233,6 +236,21 @@ public class Datenbank {
 		}
 		return null;
 		
+	}
+	
+	public static boolean setSpendeNV (int s_id) {
+		try{
+			 Connection con = ConnectionProvider.getCon();
+				String sql ="UPDATE Spende SET verfuegbar = '1' WHERE id = '"+s_id+"'";
+				Statement st = con.createStatement();
+				st.execute(sql);
+				
+				}
+				catch (Exception e) {
+					System.out.println("Fehler beim Einf�gen der Spende");
+					e.printStackTrace();
+				}	
+		return false;
 	}
 	
 	

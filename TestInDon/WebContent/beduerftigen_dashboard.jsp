@@ -13,11 +13,13 @@
 <h2>Sie sind im Beduerftigen Dashboard</h2>
 
 <%
-/* Beduerftiger bd = (Beduerftiger)session.getAttribute("objekt");
-out.print (bd);
- */
-	session.setAttribute("inhalt", "Interesse bekunden");
- session.setAttribute("weiterleitung", "dashboard_process.jsp");
+ Benutzer b = (Benutzer)session.getAttribute("objekt");
+ Beduerftiger bd = (Beduerftiger)b;
+//out.print (bd);
+ 
+	 session.setAttribute("inhalt", "Interesse bekunden");
+	 session.setAttribute("weiterleitung", "dashboard_process.jsp");
+	 session.setAttribute("anlaufstelle", bd.getAnlaufstelle());
 %>
 
 <jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include> 

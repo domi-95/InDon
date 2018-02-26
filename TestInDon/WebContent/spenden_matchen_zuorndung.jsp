@@ -49,21 +49,29 @@ session.setAttribute("spende", s);
   	%>
   	</fieldset>
   	
-	  <table>
-
+	  <table style="table-layout: fixed">
+		<thead>
 		<tr>
-		<td>Benutzername</td>
-		<td>Name</td>
-		<td>Vorname</td>
-		<td>Priorität</td>
-		<td>Zeitstempel</td>
-		<td>Anzahl Personen im Haushalt</td>
-		<td>Anzahl der bereits erhaltenen Spenden</td>
+		<th>Zuordnung</th>
+		<th>Benutzername</th>
+		<th>Name</th>
+		<th>Vorname</th>
+		<th>Priorität</th>
+		<th>Zeitstempel</th>
+		<th>Anzahl Personen im Haushalt</th>
+		<th>Anzahl der bereits erhaltenen Spenden</th>
 		</tr>
-		<% 
+		</thead>
+		<%
 		List<Interesse>interesse = Datenbank.holeInteresse(s.getId());
-
+		
+	%><form action = "zuordnung_process.jsp" method = get>
+	<table><%
+	
 		for(Interesse i : interesse) {
+			
+		%><tr><%	
+		%><td><input type = "radio" name = "zuordnung" value = "<%out.print (i.getBeduerftiger().getId());	%>"></td><%
 		%><td><%out.print ("muss noch implementiert werden");	%></td><%
 		%><td><%out.print (i.getBeduerftiger().getVorname());	%></td><%
 		%><td><%out.print (i.getBeduerftiger().getNachname());	%></td><%
@@ -71,11 +79,20 @@ session.setAttribute("spende", s);
 		%><td><%out.print (i.getTimestamp());	%></td><%
 		%><td><%out.print (i.getBeduerftiger().getPersHaushalt());	%></td><%
 		%><td><%out.print ("muss noch implementiert werden");	%></td><%
+		%></tr><%
 		}
+		%> 
+</table>
+</form>
 		
-		%>
-		
-		
+		<p>Unterkunft:<br>
+<input type="radio" name="uk" value="EZ BR" checked> EZ Frühstück<br>
+<input type="radio" name="uk" value="DZ BR"> DZ Frühstück<br>
+<input type="radio" name="uk" value="EZ HP"> EZ Halbpension<br>
+<input type="radio" name="uk" value="DZ HP"> DZ Halbpension<br>
+<input type="radio" name="uk" value="EZ VP"> EZ Vollpension<br>
+<input type="radio" name="uk" value="DZ VP"> DZ Vollpension
+</p>
 
 	</table>
 

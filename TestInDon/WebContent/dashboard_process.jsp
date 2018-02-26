@@ -16,20 +16,26 @@
 	
 		Benutzer b = (Benutzer) session.getAttribute("objekt");
 		
-		if (b instanceof Mitarbeiter){
-			
+		if (b instanceof Mitarbeiter ){
+			Datenbank.setSpendeNV(Integer.parseInt(request.getParameter("id")));
+			out.print ("Vielen Dank, die Spende wurde für die Rettungsorganisation angefordert..");
 		}
+		
+		else {
+			
+		
 		
 	  	Date date = new Date();
 	   	String time = new Timestamp(date.getTime()).toString();
 	
 		if (Datenbank.speichereInteresse((b.getId()), Integer.parseInt(request.getParameter("id")), time))
 		{
-			out.print("Vielen Danke, ihr Interesse wurde efolgreich bekundet"); //ggf. noch mit Click-Dummy Text abgleichen
+			out.print("Vielen Dank, ihr Interesse wurde efolgreich bekundet"); //ggf. noch mit Click-Dummy Text abgleichen
 		}
 		
 		else {
 			out.print ("Sie haben schonmal das Interesse an dieser Spende bekundet!"); //ggf. noch zurück button um wieder zum dashboard zu kommen
+		}
 		}
 	%>
 </body>
