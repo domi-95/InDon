@@ -24,7 +24,18 @@ body{
     width: 180px; 
     
 }
+.buser {
+	margin: 0px 20px 0 0;
+    background: #ED842A; 
+    width: 180px;     
+}
 
+.buser a{
+	color: #000000!important;
+}
+.buser:hover{
+	background: #edaf7b;
+}
 
 .blogin a{
 	color: #000000!important;
