@@ -165,7 +165,7 @@ Blob pic = null;
 			
 		}
 				catch (Exception e) {
-					System.out.println("FEHLER beim holen der Anlaufstelle");
+					System.out.println("FEHLER beim speichern des Bild");
 					e.printStackTrace();
 				}
 				
