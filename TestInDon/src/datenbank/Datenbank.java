@@ -30,7 +30,7 @@ public class Datenbank {
 //		date =  DateFormat.getTimeInstance(DateFormat.MEDIUM);
 //		System.out.println(date.getTime());
 		
-		Datenbank.validate("kevin", "123");
+	System.out.println(Datenbank.validate("domi", "123"));	
 		
 	}
 	
