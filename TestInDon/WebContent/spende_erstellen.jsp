@@ -17,17 +17,19 @@
 <title>Spende anbieten</title>
 </head>
 <body>
-	
+	<jsp:include page="Header.jsp"></jsp:include>
 	
 	<%@page import="datenbank.Datenbank"%>
 	<%@page import="java.sql.*"%>
 	<fieldset>
 	<form id="regForm" method="post" action="Spende_erstellen_process_neu" enctype="multipart/form-data">
+	
 
-			Bezeichnung <input type="text" name="bezeichnung" /> <br />
-			Beschreibung: <input type="text" name="beschreibung" /> <br />
-			Zustand: <input type="text" name="zustand" /> <br />
-			Kategorie: <select name="kategorie">
+
+			Bezeichnung*: <input type="text" name="bezeichnung" /> <br />
+			Beschreibung*: <input type="text" name="beschreibung" /> <br />
+			Zustand*: <input type="text" name="zustand" /> <br />
+			Kategorie*: <select name="kategorie">
 				<%
 					if (request.getParameter("anlauf") != null) {
 						int id = Integer.parseInt(request.getParameter("anlauf"));
@@ -41,31 +43,35 @@
 				%>
 
 			</select> <br /> Menge: <input type="text" name="menge" /> <br /> <br />
+			
+			Lieferung*:<br/>
 			<input type="radio" name="lieferungabholung" id="lieferung" value="1" checked >
-			Lieferung 
+			
+			
+			Abholung*:<br/>
 			<input type="radio" name="lieferungabholung" id="abholung" value="2">
-			Abholung <br /> 
+			 <br /> 
 			
 			Bild: <input type="file" name="photo" size="50"/>
 			
+			Name*: <input type="text" name="name" /> <br />
+			Vorname*: <input type="text" name="vorname" /> <br />
 			
 			<div class="lieferung">
-				E-Mail: <input type="text" name="mail" /> <br />
+				E-Mail*: <input type="text" name="mail" /> <br />
 				Telefon: <input type="text" name="telefon" /> <br />
-				Name: <input type="text" name="name" /> <br />
-				Vorname: <input type="text" name="vorname" /> <br />
+				
 			
 			</div>
 			
 			<div class="abholung">
-				Name: <input type="text" name="name" /> <br />
-				Vorname: <input type="text" name="vorname" /> <br />
-				Straﬂe, Hausnummer: <input type="text" name="adresse" /> <br />
-				Ort: <input type="text" name="ort" /> <br />
-				PLZ: <input type="text" name="plz" /> <br />
-				Land: <input type="text" name="land" /> <br />
+				Straﬂe, Hausnummer*: <input type="text" name="adresse" /> <br />
+				Ort*: <input type="text" name="ort" /> <br />
+				PLZ*: <input type="text" name="plz" /> <br />
+				Land*: <input type="text" name="land" /> <br />
 			</div>
-			<input type="checkbox" name="anonym"> Anonym
+			Anonym:
+			<input type="checkbox" name="anonym"> 
 			<br/>
 			<br/>
 			<input type="submit" value="Spendenangebot senden"/>
