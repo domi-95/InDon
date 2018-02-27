@@ -22,15 +22,36 @@ public class Datenbank {
 		//System.out.println(bd.getAnlaufstelle().getId());
 		//System.out.println(Datenbank.holeInteresse(4));
 		//Datenbank.setSpendeNV(3);
-		System.out.println(Datenbank.holeSpende(4));
+		//	System.out.println(Datenbank.holeSpende(4));
+		System.out.println(Datenbank.holeAnlaufstelle().get(0).getKategorien());
+		Datenbank.hol
+		
 	}
 	
-	public static ResultSet holeKategorien (int id_anlaufstelle) {			
+//	public static ResultSet holeKategorien (int id_anlaufstelle) {			
+//		Connection con = ConnectionProvider.getCon();
+//		try {
+//			Statement myst = con.createStatement();
+//			ResultSet myRs = myst.executeQuery("SELECT k.bezeichnung, ak.stark_gefragt FROM kategorie k, anlaufstelle a, anlaufstelle_kategorie ak WHERE k.id = kategorie_id AND a.id = anlaufstelle_id AND a.id = '" + id_anlaufstelle + "' ");
+//			return myRs;
+//		} catch (SQLException e) {
+//			System.out.println("FEHLER beim Holen der Kategorien");
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
+	
+	public static List<Kategorie> holeKategorien (Anlaufstelle anlaufstelle) {		
+		List<Kategorie> result = new LinkedList<Kategorie>();
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT k.bezeichnung, ak.stark_gefragt FROM kategorie k, anlaufstelle a, anlaufstelle_kategorie ak WHERE k.id = kategorie_id AND a.id = anlaufstelle_id AND a.id = '" + id_anlaufstelle + "' ");
-			return myRs;
+			ResultSet myRs = myst.executeQuery("SELECT * FROM kategorie k, anlaufstelle a, anlaufstelle_kategorie ak WHERE k.id = kategorie_id AND a.id = anlaufstelle_id AND a.id = '" + anlaufstelle.getId() + "' ");
+			while (myRs.next()) {
+				result.add(new Kategorie(myRs.getInt("k.id"), myRs.getString("k.bezeichnung"), anlaufstelle, myRs.getBoolean("ak.stark_gefragt"), myRs.getBoolean("ak.verfuegbar")));
+			}
+			
+			return result;
 		} catch (SQLException e) {
 			System.out.println("FEHLER beim Holen der Kategorien");
 			e.printStackTrace();
@@ -40,18 +61,40 @@ public class Datenbank {
 	
 	
 	
-	public static ResultSet holAnlaufstelle () {
+	
+	public static List<Anlaufstelle> holeAnlaufstelle () {
+		List<Anlaufstelle> result = new LinkedList<Anlaufstelle>();
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle ");
-			return myRs;
+			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle");
+			while (myRs.next()) {
+				result.add(new Anlaufstelle(myRs.getInt("id"), myRs.getString("bezeichnung"), myRs.getString("adresse"), myRs.getString("ort"), myRs.getInt("plz")));
+			}
+			
+			return result;
+			
 		} catch (SQLException e) {
 			System.out.println("FEHLER beim holen der Anlaufstelle");
 			e.printStackTrace();
 		}
 		return null;
 	}
+	
+	
+//	public static ResultSet holAnlaufstelle () {
+//		Connection con = ConnectionProvider.getCon();
+//		try {
+//			Statement myst = con.createStatement();
+//			ResultSet myRs = myst.executeQuery("SELECT * FROM anlaufstelle ");
+//			return myRs;
+//		} catch (SQLException e) {
+//			System.out.println("FEHLER beim holen der Anlaufstelle");
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
+	
 	public static Anlaufstelle holAnlaufstelle (int id) {
 		Connection con = ConnectionProvider.getCon();
 		try {

@@ -20,10 +20,19 @@
 	
 	
 	<%@page import="datenbank.Datenbank"%>
+	<%@page import="spende.*"%>
 	<%@page import="java.sql.*"%>
+	<%@page import="java.util.*"%>
 	<fieldset>
 	<form id="regForm" method="post" action="Spende_erstellen_process_neu" enctype="multipart/form-data">
 	
+			<%
+			
+			
+			
+			
+			
+			%>
 
 
 			Bezeichnung*: <input type="text" name="bezeichnung" /> <br />
@@ -32,11 +41,11 @@
 			Kategorie*: <select name="kategorie">
 				<%
 					if (request.getParameter("anlauf") != null) {
-						int id = Integer.parseInt(request.getParameter("anlauf"));
-						ResultSet myRsK = Datenbank.holeKategorien(id);
-						while (myRsK.next()) {
+						Anlaufstelle a = Datenbank.holAnlaufstelle(Integer.parseInt(request.getParameter("anlauf")));
+						List<Kategorie> kategorie = a.getKategorien();
+						for (Kategorie k : kategorie) {
 				%>
-				<option><%=myRsK.getString("bezeichnung")%></option>
+				<option value = "<%=k.getId()%>">"<%=k.getBezeichnung()%></option>
 				<%
 					}
 					}

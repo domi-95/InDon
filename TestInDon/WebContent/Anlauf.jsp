@@ -8,19 +8,22 @@
 </head>
 <body>
 	<%@page import="datenbank.Datenbank"%>
+	<%@page import="spende.*"%>
 	<%@page import="java.sql.*"%>
+	<%@page import="java.util.*"%>
 
 <form method="GET" action="spende_erstellen.jsp">
 	<select name="anlauf" onchange="submit()">
 				<option value="all" selected>Wählen Sie eine Anlaufstelle</option>
 				<%
-					ResultSet myRs = Datenbank.holAnlaufstelle();
-					while (myRs.next()) {
-				%>
-				<option value="<%=myRs.getString("id")%>"><%=myRs.getString("bezeichnung")%>
-				</option>
-				<%
-					}
+				LinkedList<Anlaufstelle> anlaufstellen =(LinkedList<Anlaufstelle>) Datenbank.holeAnlaufstelle();
+				
+				for(int i = 0;  i<anlaufstellen.size(); i++){
+					%>
+					<option value="<%=anlaufstellen.get(i).getId()%>"><%=anlaufstellen.get(i).getBezeichnunganlaufstelle()%>
+					</option>
+					<%
+				}
 				%>
 			</select>
 
