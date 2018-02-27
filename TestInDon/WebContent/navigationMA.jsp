@@ -12,15 +12,14 @@
  
 
 
-<div class="navMA">
  <ul>
   <li><a href="#Unternehmensbeiträge">Unternehmensbeiträge</a></li>
   <li><a href="#Hilfsbedanlegen">Hilfsbedürftigen anlegen</a></li>
-  <li><a href="#Spendenangebot zuordnen">Spendenangebot zuordnen</a></li>
+  <li><a href="spenden_matchen.jsp">Spendenangebot zuordnen</a></li>
   <li><a href="#Katbearbeiten">Kategorie bearbeiten</a></li>
   <li><a href="#Sanfordern">Spenden anfordern</a></li>
   <li><a href="#Sstopp">Spenden Stoppen</a></li>
 </ul> 
-</div>
+
 </body>
 </html>
