@@ -71,7 +71,7 @@ session.setAttribute("spende", s);
 		for(Interesse i : interesse) {
 			
 		%><tr><%	
-		%><td><input type = "radio" name = "zuordnung" value = "<%out.print (i.getBeduerftiger().getId());	%>"></td><%
+		%><td><input type = "radio" name = "zuordnung" value = "<%out.print (i.getBeduerftiger().getId());%>"></td><%
 		%><td><%out.print ("muss noch implementiert werden");	%></td><%
 		%><td><%out.print (i.getBeduerftiger().getVorname());	%></td><%
 		%><td><%out.print (i.getBeduerftiger().getNachname());	%></td><%
