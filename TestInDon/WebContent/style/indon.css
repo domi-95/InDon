@@ -9,9 +9,7 @@ body{
     overflow: hidden;  
 }
 
-.navma{
-	margin-top: 60px;
-}
+
 
 .nav {
 	min-height: 60px;
@@ -122,6 +120,18 @@ input{
     padding: 10px;
     background: #ffffff;
     text-align: center;
+    border-radius: 15px;
+
+}
+
+.don{
+	margin: auto;
+	margin-top: 50px;
+	width: 300px;
+    border: 1px solid #ED842A;
+    padding: 10px;
+    background: #ffffff;
+    text-align: left;
     border-radius: 15px;
 
 }

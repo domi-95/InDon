@@ -72,7 +72,7 @@
   
   	
   
-  	%>
+
 
 <h2>Sie sind im Mitarbeiter Dashboard</h2>
 </body>

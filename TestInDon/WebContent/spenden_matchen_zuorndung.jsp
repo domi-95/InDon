@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="header_eingeloggt.jsp"></jsp:include>
+<jsp:include page="navigationMA.jsp"></jsp:include>
 <fieldset>	
 <%@page import="benutzer.*"%>  
 <%@page import="spende.*"%>  
@@ -20,11 +22,12 @@ Spende s = Datenbank.holeSpende(Integer.parseInt(request.getParameter("id")));
 session.setAttribute("spende", s);
 
 
-%><h1><% out.print (a.getBezeichnunganlaufstelle()); %></h1><%
+%><h1><% out.print (a.getBezeichnunganlaufstelle()); %></h1>
+<div class="don"><%
   	
-  	out.print (s.getBezeichnung_spende()); %> <br/> <%
-   	out.print (s.getBeschreibung());%> <br/> <%
-   	out.print (s.getZustand());%> <br/> <%
+  	%>Bezeichnung : <%out.print (s.getBezeichnung_spende()); %> <br/> <%
+  	%>Beschreibung: <%out.print (s.getBeschreibung());%> <br/> <%
+  	%>Zustand     : <%out.print (s.getZustand());%> <br/> <%
    	
    	if (s.getAbholung() != 0){
 		out.print ("Die Spende wird abgeholt");  %> <br/> <% 		
@@ -41,7 +44,7 @@ session.setAttribute("spende", s);
   		
   	}
   	else {
-  		out.print ("Spende ist anonym");%> <br/> <%
+  		out.print ("Spender ist anonym");%> <br/> <%
   	}
   	
   	
@@ -87,6 +90,6 @@ session.setAttribute("spende", s);
 	</table>
 	</form>
 
-
+</div>
 </body>
 </html>
