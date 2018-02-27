@@ -18,6 +18,7 @@
 	session.setAttribute("anlaufstelle", a);
 %>
 <jsp:include page="header_eingeloggt.jsp"></jsp:include>
+
 <jsp:include page="navigationMA.jsp"></jsp:include>
 <form action = "spenden_matchen.jsp">
 
