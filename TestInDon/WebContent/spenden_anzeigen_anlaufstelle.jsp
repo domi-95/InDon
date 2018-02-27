@@ -22,7 +22,7 @@
 
  -->
 
- 
+ 	
 		
 		
 <%
@@ -30,6 +30,7 @@
   	// Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle"); //Anlaufstellen Objekt
   	Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
   	List<Spende> liste = Datenbank.holeSpenden(a.getId());
+  	
   	//session.setAttribute("anlaufstelle", a);
   	
 
@@ -41,34 +42,15 @@
   	for(Spende s: liste){
   	%><form  action ="<%out.print(session.getAttribute("weiterleitung")); %>" method = "post"><%
   		%> 	
-  
 
-  <% 
-  /* 	byte[] imgData = null;
-	Blob image = null;
-	try {
-		image = s.getBild();
-		imgData = image.getBytes(1, (int) image.length());
-		
-		// gibt das Bild aus
-		response.setContentType("image/gif");
-		OutputStream o = response.getOutputStream();
-		o.write(imgData);
-		o.flush();
-		o.close();
-	} catch (Exception e) {
-		out.println("Unable To Display image");
-		out.println("Image Display Error=" + e.getMessage());
-		return;
-	} */
-  
-	%> 
+	<img src="DisplayImageServlet?id=<%=s.getId()%>" />
   
   
   	Spendennummer:<% out.print (s.getId()); %> <br/> <%
   	out.print (s.getBezeichnung_spende()); %> <br/> <%
    	out.print (s.getBeschreibung());%> <br/> <%
    	out.print (s.getZustand());%> <br/> <%
+   	
    	
    	
    	if (s.getAbholung() != 0){

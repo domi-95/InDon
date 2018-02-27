@@ -12,7 +12,7 @@ public class Spende {
 	private String zustand;
 	private int abholung; //boolean
 	private int lieferung; //boolean
-	private Blob bild;
+	private byte[] bild;
 	private String mhd;
 	private int anonym;	//boolean
 	private String name;
@@ -22,13 +22,10 @@ public class Spende {
 	private Anlaufstelle anlaufstelle;
 	private Kategorie kategorie;
 	
-	
 
-
-	
 
 	public Spende(int id, String bezeichnung_spende, String beschreibung, String zustand, int abholung, int lieferung,
-			Blob bild, String mhd, int anonym, String name, String vorname, String adresse, int plz,
+			byte[] bild, String mhd, int anonym, String name, String vorname, String adresse, int plz,
 			Anlaufstelle anlaufstelle, Kategorie kategorie) {
 		super();
 		this.id = id;
@@ -47,12 +44,6 @@ public class Spende {
 		this.anlaufstelle = anlaufstelle;
 		this.kategorie = kategorie;
 	}
-
-
-
-	
-
-
 
 	public static List<Spende> spendenmatchen(int anlaufstelle_id) {
 		return Datenbank.holeSpenden(anlaufstelle_id);
@@ -107,16 +98,9 @@ public class Spende {
 	}
 
 
-	public Blob getBild() {
+	public byte[] getBild() {
 		return bild;
 	}
-
-
-
-	public void setBild(Blob bild) {
-		this.bild = bild;
-	}
-
 
 
 	public Anlaufstelle getAnlaufstelle() {

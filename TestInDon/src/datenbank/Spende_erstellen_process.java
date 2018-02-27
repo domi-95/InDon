@@ -154,7 +154,7 @@ public class Spende_erstellen_process extends HttpServlet {
 						// fetches input stream of the upload file for the blob column
 						statement.setBlob(6, inputStream);
 					}
-					
+					inputStream.close();
 //					if("".equals(mhd)) {
 //						
 //					}
@@ -203,6 +203,7 @@ public class Spende_erstellen_process extends HttpServlet {
 					statement.setInt(18, menge);
 					statement.setString(19, mail);
 					statement.setString(20, telefon);
+					
 					
 					
 					// sends the statement to the database server

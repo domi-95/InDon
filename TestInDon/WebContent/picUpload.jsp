@@ -17,9 +17,9 @@
 	<%@page import="java.util.*"%>
 	<%@ page import="java.io.*"%>
 
-	 <%
+	 <%/*
 	List<Spende> spende = Datenbank.holeSpenden(1);
-	Spende spendee = Datenbank.holeSpende(3);
+	Spende spendee = Datenbank.holeSpende(2);
 	
 	byte[] imgData = null;
 	Blob image = null;
@@ -37,7 +37,33 @@
 		out.println("Unable To Display image");
 		out.println("Image Display Error=" + e.getMessage());
 		return;
-	}
+	}*/
+	
+	Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
+  	List<Spende> liste = Datenbank.holeSpenden(1);
+  	
+  	for(Spende s: liste){
+  		byte[] imgData = null;
+		Blob image = null;
+  		
+  		
+  		try {
+  			image = s.getBild();
+  			imgData = image.getBytes(1, (int) image.length());
+  			
+  			// gibt das Bild aus
+  			response.setContentType("image/gif");
+  			OutputStream o = response.getOutputStream();
+  			o.write(imgData);
+  			o.flush();
+  			o.close();
+  		} catch (Exception e) {
+  			out.println("Unable To Display image");
+  			out.println("Image Display Error=" + e.getMessage());
+  			return;
+  		} 
+  		%><h1>Test</h1><%
+  	}
 	
 	%> 
 	
