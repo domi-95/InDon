@@ -24,10 +24,7 @@
 	<fieldset>
 	<form id="regForm" method="post" action="Spende_erstellen_process_neu" enctype="multipart/form-data">
 	
-			
 
-	
-	</form>
 
 			Bezeichnung*: <input type="text" name="bezeichnung" /> <br />
 			Beschreibung*: <input type="text" name="beschreibung" /> <br />
