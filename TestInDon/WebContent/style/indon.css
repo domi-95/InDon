@@ -3,9 +3,14 @@ body{
 	background-color: #969EA8;
 }
 
+
 .navbar {
     background: #ffffff;
     overflow: hidden;  
+}
+
+.navma{
+	margin-top: 60px;
 }
 
 .nav {
@@ -158,4 +163,41 @@ h3{
 }
 h5{
 	font-family: sans-serif ;
+}
+
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+   	background-color: #f3f3f3;
+  	border: 1px solid #e7e7e7;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: left;
+    border: none;
+}
+
+li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 89.6px;
+    text-decoration: none;
+}
+
+
+li a:hover {
+    background-color: #E6E6E6;
+}
+
+li:last-child {
+    border: none;
 }
