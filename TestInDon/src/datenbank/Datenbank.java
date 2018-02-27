@@ -225,7 +225,7 @@ public class Datenbank {
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT * from interesse i, beduerftiger b, spende s WHERE i.b_id = b.id AND i.s_id = s.id AND s.id = '"+spenden_id+"' AND ");
+			ResultSet myRs = myst.executeQuery("SELECT * from interesse i, beduerftiger b, spende s WHERE i.b_id = b.id AND i.s_id = s.id AND s.id = '"+spenden_id+"'");
 			while (myRs.next()) {
 				result.add(new Interesse(Datenbank.holeSpende(spenden_id), new Beduerftiger(myRs.getInt("b.id"), myRs.getString("b.benutzername"), myRs.getString("b.passwort"), myRs.getString("b.name"), myRs.getString("b.vorname"), myRs.getInt("b.personenHaushalt")), myRs.getString("i.timestamp")));
 			}
