@@ -40,8 +40,7 @@ public class Spende_erstellen_process extends HttpServlet {
 				String ort = "";
 				String mhd = "";
 				String mail = "";
-				int telefon = 0;
-				//int abholung = 5;
+				String telefon = "";
 				int abholung = 0;
 				int lieferung = 0;
 				int anonym = 0;
@@ -77,10 +76,10 @@ public class Spende_erstellen_process extends HttpServlet {
 				mail = request.getParameter("mail");
 				
 				if("".equals(request.getParameter("telefon"))) {
-					telefon = 0;
+					telefon = "";
 				}
 				else {
-					telefon = Integer.parseInt(request.getParameter("telefon"));
+					telefon = request.getParameter("telefon");
 				}
 				
 				if("2".equals(request.getParameter("lieferungabholung"))){
@@ -114,7 +113,7 @@ public class Spende_erstellen_process extends HttpServlet {
 					int count = 0;
 					
 					// constructs SQL statement
-					String sql = "INSERT INTO spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id, verfuegbar, beduerftiger_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					String sql = "INSERT INTO spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id, verfuegbar, beduerftiger_id, telefon) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 					PreparedStatement statement = conn.prepareStatement(sql);
 					
 					if("".equals(beschreibung)) {
@@ -193,6 +192,7 @@ public class Spende_erstellen_process extends HttpServlet {
 					statement.setInt(15, kat_id);
 					statement.setInt(16, verfuegbar);
 					statement.setInt(17, bed_id);
+					statement.setString(18, telefon);
 					
 					System.out.println("Zähler: " +count);
 					// sends the statement to the database server
