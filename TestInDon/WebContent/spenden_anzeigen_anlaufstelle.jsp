@@ -11,6 +11,8 @@
 <%@page import="spende.*"%>  
 <%@page import="java.util.*"%>  
 <%@page import="datenbank.Datenbank"%>
+<%@ page import="java.sql.*"%>
+<%@ page import="java.io.*"%>
 
 <!-- Diese Spendenanzeige brauch folgende Sessions:
 	"objekt" : Für die Zuordnung des Benutzers
@@ -20,7 +22,9 @@
 
  -->
 
-
+ 
+		
+		
 <%
 	//Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
   	// Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle"); //Anlaufstellen Objekt
@@ -28,16 +32,44 @@
   	List<Spende> liste = Datenbank.holeSpenden(a.getId());
   	//session.setAttribute("anlaufstelle", a);
   	
+
+  	
+  	
   	%><h3><% out.print (a.getBezeichnunganlaufstelle()); %></h3><%
  	
   	
   	for(Spende s: liste){
   	%><form  action ="<%out.print(session.getAttribute("weiterleitung")); %>" method = "post"><%
-  		%> 	<fieldset>	
+  		%> 	
+  
+
+  <% 
+  /* 	byte[] imgData = null;
+	Blob image = null;
+	try {
+		image = s.getBild();
+		imgData = image.getBytes(1, (int) image.length());
+		
+		// gibt das Bild aus
+		response.setContentType("image/gif");
+		OutputStream o = response.getOutputStream();
+		o.write(imgData);
+		o.flush();
+		o.close();
+	} catch (Exception e) {
+		out.println("Unable To Display image");
+		out.println("Image Display Error=" + e.getMessage());
+		return;
+	} */
+  
+	%> 
+  
+  
   	Spendennummer:<% out.print (s.getId()); %> <br/> <%
   	out.print (s.getBezeichnung_spende()); %> <br/> <%
    	out.print (s.getBeschreibung());%> <br/> <%
    	out.print (s.getZustand());%> <br/> <%
+   	
    	
    	if (s.getAbholung() != 0){
 		out.print ("Die Spende wird abgeholt");  %> <br/> <% 		
@@ -55,12 +87,13 @@
   	}
   	else {
   		out.print ("Spende ist anonym");%> <br/> <%
-  	}
+  	}%>
   	
   	
-  	%> 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>">		
+  	
+  	 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>">		
   		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>">
-  		 </fieldset>	
+  		
   		  </form><%
   }
   	
