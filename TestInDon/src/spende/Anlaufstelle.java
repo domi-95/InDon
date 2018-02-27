@@ -1,5 +1,9 @@
 package spende;
-import benutzer.Rettungsorganisation;
+import java.util.LinkedList;
+import java.util.List;
+
+import datenbank.Datenbank;
+
 
 public class Anlaufstelle {
 	
@@ -8,6 +12,9 @@ public class Anlaufstelle {
 	private String adresse;
 	private String ort;
 	private int plz;
+	private List<Kategorie>kategorien = new LinkedList<Kategorie>();
+	
+
 	
 
 	public Anlaufstelle(int id, String bezeichnunganlaufstelle, String adresse, String ort, int plz) {
@@ -63,6 +70,11 @@ public class Anlaufstelle {
 	public String toString() {
 		return "Anlaufstelle [id=" + id + ", bezeichnunganlaufstelle=" + bezeichnunganlaufstelle + ", adresse="
 				+ adresse + ", ort=" + ort + ", plz=" + plz + "]";
+	}
+
+	public List<Kategorie> getKategorien() {
+		this.kategorien = Datenbank.holeKategorien(this);
+		return kategorien;
 	}
 
 

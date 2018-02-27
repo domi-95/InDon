@@ -28,7 +28,7 @@
   	List<Spende> liste = Datenbank.holeSpenden(a.getId());
   	//session.setAttribute("anlaufstelle", a);
   	
-  	%><h1><% out.print (a.getBezeichnunganlaufstelle()); %></h1><%
+  	%><h3><% out.print (a.getBezeichnunganlaufstelle()); %></h3><%
  	
   	
   	for(Spende s: liste){
