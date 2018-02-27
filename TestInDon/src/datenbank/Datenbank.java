@@ -231,15 +231,15 @@ public class Datenbank {
 		return false;
 	}
 	
-	public static boolean speichereInteresse (int s_id, int b_id, String timestamp ) {
+	public static boolean speichereInteresse (int s_id, int b_id, int prio, String timestamp ) {
 		try{
 			 Connection con = ConnectionProvider.getCon();
-				String sql ="INSERT INTO interesse (b_id, s_id, timestamp)  VALUES ('"+ s_id+"','" + b_id + "', '"+timestamp+"')";
+				String sql ="INSERT INTO interesse (b_id, s_id, prio, timestamp)  VALUES ('"+ s_id+"','" + b_id + "', '"+prio+"', '"+timestamp+"')";
 				Statement st = con.createStatement();
 				st.executeUpdate(sql);
 				}
 				catch (Exception e) {
-					System.out.println("Fehler beim Einf�gen einer Interessensbekundung");
+					System.out.println("Fehler beim Einfuegen einer Interessensbekundung");
 					e.printStackTrace();
 					return false;
 				}		
@@ -291,7 +291,7 @@ public class Datenbank {
 			Statement myst = con.createStatement();
 			ResultSet myRs = myst.executeQuery("SELECT * from interesse i, beduerftiger b, spende s WHERE i.b_id = b.id AND i.s_id = s.id AND s.id = '"+spenden_id+"'");
 			while (myRs.next()) {
-				result.add(new Interesse(Datenbank.holeSpende(spenden_id), new Beduerftiger(myRs.getInt("b.id"), myRs.getString("b.benutzername"), myRs.getString("b.passwort"), myRs.getString("b.name"), myRs.getString("b.vorname"), myRs.getInt("b.personenHaushalt")), myRs.getString("i.timestamp")));
+				result.add(new Interesse(Datenbank.holeSpende(spenden_id), new Beduerftiger(myRs.getInt("b.id"), myRs.getString("b.benutzername"), myRs.getString("b.passwort"), myRs.getString("b.name"), myRs.getString("b.vorname"), myRs.getInt("b.personenHaushalt")), myRs.getInt("prio"), myRs.getString("i.timestamp")));
 			}
 			return result;
 		} catch (SQLException e) {

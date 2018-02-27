@@ -31,7 +31,7 @@
 	  	Date date = new Date();
 	   	String time = new Timestamp(date.getTime()).toString();
 	
-		if (Datenbank.speichereInteresse((b.getId()), Integer.parseInt(request.getParameter("id")), time))
+		if (Datenbank.speichereInteresse((b.getId()), Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("prio")), time))
 		{
 			out.print("Vielen Dank, ihr Interesse wurde efolgreich bekundet"); //ggf. noch mit Click-Dummy Text abgleichen
 		}

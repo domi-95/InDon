@@ -16,4 +16,8 @@ public class Benutzer {
 		return id;
 	}
 
+	public String getBenutzername() {
+		return benutzername;
+	}
+
 }

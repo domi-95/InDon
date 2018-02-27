@@ -26,25 +26,20 @@
 		
 		
 <%
-	//Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt"); //Mitarbeiter Objekt 
+	Benutzer b = (Benutzer) session.getAttribute("objekt"); //Mitarbeiter Objekt 
   	// Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle"); //Anlaufstellen Objekt
   	Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
   	List<Spende> liste = Datenbank.holeSpenden(a.getId());
-  	
   	//session.setAttribute("anlaufstelle", a);
   	
-
+  	%><h3><% out.print (a.getBezeichnunganlaufstelle()); %></h3>
   	
+  	<%
   	
-  	%><h3><% out.print (a.getBezeichnunganlaufstelle()); %></h3><%
- 	
   	
   	for(Spende s: liste){
-  	%><form  action ="<%out.print(session.getAttribute("weiterleitung")); %>" method = "post"><%
-  		%> 	
-
+  	%><form  action ="<%out.print(session.getAttribute("weiterleitung")); %>" method = "post"> 	
 	<img src="DisplayImageServlet?id=<%=s.getId()%>" />
-  
   
   	Spendennummer:<% out.print (s.getId()); %> <br/> <%
   	out.print (s.getBezeichnung_spende()); %> <br/> <%
@@ -68,17 +63,29 @@
   		
   	}
   	else {
-  		out.print ("Spende ist anonym");%> <br/> <%
-  	}%>
+  		out.print ("Spende ist anonym");%> <br/> 
+  	}
   	
-  	
-  	
+ <% 	
+  	if (b instanceof Beduerftiger){						//nur wenn man als Beduerftiger angemeldet ist
+  	  %>Wähle eine Priorität<select name = "prio">		
+  		<option value = "1">1   </option>
+  		<option value = "2">2   </option>
+  		<option value = "3">3   </option>
+  		</select>
+  	  <%
+  	}
+  %> 		
+	
   	 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>">		
   		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>">
   		
-  		  </form><%
+  	  </form><%
   }
+  	}
   	
-  	%>
+	%>
+	
+	
 </body>
 </html>

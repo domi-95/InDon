@@ -20,7 +20,7 @@
 	
 		if (Datenbank.speichereZuordnung(s.getId(), Integer.parseInt(request.getParameter("zuordnung"))))
 		{
-			out.print("Vielen Dank, für das zu ordnen der Spende " +s.getBezeichnung_spende()+" an den Beduerftigen mit der ID "+request.getParameter("zuordnung")+""); 
+			out.print("Vielen Dank, für das zuordnen der Spende " +s.getBezeichnung_spende()+" an den Beduerftigen mit der ID "+request.getParameter("zuordnung")+""); 
 		}
 		
 		else {

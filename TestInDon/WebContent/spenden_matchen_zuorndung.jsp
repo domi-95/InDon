@@ -30,7 +30,9 @@ session.setAttribute("spende", s);
   	Beschreibung: <%out.print (s.getBeschreibung());%> <br/> 
   	Zustand     : <%out.print (s.getZustand());%> <br/> 
   	
-  	<%   	
+  	<img src="DisplayImageServlet?id=<%=s.getId()%>" />
+  	<%   
+  	
    	if (s.getAbholung() != 0){
 		out.print ("Die Spende wird abgeholt");  %> <br/> <% 		
    	}
@@ -74,13 +76,13 @@ session.setAttribute("spende", s);
 		<%
 	
 		for(Interesse i : interesse) {
-			
+			Benutzer b = (Benutzer)i.getBeduerftiger();
 		%><tr><%	
 		%><td><input type = "radio" name = "zuordnung" value = "<%out.print (i.getBeduerftiger().getId());%>"></td><%
-		%><td><%out.print ("muss noch implementiert werden");	%></td><%
+		%><td><%out.print (b.getBenutzername());	%></td><%
 		%><td><%out.print (i.getBeduerftiger().getVorname());	%></td><%
 		%><td><%out.print (i.getBeduerftiger().getNachname());	%></td><%
-		%><td><%out.print ("muss noch implementiert werden");	%></td><%
+		%><td><%out.print (i.getPrio());	%></td><%
 		
 		%><td><%out.print (i.getBeduerftiger().getPersHaushalt());	%></td><%
 		%><td><%out.print ("muss noch implementiert werden");	%></td><%
