@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="style/indon.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -20,15 +21,16 @@
 Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
 Spende s = Datenbank.holeSpende(Integer.parseInt(request.getParameter("id")));
 session.setAttribute("spende", s);
+%>
 
+<h1><% out.print (a.getBezeichnunganlaufstelle()); %></h1>
 
-%><h1><% out.print (a.getBezeichnunganlaufstelle()); %></h1>
 <div class="don">
-  	
-  	Bezeichnung : <%out.print (s.getBezeichnung_spende()); %> <br/> 
+  	Bezeichnung : <% out.print(s.getBezeichnung_spende()); %> <br/> 
   	Beschreibung: <%out.print (s.getBeschreibung());%> <br/> 
-  	Zustand     : <%out.print (s.getZustand());%> <br/> <%
-   	
+  	Zustand     : <%out.print (s.getZustand());%> <br/> 
+  	
+  	<%   	
    	if (s.getAbholung() != 0){
 		out.print ("Die Spende wird abgeholt");  %> <br/> <% 		
    	}
@@ -49,10 +51,12 @@ session.setAttribute("spende", s);
   	
   	
   	List<Interesse>interesse = Datenbank.holeInteresse(s.getId());
-  	%></div>
+  	%>
+</div>	
   	
   	
 	  <table>
+	  <form action = "zuordnung_process.jsp" method = get>
 		<thead>
 		<tr>
 		<th>Zuordnung</th>
@@ -60,16 +64,14 @@ session.setAttribute("spende", s);
 		<th>Name</th>
 		<th>Vorname</th>
 		<th>Priorität</th>
-		<th>Zeitstempel</th>
+		
 		<th>Anzahl Personen im Haushalt</th>
 		<th>Anzahl der bereits erhaltenen Spenden</th>
+		<th>Zeitstempel</th>
 		</tr>
 		</thead>
+
 		<%
-		
-		
-	%><form action = "zuordnung_process.jsp" method = get>
-	<table><%
 	
 		for(Interesse i : interesse) {
 			
@@ -79,16 +81,21 @@ session.setAttribute("spende", s);
 		%><td><%out.print (i.getBeduerftiger().getVorname());	%></td><%
 		%><td><%out.print (i.getBeduerftiger().getNachname());	%></td><%
 		%><td><%out.print ("muss noch implementiert werden");	%></td><%
-		%><td><%out.print (i.getTimestamp());	%></td><%
+		
 		%><td><%out.print (i.getBeduerftiger().getPersHaushalt());	%></td><%
 		%><td><%out.print ("muss noch implementiert werden");	%></td><%
+		%><td><%out.print (i.getTimestamp());	%></td><%
 		%></tr><%
 		}
 		%> 
-		<input type = "submit" name = "ordne">
-	
+		
 	</table>
+	<br>
+	<center>
+	<input type="submit" name= "ordne" value="Daten absenden" class="btn-send" />
+	</center>
 	</form>
+	
 
 
 </body>

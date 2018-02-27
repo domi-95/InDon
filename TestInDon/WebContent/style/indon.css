@@ -163,7 +163,21 @@ form{
 	opacity: 0.95;
 }
 
+.btn-send{
+	color: #fff;
+	border-radius: 50px;
+	background-color: #ed842a;
+    border: 12px;
+    border-bottom: 4px solid  #E48028;
+	width: 20%;
+	text-align: center;
+	opacity: 0.95;
+	margin: auto;
+}
+
+
 h1{
+	margin-left: 10px;
 	font-family: sans-serif ;
 }
 
@@ -200,7 +214,7 @@ li a {
     display: block;
     color: #666;
     text-align: center;
-    padding: 14px 85px;
+    padding: 14px 88px;
     text-decoration: none;
 }
 
@@ -211,4 +225,25 @@ li a:hover {
 
 li:last-child {
     border: none;
+}
+
+
+table {
+	margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+	
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+	
+    background-color: #ED842A;
+    color: white;
 }
