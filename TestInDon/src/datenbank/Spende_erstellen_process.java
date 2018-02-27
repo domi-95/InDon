@@ -15,6 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import spende.Anlaufstelle;
+
+import javax.servlet.http.HttpSession;
+
 
 @WebServlet("/Spende_erstellen_process_neu")
 @MultipartConfig(maxFileSize = 1617721599)	// upload file's size up to 16MB
@@ -28,12 +32,15 @@ public class Spende_erstellen_process extends HttpServlet {
        
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlauf");
+		int anl_id = a.getId();
+		boolean tooBig = false;
 		// gets values of text fields
 				String bezeichnung = request.getParameter("bezeichnung");
 				String beschreibung = request.getParameter("beschreibung");
 				String zustand = request.getParameter("zustand");
 				String kategorie = request.getParameter("kategorie");
-				String menge = request.getParameter("menge");
 				String vorname = "";
 				String name = "";
 				String adresse = "";
@@ -45,13 +52,12 @@ public class Spende_erstellen_process extends HttpServlet {
 				int lieferung = 0;
 				int anonym = 0;
 				int plz = 0;
-				int kat_id=0;
-				int anl_id=0;
+				int menge = Integer.parseInt(request.getParameter("menge"));
+				int kat_id= Integer.parseInt(request.getParameter("kategorie"));
 				int bed_id=0;
 				int verfuegbar = 0;
 				
 				InputStream inputStream = null;	// input stream of the upload file
-				
 				
 				
 				if("on".equals(request.getParameter("anonym"))) {
@@ -99,7 +105,9 @@ public class Spende_erstellen_process extends HttpServlet {
 					System.out.println(filePart.getContentType());
 					
 					// obtains input stream of the upload file
+					
 					inputStream = filePart.getInputStream();
+			
 				}
 				
 				Connection conn = null;	// connection to the database
@@ -113,7 +121,7 @@ public class Spende_erstellen_process extends HttpServlet {
 					int count = 0;
 					
 					// constructs SQL statement
-					String sql = "INSERT INTO spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id, verfuegbar, beduerftiger_id, telefon) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					String sql = "INSERT INTO spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id, verfuegbar, beduerftiger_id, menge, email, telefon) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 					PreparedStatement statement = conn.prepareStatement(sql);
 					
 					if("".equals(beschreibung)) {
@@ -192,19 +200,21 @@ public class Spende_erstellen_process extends HttpServlet {
 					statement.setInt(15, kat_id);
 					statement.setInt(16, verfuegbar);
 					statement.setInt(17, bed_id);
-					statement.setString(18, telefon);
+					statement.setInt(18, menge);
+					statement.setString(19, mail);
+					statement.setString(20, telefon);
 					
-					System.out.println("Zähler: " +count);
+					
 					// sends the statement to the database server
-					
 					if(count==6) {
 					int row = statement.executeUpdate();
 					if (row > 0) {
 						message = "Vielen Dank, dass sie gespendet haben!";
 					}
-					}
+					
 					else {
 						message = "Bitte füllen Sie alle Pflichtfelder!";
+					}
 					}
 				} catch (SQLException ex) {
 					message = "ERROR: " + ex.getMessage();

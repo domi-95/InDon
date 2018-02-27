@@ -1,4 +1,5 @@
 package spende;
+import java.sql.Blob;
 import java.util.List;
 
 import datenbank.Datenbank;
@@ -11,7 +12,7 @@ public class Spende {
 	private String zustand;
 	private int abholung; //boolean
 	private int lieferung; //boolean
-	private String bild;
+	private Blob bild;
 	private String mhd;
 	private int anonym;	//boolean
 	private String name;
@@ -21,29 +22,13 @@ public class Spende {
 	private Anlaufstelle anlaufstelle;
 	private Kategorie kategorie;
 	
-
-	public Spende(int id, String bezeichnung_spende, String beschreibung, String zustand, int abholung, int lieferung,
-			String bild, String mhd, int anonym, String name, String vorname, String adresse, int plz) {
-		super();
-		this.id = id;
-		this.bezeichnung_spende = bezeichnung_spende;
-		this.beschreibung = beschreibung;
-		this.zustand = zustand;
-		this.abholung = abholung;
-		this.lieferung = lieferung;
-		this.bild = bild;
-		this.mhd = mhd;
-		this.anonym = anonym;
-		this.name = name;
-		this.vorname = vorname;
-		this.adresse = adresse;
-		this.plz = plz;
-	}
 	
+
+
 	
 
 	public Spende(int id, String bezeichnung_spende, String beschreibung, String zustand, int abholung, int lieferung,
-			String bild, String mhd, int anonym, String name, String vorname, String adresse, int plz,
+			Blob bild, String mhd, int anonym, String name, String vorname, String adresse, int plz,
 			Anlaufstelle anlaufstelle, Kategorie kategorie) {
 		super();
 		this.id = id;
@@ -62,6 +47,10 @@ public class Spende {
 		this.anlaufstelle = anlaufstelle;
 		this.kategorie = kategorie;
 	}
+
+
+
+	
 
 
 
@@ -117,13 +106,42 @@ public class Spende {
 		this.lieferung = lieferung;
 	}
 
-	public String getBild() {
+
+	public Blob getBild() {
 		return bild;
 	}
 
-	public void setBild(String bild) {
+
+
+	public void setBild(Blob bild) {
 		this.bild = bild;
 	}
+
+
+
+	public Anlaufstelle getAnlaufstelle() {
+		return anlaufstelle;
+	}
+
+
+
+	public void setAnlaufstelle(Anlaufstelle anlaufstelle) {
+		this.anlaufstelle = anlaufstelle;
+	}
+
+
+
+	public Kategorie getKategorie() {
+		return kategorie;
+	}
+
+
+
+	public void setKategorie(Kategorie kategorie) {
+		this.kategorie = kategorie;
+	}
+
+
 
 	public String getMhd() {
 		return mhd;
