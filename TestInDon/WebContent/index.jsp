@@ -11,7 +11,7 @@
 	<jsp:include page="Header.jsp"></jsp:include>
 	
 	<h1>Willkommen bei InDon</h1>
-<jsp:include page="spende_erstellen.jsp"></jsp:include>
+<jsp:include page="Anlauf.jsp"></jsp:include>
 <!--  <a href="login.jsp"WebContent/WEB-INF/index.jsp>login</a> -->
 	
 <a href="login.jsp">login</a>|  

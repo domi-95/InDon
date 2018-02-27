@@ -25,20 +25,9 @@
 	<form id="regForm" method="post" action="Spende_erstellen_process_neu" enctype="multipart/form-data">
 	
 			
-			<select name="anlauf" onchange="submit()">
-				<option value="all" selected>Wählen Sie eine Anlaufstelle</option>
-				<%
-					ResultSet myRs = Datenbank.holAnlaufstelle();
-					while (myRs.next()) {
-				%>
-				<option value="<%=myRs.getString("id")%>"><%=myRs.getString("bezeichnung")%>
-				</option>
-				<%
-					}
-				%>
-			</select><br /><br />
-			<% String anlauf = request.getParameter("anlauf");
-			out.println(anlauf);%>
+
+	
+	</form>
 
 			Bezeichnung*: <input type="text" name="bezeichnung" /> <br />
 			Beschreibung*: <input type="text" name="beschreibung" /> <br />
