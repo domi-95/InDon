@@ -9,9 +9,7 @@ body{
     overflow: hidden;  
 }
 
-.navma{
-	margin-top: 60px;
-}
+
 
 .nav {
 	min-height: 60px;
@@ -126,6 +124,18 @@ input{
 
 }
 
+.don{
+	margin: auto;
+	margin-top: 50px;
+	width: 300px;
+    border: 1px solid #ED842A;
+    padding: 10px;
+    background: #ffffff;
+    text-align: left;
+    border-radius: 15px;
+
+}
+
 form{
 	margin: auto;
 	padding: 0% 20% 10% 20%;
@@ -190,7 +200,7 @@ li a {
     display: block;
     color: #666;
     text-align: center;
-    padding: 14px 89.6px;
+    padding: 14px 85px;
     text-decoration: none;
 }
 

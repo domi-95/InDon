@@ -12,7 +12,6 @@
  
 
 
-<div class="navMA">
  <ul>
   <li><a href="#Unternehmensbeiträge">Unternehmensbeiträge</a></li>
   <li><a href="#Hilfsbedanlegen">Hilfsbedürftigen anlegen</a></li>
@@ -21,6 +20,6 @@
   <li><a href="#Sanfordern">Spenden anfordern</a></li>
   <li><a href="#Sstopp">Spenden Stoppen</a></li>
 </ul> 
-</div>
+
 </body>
 </html>
