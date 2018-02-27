@@ -29,29 +29,41 @@
 			<%
 			
 			
+			boolean lebensmittel = false;
 			
 			
-			
+			Anlaufstelle a = Datenbank.holAnlaufstelle(Integer.parseInt(request.getParameter("anlauf")));
 			%>
+			
+			<h1><%out.print(a.getBezeichnunganlaufstelle()); %></h1><br />
 
-
-			Bezeichnung*: <input type="text" name="bezeichnung" /> <br />
-			Beschreibung*: <input type="text" name="beschreibung" /> <br />
-			Zustand*: <input type="text" name="zustand" /> <br />
+			Bezeichnung*: <input type="text" name="bezeichnung" /> <br /><br />
+			Beschreibung*: <input type="text" name="beschreibung" /> <br /><br />
+			Zustand*: <input type="text" name="zustand" /> <br /><br />
 			Kategorie*: <select name="kategorie">
+			<option value="all" selected>W‰hlen Sie eine Kategorie</option>
 				<%
 					if (request.getParameter("anlauf") != null) {
-						Anlaufstelle a = Datenbank.holAnlaufstelle(Integer.parseInt(request.getParameter("anlauf")));
+						session.setAttribute("anlauf", a);
+						
 						List<Kategorie> kategorie = a.getKategorien();
 						for (Kategorie k : kategorie) {
+							if(k.getId() == 1){
+								lebensmittel = true;
+							}
 				%>
-				<option value = "<%=k.getId()%>">"<%=k.getBezeichnung()%></option>
+				<option value = "<%=k.getId()%>"><%=k.getBezeichnung()%> <%if(k.isStark_gefragt()){out.print("(stark gefragt)");}%></option>
 				<%
 					}
 					}
 				%>
 
-			</select> <br /> Menge: <input type="text" name="menge" /> <br /> <br />
+			</select> <br /><br />
+			<% if(lebensmittel){ %>
+			MHD*: <input type="text" name="mhd" /> <br />
+			<%} %>
+			<br /> 
+			Menge: <input type="text" name="menge" /> <br /> <br />
 			
 			Lieferung*:<br/>
 			<input type="radio" name="lieferungabholung" id="lieferung" value="1" checked >
@@ -63,21 +75,21 @@
 			
 			Bild: <input type="file" name="photo" size="50"/>
 			
-			Name*: <input type="text" name="name" /> <br />
-			Vorname*: <input type="text" name="vorname" /> <br />
+			Name*: <input type="text" name="name" /> <br /><br />
+			Vorname*: <input type="text" name="vorname" /> <br /><br />
 			
 			<div class="lieferung">
-				E-Mail*: <input type="text" name="mail" /> <br />
-				Telefon: <input type="text" name="telefon" /> <br />
+				E-Mail*: <input type="text" name="mail" /> <br /><br />
+				Telefon: <input type="text" name="telefon" /> <br /><br />
 				
 			
 			</div>
 			
 			<div class="abholung">
-				Straﬂe, Hausnummer*: <input type="text" name="adresse" /> <br />
-				Ort*: <input type="text" name="ort" /> <br />
-				PLZ*: <input type="text" name="plz" /> <br />
-				Land*: <input type="text" name="land" /> <br />
+				Straﬂe, Hausnummer*: <input type="text" name="adresse" /> <br /><br />
+				Ort*: <input type="text" name="ort" /> <br /><br />
+				PLZ*: <input type="text" name="plz" /> <br /><br />
+				Land*: <input type="text" name="land" /> <br /><br />
 			</div>
 			Anonym:
 			<input type="checkbox" name="anonym"> 
