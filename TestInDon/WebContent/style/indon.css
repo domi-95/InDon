@@ -124,22 +124,39 @@ input{
 
 }
 
-div.mid{
-	margin: center;
+.mid2{
+	width: 90%;
+	display: table;
+	margin: auto;
+	//background-color: green;
+}
+.mid{
+	position: absolute;
+	//background-color: black;
+	margin: auto;
+	
 }
 
 div.polaroid {
   float: left;
-  margin-left:20px;
+  //margin-left:20px;
   width: 20%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
+  
+ // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ // margin-bottom: 25px;
+}
+
+.spendan{
+	margin: 20px;
+	padding: 0;
+	//width: 100%;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 div.container {
   text-align: left;
-  padding: none;
+  padding: 5% 10% 10% 10%;
 }
 
 .don{
