@@ -24,6 +24,7 @@
 	<%@page import="java.sql.*"%>
 	<%@page import="java.util.*"%>
 	<fieldset>
+	<div class="createDon">
 	<form id="regForm" method="post" action="Spende_erstellen_process" enctype="multipart/form-data">
 	
 			<%
@@ -36,11 +37,11 @@
 			%>
 			
 			<h1><%out.print(a.getBezeichnunganlaufstelle()); %></h1><br />
-
-			Bezeichnung*: <input type="text" name="bezeichnung" /> <br /><br />
-			Beschreibung*: <input type="text" name="beschreibung" /> <br /><br />
-			Zustand*: <input type="text" name="zustand" /> <br /><br />
-			Kategorie*: <select name="kategorie">
+			
+			<input type="text" name="bezeichnung"  placeholder ="Bezeichnung*" class="boxspende"/> <br /><br />
+			<input type="text" name="beschreibung" placeholder ="Beschreibung*" class="boxspende" /> <br /><br />
+			<input type="text" name="zustand" placeholder ="Zustand*" class="boxspende"/> <br /><br />
+			<select name="kategorie" placeholder ="Kategorie*" class="boxspende">
 			<option value="all" selected>W‰hlen Sie eine Kategorie</option>
 				<%
 					if (request.getParameter("anlauf") != null) {
@@ -60,43 +61,44 @@
 
 			</select> <br /><br />
 			<% if(lebensmittel){ %>
-			MHD*: <input type="text" name="mhd" /> <br />
+			<input type="text" name="mhd" placeholder ="MHD*" class="boxspende"/> <br />
 			<%} %>
 			<br /> 
-			Menge: <input type="text" name="menge" /> <br /> <br />
+			<input type="text" name="menge" placeholder ="Menge*" class="boxspende"/> <br /> <br />
 			
-			Lieferung*:<br/>
-			<input type="radio" name="lieferungabholung" id="lieferung" value="1" checked >
+			<h4>Lieferung*:</h4>
+			<input type="radio" name="lieferungabholung" id="lieferung" value="1" checked class="radiocheck" ><br/><br/>
 			
 			
-			Abholung*:<br/>
-			<input type="radio" name="lieferungabholung" id="abholung" value="2">
+			<h4>Abholung*:</h4>
+			<input type="radio" name="lieferungabholung" id="abholung" value="2" class="radiocheck"><br/>
 			 <br /> 
 			
-			Bild: <input type="file" name="photo" size="50"/>
+			<h4>Bild:</h4> <input type="file" name="photo" size="50"/><br/><br/>
 			
-			Name*: <input type="text" name="name" /> <br /><br />
-			Vorname*: <input type="text" name="vorname" /> <br /><br />
+			<input type="text" name="name" placeholder ="Name*" class="boxspende"/> <br /><br />
+			<input type="text" name="vorname" placeholder ="Vorname*" class="boxspende"/> <br /><br />
 			
 			<div class="lieferung">
-				E-Mail*: <input type="text" name="mail" /> <br /><br />
-				Telefon: <input type="text" name="telefon" /> <br /><br />
+			<input type="text" name="mail" placeholder ="E-Mail*" class="boxspende"/> <br /><br />
+			<input type="text" name="telefon" placeholder ="Telefon*" class="boxspende"/> <br /><br />
 				
 			
 			</div>
 			
-			<div class="abholung">
-				Straﬂe, Hausnummer*: <input type="text" name="adresse" /> <br /><br />
-				Ort*: <input type="text" name="ort" /> <br /><br />
-				PLZ*: <input type="text" name="plz" /> <br /><br />
-				Land*: <input type="text" name="land" /> <br /><br />
+			<div class="abholung" class="radiocheck">
+				<input type="text" name="adresse" placeholder ="Straﬂe, Hausnummer*" class="boxspende"/> <br /><br />
+				<input type="text" name="ort" placeholder ="Ort*" class="boxspende"/> <br /><br />
+				<input type="text" name="plz" placeholder ="PLZ*" class="boxspende"/> <br /><br />
+				<input type="text" name="land" placeholder ="Land*" class="boxspende"/> <br /><br />
 			</div>
-			Anonym:
-			<input type="checkbox" name="anonym"> 
+			<h4>Anonym:</h4>
+			<input type="checkbox" name="anonym" class="radiocheck"> 
 			<br/>
 			<br/>
-			<input type="submit" value="Spendenangebot senden"/>
+			<center><input type="submit" value="Spendenangebot senden" class="btn-send"/></center>
 			</form>
+			</div>
 	</fieldset>
 
 

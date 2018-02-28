@@ -183,6 +183,7 @@ div.container {
 
 }
 
+<<<<<<< HEAD
 .donImg{
 	width: 20%;
 	border: 1px solid;
@@ -192,6 +193,8 @@ div.container {
 	border-radius: 15px;
 }
 
+=======
+>>>>>>> branch 'NewMaster' of https://github.com/domi-95/InDon.git
 .createDon{
 	margin: auto;
 	margin-top: 50px;
@@ -269,6 +272,10 @@ h3{
 	font-family: sans-serif ;
 	color: white;
 	text-shadow: 2px 2px #4B4B4B;
+}
+
+h4{
+	font-family: sans-serif ;
 }
 
 h4{
