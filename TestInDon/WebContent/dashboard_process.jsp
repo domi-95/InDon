@@ -21,7 +21,7 @@
 		
 		if (b instanceof Mitarbeiter ){
 			Datenbank.setSpendeNV(Integer.parseInt(request.getParameter("id")));
-			out.print ("Vielen Dank, die Spende wurde für die Rettungsorganisation angefordert..");
+			out.print ("Vielen Dank, die Spende mit der ID "+request.getParameter("id")+" wurde für die Rettungsorganisation angefordert..");
 		}
 		
 		else {

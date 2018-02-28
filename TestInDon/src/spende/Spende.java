@@ -1,6 +1,7 @@
 package spende;
 import java.sql.Blob;
 import java.util.List;
+import benutzer.*;
 
 import datenbank.Datenbank;
 
@@ -21,6 +22,7 @@ public class Spende {
 	private int plz;
 	private Anlaufstelle anlaufstelle;
 	private Kategorie kategorie;
+	//private Beduerftiger b; nach der Zuordnung muss man es doch irgendwo sehen??
 	
 
 

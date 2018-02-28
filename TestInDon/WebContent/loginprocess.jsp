@@ -28,7 +28,7 @@
 	session.setAttribute("objekt", b);
 	
 	if (b instanceof Mitarbeiter){
-		response.sendRedirect("Anlaufstelle Dashboard.jsp");
+		response.sendRedirect("anlaufstelle_dashboard.jsp");
 		
 	}
 	
