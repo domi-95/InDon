@@ -40,10 +40,12 @@
   	
   	for(Spende s: liste){
   	%>
-  	<div class="paul">	
+  	<div class="mid">
+  	<div class="polaroid">	
   	<form  action ="<%out.print(session.getAttribute("weiterleitung")); %>" method = "post"> 
   		
-	<img src="DisplayImageServlet?id=<%=s.getId()%>" height="200" width="200"/><br/>
+	<img src="DisplayImageServlet?id=<%=s.getId()%>" height="200" width="100%"/>
+	<div class="container">
   	Spendennummer:<% out.print (s.getId()); %> <br/> <%
   	out.print (s.getBezeichnung_spende()); %> <br/> <%
    	out.print (s.getBeschreibung());%> <br/> <%
@@ -66,7 +68,7 @@
   		
   	}
   	else {
-  		out.print ("Spende ist anonym");
+  		out.print ("Spende ist anonym");%> <br/> <%
   		}%> <br/> 
   	
   	
@@ -85,8 +87,10 @@
   	 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>">		
   		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>">
   		
-  	
+  	</div>
   	</form>
+  	
+  	</div>
   	</div>
   		<%
   		

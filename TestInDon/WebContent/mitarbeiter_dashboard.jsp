@@ -20,7 +20,7 @@
 <jsp:include page="header_eingeloggt.jsp"></jsp:include>
 <jsp:include page="navigationMA.jsp"></jsp:include>
 
-
+<h2>Sie sind im Mitarbeiter Dashboard</h2>
 <% session.setAttribute("inhalt", "Für Rettungsorganisation einnehmen");
    session.setAttribute("weiterleitung", "dashboard_process.jsp");%>
 <jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include> 
@@ -74,6 +74,6 @@
   
 
 
-<h2>Sie sind im Mitarbeiter Dashboard</h2>
+
 </body>
 </html>
