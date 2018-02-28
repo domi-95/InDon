@@ -178,7 +178,12 @@ div.container {
   position: relative;
 }
 
+.spendtext{
+	height: 150px;
+}
+
 .interesseb{
+	height: 20%;
 	margin: auto;
 	position: absolute;
 	bottom: 0px;

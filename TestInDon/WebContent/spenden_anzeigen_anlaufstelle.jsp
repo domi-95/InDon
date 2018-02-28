@@ -45,7 +45,7 @@
   		
 	<img src="DisplayImageServlet?id=<%=s.getId()%>" height="200" width="100%"/>
 	<div class="container">
-	<div class="spendtext">
+		<div class="spendtext">
   	Spendennummer: <% out.print (s.getId()); %> <br/> 
   	Bezeichnung: <% out.print (s.getBezeichnung_spende()); %> <br/> 
    	Beschreibung: <% out.print (s.getBeschreibung());%> <br/> 
@@ -82,9 +82,10 @@
   		</select>
   	  <%
   	}
-  %> </div>	
-	<center class="interesseb">
-  	 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>" >	</center>
+  %> 
+ </div>
+
+  	 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>" >
   		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>">
   		
   	</div>
