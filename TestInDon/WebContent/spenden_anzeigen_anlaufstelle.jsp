@@ -45,10 +45,11 @@
   		
 	<img src="DisplayImageServlet?id=<%=s.getId()%>" height="200" width="100%"/>
 	<div class="container">
-  	Spendennummer:<% out.print (s.getId()); %> <br/> <%
-  	out.print (s.getBezeichnung_spende()); %> <br/> <%
-   	out.print (s.getBeschreibung());%> <br/> <%
-   	out.print (s.getZustand());%> <br/> <%
+	<div class="spendtext">
+  	Spendennummer: <% out.print (s.getId()); %> <br/> 
+  	Bezeichnung: <% out.print (s.getBezeichnung_spende()); %> <br/> 
+   	Beschreibung: <% out.print (s.getBeschreibung());%> <br/> 
+   	Zustand: <%out.print (s.getZustand());%> <br/> <%
    	
    	
    	
@@ -63,11 +64,11 @@
   	// out.print (s.getMhd()); //Ausgabe erst bei Kategorie Lebensmittel muss noch implementiert werden
 
   	if (s.getAnonym() != 1){
-  		out.print(s.getVorname() + " " + s.getName());%> <br/> <%
+  		%>Spender: <%out.print(s.getVorname() + " " + s.getName());%> <br/> <%
   		
   	}
   	else {
-  		out.print ("Spende ist anonym");%> <br/> <%
+  		%> Spender: <%out.print ("anonym");%> <br/> <%
   		}%> <br/> 
   	
   	
@@ -81,9 +82,9 @@
   		</select>
   	  <%
   	}
-  %> 		
-	
-  	 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>">		
+  %> </div>	
+	<center class="interesseb">
+  	 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>" >	</center>
   		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>">
   		
   	</div>

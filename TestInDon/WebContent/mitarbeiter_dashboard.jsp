@@ -14,8 +14,11 @@
 <%@page import="spende.*"%>  
 <%@page import="java.util.*"%>  
 <%@page import="datenbank.Datenbank"%>
-<%	Anlaufstelle a = Datenbank.holAnlaufstelle(Integer.parseInt(request.getParameter("anlaufstelle")));
+<%	
+	if(request.getParameter("anlaufstelle") != null){
+	Anlaufstelle a = Datenbank.holAnlaufstelle(Integer.parseInt(request.getParameter("anlaufstelle")));
 	session.setAttribute("anlaufstelle", a);
+	}
 %>
 <jsp:include page="header_eingeloggt.jsp"></jsp:include>
 <jsp:include page="navigationMA.jsp"></jsp:include>

@@ -31,21 +31,21 @@
                     <div class= "nav">
 	                    <div class="elements">
 	                    		<a class="buser" href=""><%
-Benutzer b = (Benutzer)session.getAttribute("objekt");%>
-<%
-if (b instanceof Mitarbeiter){
-	
-	Mitarbeiter m =(Mitarbeiter)b;
-	%><%out.print(m.getName()+" "+m.getVorname()); %><%
-
-}
-%>
-<% if (b instanceof Beduerftiger){
-	Beduerftiger bed =(Beduerftiger)b;
-	%><%out.print(bed.getNachname()+" "+bed.getVorname()); %><%
-}
-%></a>
-	                    		<a class="bclogin" href="index.jsp">Logout</a>
+								Benutzer b = (Benutzer)session.getAttribute("objekt");%>
+								<%
+								if (b instanceof Mitarbeiter){
+									
+									Mitarbeiter m =(Mitarbeiter)b;
+									%><%out.print(m.getName()+" "+m.getVorname()); %><%
+								
+								}
+								%>
+								<% if (b instanceof Beduerftiger){
+									Beduerftiger bed =(Beduerftiger)b;
+									%><%out.print(bed.getNachname()+" "+bed.getVorname()); %><%
+								}
+								%></a>
+	                    		<a class="logout" href="index.jsp">Logout</a>
                     		</div>
                     </div>
                     <!-- End main navigation -->  
