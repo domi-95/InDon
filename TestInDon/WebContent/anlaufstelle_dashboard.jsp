@@ -21,8 +21,8 @@
 <div class="login">
 <form method="post" action="mitarbeiter_dashboard.jsp" onchange="submit()">
 
-	<br />
-	<br />
+	<h1>Willkommen bei InDon</h1>
+	
 	<select name= anlaufstelle class="boxspende">
 				<option  selected>Wählen Sie eine Anlaufstelle </option>
 				<%
