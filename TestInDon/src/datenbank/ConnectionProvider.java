@@ -4,8 +4,11 @@ import static datenbank.Provider.*;
 
 import java.sql.*;
 
-public class ConnectionProvider {
+public class ConnectionProvider{
 	private static Connection con = null;
+	String connection_url = CONNECTION_URL;
+	String username = USERNAME;
+	String password = PASSWORD;
 	static {
 		try {
 			Class.forName(DRIVER);

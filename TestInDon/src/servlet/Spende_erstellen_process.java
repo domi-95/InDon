@@ -1,4 +1,4 @@
-package datenbank;
+package servlet;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +20,7 @@ import spende.Anlaufstelle;
 import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/Spende_erstellen_process_neu")
+@WebServlet("/Spende_erstellen_process")
 @MultipartConfig(maxFileSize = 1617721599)	// upload file's size up to 16MB
 public class Spende_erstellen_process extends HttpServlet {
 	//private static final long serialVersionUID = 1L;
@@ -34,13 +34,11 @@ public class Spende_erstellen_process extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlauf");
-		int anl_id = a.getId();
-		boolean tooBig = false;
+
 		// gets values of text fields
 				String bezeichnung = request.getParameter("bezeichnung");
 				String beschreibung = request.getParameter("beschreibung");
 				String zustand = request.getParameter("zustand");
-				String kategorie = request.getParameter("kategorie");
 				String vorname = "";
 				String name = "";
 				String adresse = "";
@@ -56,6 +54,8 @@ public class Spende_erstellen_process extends HttpServlet {
 				int kat_id= Integer.parseInt(request.getParameter("kategorie"));
 				int bed_id=0;
 				int verfuegbar = 0;
+				int anl_id = a.getId();
+				
 				
 				InputStream inputStream = null;	// input stream of the upload file
 				
@@ -184,7 +184,7 @@ public class Spende_erstellen_process extends HttpServlet {
 					if("1".equals(request.getParameter("lieferungabholung"))){
 						count++;
 					}
-					System.out.println("Abholung: " + abholung);
+					
 					if("2".equals(request.getParameter("lieferungabholung"))){
 						if("".equals(adresse)|| plz==0 || "".equals(ort)) {
 							
@@ -196,7 +196,9 @@ public class Spende_erstellen_process extends HttpServlet {
 					statement.setString(11, adresse);
 					statement.setInt(12, plz);
 					statement.setString(13, ort);
+					if(anl_id != 0) {
 					statement.setInt(14, anl_id);
+					}
 					statement.setInt(15, kat_id);
 					statement.setInt(16, verfuegbar);
 					statement.setInt(17, bed_id);

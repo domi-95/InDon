@@ -24,7 +24,7 @@
 	<%@page import="java.sql.*"%>
 	<%@page import="java.util.*"%>
 	<fieldset>
-	<form id="regForm" method="post" action="Spende_erstellen_process_neu" enctype="multipart/form-data">
+	<form id="regForm" method="post" action="Spende_erstellen_process" enctype="multipart/form-data">
 	
 			<%
 			
