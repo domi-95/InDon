@@ -51,6 +51,5 @@ public class Beduerftiger extends Benutzer {
 	public void setAnlaufstelle(Anlaufstelle anlaufstelle) {
 		this.anlaufstelle = anlaufstelle;
 	}
-	
 
 }

@@ -20,4 +20,9 @@ public class Benutzer {
 		return benutzername;
 	}
 
+	public String getPasswort() {
+		return passwort;
+	}
+	
+	
 }

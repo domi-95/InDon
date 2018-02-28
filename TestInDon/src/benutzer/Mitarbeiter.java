@@ -12,11 +12,6 @@ public class Mitarbeiter extends Rettungsorganisation {
 		this.vorname = vorname;
 	}
 
-	@Override
-	public String toString() {
-		return super.toString() + "Mitarbeiter [name=" + name + ", vorname=" + vorname + "]";
-	}
-
 	public int holeId_ret() {
 		return super.getId_ret();
 	}
