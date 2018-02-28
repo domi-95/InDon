@@ -21,7 +21,7 @@
 <jsp:include page="navigationMA.jsp"></jsp:include>
 
 
-<% session.setAttribute("inhalt", "Spende für Rettungsorganisation / Anlaufstelle einnehmen");
+<% session.setAttribute("inhalt", "Für Rettungsorganisation einnehmen");
    session.setAttribute("weiterleitung", "dashboard_process.jsp");%>
 <jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include> 
   
