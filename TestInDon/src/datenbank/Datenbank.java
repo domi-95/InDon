@@ -27,10 +27,13 @@ public class Datenbank {
 //		Datenbank.hol
 		
 		//Datenbank.holeSpende(2);
-		Spende s =Datenbank.holeSpende(27);
-		System.out.println(s.getBild().length);
+		//Spende s =Datenbank.holeSpende(27);
+		//System.out.println(s.getBild().length);
 		//System.out.println(s.getBild());
 		//System.out.println(Datenbank.holeSpendeBild(2));
+		
+		boolean b =Datenbank.speichereZuordnung(3, 1);
+		System.out.println(b);
 		
 	}
 	
@@ -184,21 +187,21 @@ public class Datenbank {
 		}
 		return null;
 	}
-	
-	public static byte[] holeSpendeBild (int spenden_id) {
-		Connection con = ConnectionProvider.getCon();
-		try {
-			Statement myst = con.createStatement();
-			ResultSet myRs = myst.executeQuery("SELECT bild from spende where id = '"+spenden_id+"'");
-				if (myRs.next()) {
-					return myRs.getBytes("bild");
-				}
-			} catch (SQLException e) {
-			System.out.println("FEHLER beim holen der Spende");
-			e.printStackTrace();
-		}
-		return null;
-	}
+//	
+//	public static byte[] holeSpendeBild (int spenden_id) {
+//		Connection con = ConnectionProvider.getCon();
+//		try {
+//			Statement myst = con.createStatement();
+//			ResultSet myRs = myst.executeQuery("SELECT bild from spende where id = '"+spenden_id+"'");
+//				if (myRs.next()) {
+//					return myRs.getBytes("bild");
+//				}
+//			} catch (SQLException e) {
+//			System.out.println("FEHLER beim holen der Spende");
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
 	
 //	public static void speichereSpendeTest (String bezeichnung) {
 //		try{
@@ -320,7 +323,7 @@ public class Datenbank {
 	public static boolean speichereZuordnung (int s_id, int bd_id ) {
 		try{
 			 Connection con = ConnectionProvider.getCon();
-			 String sql ="UPDATE spende SET beduerftiger_id = '"+bd_id+"' WHERE id = '"+s_id+"'";
+			 String sql ="UPDATE spende SET beduerftiger_id = '"+bd_id+ "', verfuegbar = '1' WHERE id = '"+s_id+"'";
 			Statement st = con.createStatement();
 				st.executeUpdate(sql);
 				}
