@@ -82,7 +82,7 @@
   		</select>
   	  <%
   	}
-  %> 
+  %>  <br/>  <br/> 
  </div>
 
   	 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>" >

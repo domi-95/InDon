@@ -10,14 +10,14 @@
 
 <%@page import="benutzer.*"%>  
 <jsp:include page="header_eingeloggt.jsp"></jsp:include>
-<div class=login><h4>Sie sind im Beduerftigen Dashboard</h4>
+
 <%
  Benutzer b = (Benutzer)session.getAttribute("objekt");
 
  Beduerftiger bd = (Beduerftiger)b;
  %>
 
- </div><% 
+<% 
 //out.print (bd);
  
 	 session.setAttribute("inhalt", "Interesse bekunden");
