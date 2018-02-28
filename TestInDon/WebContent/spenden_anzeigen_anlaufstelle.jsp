@@ -33,13 +33,12 @@
   	//session.setAttribute("anlaufstelle", a);
   	
   	%><h3><% out.print (a.getBezeichnunganlaufstelle()); %></h3>
-  	
   	<%
   	
   	
   	for(Spende s: liste){
   	%><form  action ="<%out.print(session.getAttribute("weiterleitung")); %>" method = "post"> 	
-	<img src="DisplayImageServlet?id=<%=s.getId()%>" height="42" width="42" />
+	<img src="DisplayImageServlet?id=<%=s.getId()%>" />
   
   	Spendennummer:<% out.print (s.getId()); %> <br/> <%
   	out.print (s.getBezeichnung_spende()); %> <br/> <%
@@ -78,13 +77,13 @@
   %> 		
 	
   	 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>">		
-  		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>">
-  		
-  	  </form><%
-  }
+  		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>"><%
+  		}
   	}
+	%></form>
   	
-	%>
+  	
+
 	
 	
 </body>
