@@ -1,4 +1,4 @@
-package spende;
+package servlet;
 
 import java.io.IOException;
 import java.sql.Connection;
