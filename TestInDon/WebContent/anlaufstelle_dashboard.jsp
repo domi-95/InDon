@@ -23,8 +23,8 @@
 
 	<br />
 	<br />
-	<select name= anlaufstelle >
-				<option  selected>Wählen Sie eine Anlaufstelle</option>
+	<select name= anlaufstelle class="boxspende">
+				<option  selected>Wählen Sie eine Anlaufstelle </option>
 				<%
 					Mitarbeiter m = (Mitarbeiter)session.getAttribute("objekt");
 					

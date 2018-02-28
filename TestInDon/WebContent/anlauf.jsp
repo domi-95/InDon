@@ -13,7 +13,7 @@
 	<%@page import="java.util.*"%>
 
 <form method="GET" action="spende_erstellen.jsp">
-	<select name="anlauf" onchange="submit()">
+	<select name="anlauf" onchange="submit()" class="boxspende">
 				<option value="all" selected>Wählen Sie eine Anlaufstelle</option>
 				<%
 				LinkedList<Anlaufstelle> anlaufstellen =(LinkedList<Anlaufstelle>) Datenbank.holeAnlaufstelle();
