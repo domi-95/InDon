@@ -123,6 +123,18 @@ input{
     border-radius: 15px;
 
 }
+.paul{
+	margin: auto;
+	margin-top: 50px;
+	width: 400px;
+    border: 1px solid #ED842A;
+    padding: 10px;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 15px;
+
+}
+
 
 .don{
 	margin: auto;
