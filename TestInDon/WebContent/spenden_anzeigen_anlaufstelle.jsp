@@ -33,7 +33,6 @@
   	//session.setAttribute("anlaufstelle", a);
   	
   	%><h3><% out.print (a.getBezeichnunganlaufstelle()); %></h3>
-  	
   	<%
   	
   	
@@ -78,13 +77,13 @@
   %> 		
 	
   	 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>">		
-  		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>">
-  		
-  	  </form><%
-  }
+  		<input type = "hidden" name = "id" value = "<%out.print(s.getId());%>"><%
+  		}
   	}
+	%></form>
   	
-	%>
+  	
+
 	
 	
 </body>

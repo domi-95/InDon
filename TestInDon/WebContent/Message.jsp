@@ -4,12 +4,14 @@
 	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="style/indon.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Message</title>
 </head>
 <body>
+<jsp:include page="Header.jsp"></jsp:include>
 	<center>
-		<h3><%=request.getAttribute("Message")%></h3>
+		<div class="login"><h3><%=request.getAttribute("Message")%></h3></div>	
 	</center>
 </body>
 </html>
