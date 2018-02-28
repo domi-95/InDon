@@ -124,6 +124,7 @@ input{
 
 }
 
+
 .mid2{
 	width: 90%;
 	display: table;
@@ -134,16 +135,12 @@ input{
 	position: absolute;
 	//background-color: black;
 	margin: auto;
-	
-}
+}	
 
-div.polaroid {
-  float: left;
-  //margin-left:20px;
-  width: 20%;
-  
- // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
- // margin-bottom: 25px;
+
+div.polaroid{
+	float: left;
+	width: 20%;
 }
 
 .spendan{

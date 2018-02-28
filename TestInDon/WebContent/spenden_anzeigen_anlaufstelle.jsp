@@ -34,15 +34,14 @@
   	
   	%><h3><% out.print (a.getBezeichnunganlaufstelle()); %></h3>
   	
-  
+  	<div class="mid">
+  	<div class="mid2">
   	<%
-  	
-  	
   	for(Spende s: liste){
   	%>
-  	<div class="mid">
+  	
   	<div class="polaroid">	
-  	<form  action ="<%out.print(session.getAttribute("weiterleitung")); %>" method = "post"> 
+  	<form  action ="<%out.print(session.getAttribute("weiterleitung")); %>" method = "post" class="spendan"> 
   		
 	<img src="DisplayImageServlet?id=<%=s.getId()%>" height="200" width="100%"/>
 	<div class="container">
@@ -91,11 +90,13 @@
   	</form>
   	
   	</div>
-  	</div>
+  	
   		<%
   		
   	}
 	%>
+	</div>
+	</div>
   	
   	
 
