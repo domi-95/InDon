@@ -46,33 +46,37 @@
 	<img src="DisplayImageServlet?id=<%=s.getId()%>" height="200" width="100%"/>
 	<div class="container">
 		<div class="spendtext">
-  	Spendennummer: <% out.print (s.getId()); %> <br/> 
-  	Bezeichnung: <% out.print (s.getBezeichnung_spende()); %> <br/> 
-   	Beschreibung: <% out.print (s.getBeschreibung());%> <br/> 
-   	Zustand: <%out.print (s.getZustand());%> <br/> <%
+	<table>
+	<tr>
+  	<td>SpendenNr:</td> <td><% out.print (s.getId()); %><td/></tr>  
+  	<tr><td>Bezeichnung:</td> <td><% out.print (s.getBezeichnung_spende()); %></td></tr> 
+   	<tr><td>Beschreibung:</td> <td><% out.print (s.getBeschreibung());%></td>  </tr>
+   	<tr><td>Zustand:</td> <td><%out.print (s.getZustand());%></td></tr>  
+   	
+   	<tr><td><%
    	
    	
    	
    	if (s.getAbholung() != 0){
-		out.print ("Die Spende wird abgeholt");  %> <br/> <% 		
+		out.print ("Die Spende wird abgeholt");  %> </td></tr><tr><td> <% 		
    	}
    	
   	if (s.getLieferung() != 0){
-		out.print ("Die Spende wird geliefert");   	%> <br/> <%	
+		out.print ("Die Spende wird geliefert");   	%> </td></tr><tr><td> <%	
    	}
   	
   	// out.print (s.getMhd()); //Ausgabe erst bei Kategorie Lebensmittel muss noch implementiert werden
 
   	if (s.getAnonym() != 1){
-  		%>Spender: <%out.print(s.getVorname() + " " + s.getName());%> <br/> <%
+  		%>Spender: </td><td><%out.print(s.getVorname() + " " + s.getName());%> </td></tr><tr><td> <%
   		
   	}
   	else {
-  		%> Spender: <%out.print ("anonym");%> <br/> <%
+  		%> Spender: </td><td> <%out.print ("anonym");%></td></tr> <%
   		}%> <br/> 
   	
   	
- <% 	
+</table><% 	
   	if (b instanceof Beduerftiger){						//nur wenn man als Beduerftiger angemeldet ist
   	  %>
   	  Wähle eine Priorität<select name = "prio">		
