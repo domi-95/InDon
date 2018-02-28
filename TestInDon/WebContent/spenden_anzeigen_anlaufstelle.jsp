@@ -39,7 +39,7 @@
   	
   	for(Spende s: liste){
   	%><form  action ="<%out.print(session.getAttribute("weiterleitung")); %>" method = "post"> 	
-	<img src="DisplayImageServlet?id=<%=s.getId()%>" />
+	<img src="DisplayImageServlet?id=<%=s.getId()%>" height="42" width="42" />
   
   	Spendennummer:<% out.print (s.getId()); %> <br/> <%
   	out.print (s.getBezeichnung_spende()); %> <br/> <%
