@@ -74,7 +74,7 @@
 			<input type="radio" name="lieferungabholung" id="abholung" value="2" class="radiocheck"><br/>
 			 <br /> 
 			
-			<h4>Bild:</h4> <input type="file" name="photo" size="50"/><br/><br/>
+			<h4>Bild:</h4> <input type="file" name="photo" size="50" class="boxspende"/><br/><br/>
 			
 			<input type="text" name="name" placeholder ="Name*" class="boxspende"/> <br /><br />
 			<input type="text" name="vorname" placeholder ="Vorname*" class="boxspende"/> <br /><br />

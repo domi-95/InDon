@@ -183,7 +183,7 @@ div.container {
 
 }
 
-<<<<<<< HEAD
+
 .donImg{
 	width: 20%;
 	border: 1px solid;
@@ -193,8 +193,7 @@ div.container {
 	border-radius: 15px;
 }
 
-=======
->>>>>>> branch 'NewMaster' of https://github.com/domi-95/InDon.git
+
 .createDon{
 	margin: auto;
 	margin-top: 50px;
@@ -235,6 +234,17 @@ form{
 }
 
 .btn-send{
+	color: #fff;
+	border-radius: 50px;
+	background-color: #ed842a;
+    border: 12px;
+    border-bottom: 4px solid  #E48028;
+	width: 30%;
+	text-align: center;
+	opacity: 0.95;
+	margin: auto;
+}
+.btnzu-send{
 	color: #fff;
 	border-radius: 50px;
 	background-color: #ed842a;

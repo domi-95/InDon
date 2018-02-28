@@ -95,7 +95,7 @@ session.setAttribute("spende", s);
 	</table>
 	<br>
 	<center>
-	<input type="submit" name= "ordne" value="Daten absenden" class="btn-send" />
+	<input type="submit" name= "ordne" value="Daten absenden" class="btnzu-send" />
 	</center>
 	</form>
 	</div>
