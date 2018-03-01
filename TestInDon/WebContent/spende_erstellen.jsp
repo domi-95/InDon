@@ -40,7 +40,12 @@
 			
 			<input type="text" size="" maxlength="20" name="bezeichnung"  placeholder ="Bezeichnung*" class="boxspende"/> <br /><br />
 			<input type="text" size="" maxlength="30" name="beschreibung" placeholder ="Beschreibung*" class="boxspende" /> <br /><br />
-			<input type="text" name="zustand" placeholder ="Zustand*" class="boxspende"/> <br /><br />
+			<select name="zustand" placeholder ="Zustand*" class="boxspende">
+			<option value="all" selected>Wählen Sie einen Zustand</option>
+			<option value="all" >Neu</option>
+			<option value="all" >Gebraucht</option>
+			<option value="all" >Keine Angabe</option>
+			</select><br /><br />
 			<select name="kategorie" placeholder ="Kategorie*" class="boxspende">
 			<option value="all" selected>Wählen Sie eine Kategorie</option>
 				<%

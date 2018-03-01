@@ -106,12 +106,22 @@ input{
 	height: 30px;
 	font-size: 18px;
 	padding-left: 10px; 
+	
 }
+
+
+
+ input[type="date"]{
+    font-family: sans-serif ; 
+    color: #aaa;
+    
+  }
 
 input[type="date"]:before {
     content: attr(placeholder) !important;
     color: #aaa;
     margin-right: 0.5em;
+    font-family: sans-serif ; 
   }
   input[type="date"]:focus:before,
   input[type="date"]:valid:before {
