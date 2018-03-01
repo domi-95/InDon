@@ -87,7 +87,7 @@
   	if (s.getLieferung() != 0){
 		out.print ("Die Spende wird geliefert");   	%> 
 		</td></tr>
-		 <%	 //out.print (s.getMhd()); //Ausgabe erst bei Kategorie Lebensmittel muss noch implementiert werden 
+		 <%	  //out.print (s.getMhd()); //Ausgabe erst bei Kategorie Lebensmittel muss noch implementiert werden 
    	}%>
 	<tr><td>Restmenge:</td> <td><%out.print (s.getRestmenge());%></td></tr>  
   

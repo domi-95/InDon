@@ -30,6 +30,13 @@ session.setAttribute("spende", s);
   	Bezeichnung : <% out.print(s.getBezeichnung_spende()); %> <br/> <br/> 
   	Beschreibung: <%out.print (s.getBeschreibung());%> <br/> <br/> 
   	Zustand     : <%out.print (s.getZustand());%> <br/> <br/> 
+  	<%if (s.getKategorie().getId() == 1) {
+  		
+  	%>		MHD     : <%out.print (s.getMhd());%> <br/> <br/>						<%
+  	
+  	}
+  	%>
+  	 
   	 
   	
   	
