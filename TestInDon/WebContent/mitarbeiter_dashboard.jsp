@@ -25,6 +25,7 @@
 
 <h2 class="h2dash">Sie sind im Mitarbeiter Dashboard</h2>
 <% session.setAttribute("inhalt", "Eigenbedarf");
+	session.setAttribute("wo", "anders");	
    session.setAttribute("weiterleitung", "dashboard_process.jsp");%>
 <jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include> 
   

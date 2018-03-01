@@ -30,12 +30,15 @@
   	// Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle"); //Anlaufstellen Objekt
   	Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
   	List <Spende> liste = new LinkedList<Spende>();
-  	/* if (session.getAttribute("wo").equals("matchen")){
+  	String wo = (String)session.getAttribute("wo");
+ 
+  	
+  	if (wo.equals("matchen")){
   		liste = Datenbank.holeSpendenMInteressen(a.getId());
   	}
-  	else { */
+  	else {
   		 liste = Datenbank.holeSpenden(a.getId());
-  //}
+  		}
   	
   	//session.setAttribute("anlaufstelle", a);
   	
