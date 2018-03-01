@@ -6,6 +6,8 @@ import benutzer.*;
 import spende.*;
 
 public class Datenbank {
+	
+
 
 	public static List<Kategorie> holeKategorien(Anlaufstelle anlaufstelle) {
 		List<Kategorie> result = new LinkedList<Kategorie>();
@@ -91,6 +93,49 @@ public class Datenbank {
 			ResultSet myRs = myst.executeQuery(
 					"SELECT * from spende s, anlaufstelle a, kategorie k WHERE s.anlaufstelle_id = a.id AND s.kategorie_id = k.id AND a.id = '"
 							+ anlaufstelle_id + "' AND s.verfuegbar = '0'");
+			while (myRs.next()) {
+				result.add(new Spende(
+						myRs.getInt("id"), 
+						myRs.getString("s.bezeichnung_spende"),
+						myRs.getString("s.beschreibung"),
+						myRs.getString("s.zustand"),
+						myRs.getInt("s.abholung"),
+						myRs.getInt("s.lieferung"), 
+						myRs.getBytes("bild"), myRs.getString("s.mhd"),
+						myRs.getInt("s.anonym"), 
+						myRs.getString("s.vorname"), 
+						myRs.getString("s.nachname"),
+						myRs.getString("s.adresse"), 
+						myRs.getInt("s.plz"),
+						myRs.getString("s.ort"),
+						new Anlaufstelle(myRs.getInt("a.id"), 
+										 myRs.getString("a.bezeichnung"),
+										 myRs.getString("a.adresse"), 
+										 myRs.getString("s.ort"), 
+										 myRs.getInt("plz")),
+						new Kategorie(myRs.getInt("id"), 
+									  myRs.getString("bezeichnung")),
+						myRs.getInt("s.menge"),
+						myRs.getInt("s.restmenge"),
+						myRs.getString("s.email"),
+						myRs.getInt("s.telefon")));
+			}
+			return result;
+		} catch (SQLException e) {
+			System.out.println("FEHLER beim holen der Spende");
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static List<Spende> holeSpendenMInteressen(int anlaufstelle_id) {
+		List<Spende> result = new LinkedList<Spende>();
+		Connection con = ConnectionProvider.getCon();
+		try {
+			Statement myst = con.createStatement();
+			ResultSet myRs = myst.executeQuery(
+					"SELECT * from spende s, anlaufstelle a, kategorie k, interesse i WHERE s.anlaufstelle_id = a.id AND s.kategorie_id = k.id AND a.id = '"
+							+ anlaufstelle_id + "' AND s.verfuegbar = '0' AND i.s_id = s.id");
 			while (myRs.next()) {
 				result.add(new Spende(
 						myRs.getInt("id"), 

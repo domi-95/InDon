@@ -29,7 +29,14 @@
 	Benutzer b = (Benutzer) session.getAttribute("objekt"); //Mitarbeiter Objekt 
   	// Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle"); //Anlaufstellen Objekt
   	Anlaufstelle a = (Anlaufstelle)session.getAttribute("anlaufstelle");
-  	List<Spende> liste = Datenbank.holeSpenden(a.getId());
+  	List <Spende> liste = new LinkedList<Spende>();
+  	/* if (session.getAttribute("wo").equals("matchen")){
+  		liste = Datenbank.holeSpendenMInteressen(a.getId());
+  	}
+  	else { */
+  		 liste = Datenbank.holeSpenden(a.getId());
+  //}
+  	
   	//session.setAttribute("anlaufstelle", a);
   	
   	%><h3><% out.print (a.getBezeichnunganlaufstelle()); %></h3>
