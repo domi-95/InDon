@@ -43,11 +43,12 @@ public class Spende_erstellen_process extends HttpServlet {
 		int lieferung = 0;
 		int anonym = 0;
 		int plz = 0;
-		int menge = Integer.parseInt(request.getParameter("menge"));
+		int menge = 0;
 		int kat_id = Integer.parseInt(request.getParameter("kategorie"));
 		int bed_id = 0;
 		int verfuegbar = 0;
 		int anl_id = a.getId();
+		int restmenge = 0;
 
 		InputStream inputStream = null; // input stream of the upload file
 
@@ -65,6 +66,12 @@ public class Spende_erstellen_process extends HttpServlet {
 			plz = 0;
 		} else {
 			plz = Integer.parseInt(request.getParameter("plz"));
+		}
+		if ("".equals(request.getParameter("menge"))) {
+			menge = 0;
+		} else {
+			menge = Integer.parseInt(request.getParameter("menge"));
+			restmenge = menge;
 		}
 
 		ort = request.getParameter("ort");
@@ -106,7 +113,7 @@ public class Spende_erstellen_process extends HttpServlet {
 			int count = 0;
 
 			// konstrutiere SQL statement
-			String sql = "INSERT INTO spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id, verfuegbar, beduerftiger_id, menge, email, telefon) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO spende (beschreibung, bezeichnung_spende, zustand, abholung, lieferung, bild, mhd, anonym, vorname, nachname, adresse, plz, ort, anlaufstelle_id, kategorie_id, verfuegbar, beduerftiger_id, menge, email, telefon, restmenge) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement statement = conn.prepareStatement(sql);
 
 			if ("".equals(beschreibung)) {
@@ -175,27 +182,34 @@ public class Spende_erstellen_process extends HttpServlet {
 			statement.setInt(15, kat_id);
 			statement.setInt(16, verfuegbar);
 			statement.setInt(17, bed_id);
-			statement.setInt(18, menge);
+			if (menge != 0) {
+				statement.setInt(18, menge);	
+				count++;
+			}
 			statement.setString(19, mail);
 			statement.setString(20, telefon);
+			if (restmenge != 0) {
+				statement.setInt(21, restmenge);
+				count++;
+			}
 
 			// executet das statement
-			if (count == 6) {
+			if (count == 8) {
 				int row = statement.executeUpdate();
 				if (row > 0) {
 					message = "Vielen Dank, dass sie gespendet haben!";
 				}
-
+			}
 				else {
 					message = "Bitte fÃ¼llen Sie alle Pflichtfelder!";
 				}
-			}
+			
 		} catch (SQLException ex) {
 			message = "ERROR: " + ex.getMessage();
 			ex.printStackTrace();
 		} finally {
 			if (conn != null) {
-				// schließt die db connection
+				// schlieï¿½t die db connection
 				try {
 					conn.close();
 				} catch (SQLException ex) {

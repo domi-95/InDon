@@ -71,11 +71,20 @@ session.setAttribute("spende", s);
 		<th>Anzahl Personen im Haushalt</th>
 		<th>Anzahl der bereits erhaltenen Spenden</th>
 		<th>Zeitstempel</th>
+		<th>Menge gesamt</th>
+		<th>Menge ausgeben</th>
 		</tr>
 		</thead>
+		
+		<%
+		int[] dmenge = new int[s.getMenge()];
+		
+		for(int i = 0; i <= (dmenge.length -1); i++){
+			dmenge[i] = i+1;
+		}	
+		%>
 
 		<%
-	
 		for(Interesse i : interesse) {
 			Benutzer b = (Benutzer)i.getBeduerftiger();
 		%><tr><%	
@@ -88,6 +97,15 @@ session.setAttribute("spende", s);
 		%><td><%out.print (i.getBeduerftiger().getPersHaushalt());	%></td><%
 		%><td><%out.print ("muss noch implementiert werden");	%></td><%
 		%><td><%out.print (i.getTimestamp());	%></td><%
+		%><td><%out.print (s.getMenge());	%></td><%
+		%><td>
+		<select name = "erhalteneMenge">
+		<% 
+		for(int j = 0; j <= (dmenge.length -1) ; j++){
+			%><option value = "<%=dmenge[j]%>" ><%=dmenge[j]%></option><%
+		}%>
+		</select>		
+		</td><%
 		%></tr><%
 		}
 		%> 

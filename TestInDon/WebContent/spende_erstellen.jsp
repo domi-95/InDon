@@ -12,6 +12,8 @@
 
 #lieferung:not(:checked) ~ .lieferung { display: none }
 #abholung:not(:checked) ~ .abholung { display: none }
+#Lebensmittel:not(:selected) ~ .lebensmittel{display:none} 
+
 </style>
 
 <title>Spende anbieten</title>
@@ -65,10 +67,10 @@
 				%>
 
 			</select> <br /><br />
-			<% if(lebensmittel){ %>
+			<!--<% if(lebensmittel){ %>-->
 			<div class="lebensmittel">
-			<input  name="mhd" placeholder ="MHD*"  type="date"class="boxspende"/> <br />
-			<%} %></div>
+			<input  name="mhd" placeholder ="MHD*"  type="date"class="boxspende"/></div>
+			<!--<%} %>-->
 			<br /> 
 			<input type="number" maxlength="2" name="menge" placeholder ="Menge*" class="boxspende"/> <br /> <br />
 			
@@ -84,12 +86,10 @@
 			
 			<input type="text" maxlength="20" name="name" placeholder ="Name*" class="boxspende"/> <br /><br />
 			<input type="text" maxlength="20" name="vorname" placeholder ="Vorname*" class="boxspende"/> <br /><br />
+			<input type="number" maxlength="20" name="telefon" placeholder ="Telefon*" class="boxspende"/> <br /><br />
 			
 			<div class="lieferung">
 			<input type="email" name="mail" placeholder ="E-Mail*" class="boxspende"/> <br /><br />
-			<input type="number" maxlength="20" name="telefon" placeholder ="Telefon*" class="boxspende"/> <br /><br />
-				
-			
 			</div>
 			
 			<div class="abholung" class="radiocheck">

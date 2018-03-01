@@ -11,7 +11,11 @@
 <body>
 <jsp:include page="Header.jsp"></jsp:include>
 	<center>
-		<div class="login"><h3><%=request.getAttribute("Message")%></h3></div>	
+		<div class="login">
+			<center>
+				<h3 class="h3message"><%=request.getAttribute("Message")%></h3>
+			</center>
+		</div>	
 	</center>
 </body>
 </html>

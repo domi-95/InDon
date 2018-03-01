@@ -24,7 +24,7 @@ body{
 	margin: 0px 20px 0 0;
     background: #ED842A; 
     width: 180px; 
-  font-family: sans-serif ;
+  	font-family: sans-serif ;
     
 }
 
@@ -326,6 +326,13 @@ h3{
 	font-family: sans-serif ;
 	color: black;
 	text-shadow: none;
+}
+
+.h3message{
+	font-family: sans-serif ;
+	color: black;
+	text-shadow: none;
+	margin: auto;
 }
 
 h4{
