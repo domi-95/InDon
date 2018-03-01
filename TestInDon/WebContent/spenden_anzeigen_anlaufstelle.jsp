@@ -79,27 +79,25 @@
 		</td></tr>
 		 <%	 //out.print (s.getMhd()); //Ausgabe erst bei Kategorie Lebensmittel muss noch implementiert werden 
    	}%>
-
+	<tr><td>Restmenge:</td> <td><%out.print (s.getRestmenge());%></td></tr>  
   
 	
 <tr><td colspan="2" class="tdcenter">
 <% 	
   	if (b instanceof Beduerftiger){						//nur wenn man als Beduerftiger angemeldet ist
-  	  %>
-  	  Wähle eine Priorität: <select name = "prio">		
-  		<option value = "1">1   </option>
-  		<option value = "2">2   </option>
-  		<option value = "3">3   </option>
+  	  %>Wähle eine Priorität: <select name = "prio">		
+  		<option value = "1">1</option>
+  		<option value = "2">2</option>
+  		<option value = "3">3</option>
   		</select>
-  	<!-- 	-->
-
   	  <%
   	}
   	else{%>
   		<br/>
   <%	}
   %>  
-  </td> <td></td></tr>
+  </td> 
+  </tr>
   </table>
   <br/>  <br/> 
  </div>

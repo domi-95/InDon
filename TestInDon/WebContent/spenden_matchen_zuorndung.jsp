@@ -30,6 +30,7 @@ session.setAttribute("spende", s);
   	Bezeichnung : <% out.print(s.getBezeichnung_spende()); %> <br/> <br/> 
   	Beschreibung: <%out.print (s.getBeschreibung());%> <br/> <br/> 
   	Zustand     : <%out.print (s.getZustand());%> <br/> <br/> 
+  	 
   	
   	
   	<%   
@@ -50,9 +51,9 @@ session.setAttribute("spende", s);
   	}
   	else {
   		out.print ("Spender ist anonym");%> <br/> <br/> <%
-  	}
-  	
-  	
+  	}%>
+  	Menge gesamt: <%out.print (s.getMenge());%> <br/> <br/>
+  	<%
   	List<Interesse>interesse = Datenbank.holeInteresse(s.getId());
   	%>
 	
@@ -71,7 +72,7 @@ session.setAttribute("spende", s);
 		<th>Anzahl Personen im Haushalt</th>
 		<th>Anzahl der bereits erhaltenen Spenden</th>
 		<th>Zeitstempel</th>
-		<th>Menge gesamt</th>
+		<th>Restmenge</th>
 		<th>Menge ausgeben</th>
 		</tr>
 		</thead>
@@ -97,7 +98,7 @@ session.setAttribute("spende", s);
 		%><td><%out.print (i.getBeduerftiger().getPersHaushalt());	%></td><%
 		%><td><%out.print ("muss noch implementiert werden");	%></td><%
 		%><td><%out.print (i.getTimestamp());	%></td><%
-		%><td><%out.print (s.getMenge());	%></td><%
+		%><td><%out.print (s.getRestmenge());	%></td><%
 		%><td>
 		<select name = "erhalteneMenge">
 		<% 

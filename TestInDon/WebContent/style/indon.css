@@ -188,7 +188,7 @@ div.polaroid{
 	margin: 20px;
 	padding: 0;
 	width: 80%;
-	height: 500px;
+	height: 560px;
 	background-color: white;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -201,7 +201,7 @@ div.container {
 }
 
 .spendtext{
-	height: 300px;
+	height: 340px;
 	font-family: sans-serif ;	
 }
 
@@ -396,12 +396,15 @@ table {
 .spendetable {
 	margin-top: 20px;
     border-collapse: collapse;
-    width: 105.2%;  
+    width: 100%;  
+    margin: 8px;
+    margin-bottom: 0;
 }
 
 .spendetable td{
 	text-align: left;
-	width: 52.6%;
+	width: 50%;
+	
 }
 
 th, td {	
@@ -416,6 +419,10 @@ th, td {
 tr:nth-child(even){
 	background-color: #f2f2f2;
 	}
+	
+tr{
+	vertical-align: middle;
+}
 
 th {	
     background-color: #ED842A;
