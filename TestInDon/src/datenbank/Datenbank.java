@@ -286,11 +286,12 @@ public class Datenbank {
 		return false;
 	}
 
-	public static boolean speichereZuordnung(int s_id, int bd_id) {
+	public static boolean speichereZuordnung(Spende s, int bd_id, int erhalteneMenge) {
+		int restmenge = s.getMenge() - erhalteneMenge;
 		try {
 			Connection con = ConnectionProvider.getCon();
-			String sql = "UPDATE spende SET beduerftiger_id = '" + bd_id + "', verfuegbar = '1' WHERE id = '" + s_id
-					+ "'";
+			String sql = "UPDATE spende SET beduerftiger_id = '" + bd_id + "', verfuegbar = '1', restmenge = '"
+					+ restmenge + "' WHERE id = '" + s.getId() + "'";
 			Statement st = con.createStatement();
 			st.executeUpdate(sql);
 		} catch (Exception e) {
