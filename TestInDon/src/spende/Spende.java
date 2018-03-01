@@ -27,10 +27,10 @@ public class Spende {
 	private String email;
 	private int telefon;
 
+
 	public Spende(int id, String bezeichnung_spende, String beschreibung, String zustand, int abholung, int lieferung,
-			byte[] bild, String mhd, int anonym, String name, String vorname, String adresse, int plz,
-			Anlaufstelle anlaufstelle, Kategorie kategorie) {
-		super();
+			byte[] bild, String mhd, int anonym, String vorname, String name, String adresse, int plz, String ort,
+			Anlaufstelle anlaufstelle, Kategorie kategorie, int menge, int restmenge, String email, int telefon) {
 		this.id = id;
 		this.bezeichnung_spende = bezeichnung_spende;
 		this.beschreibung = beschreibung;
@@ -40,13 +40,20 @@ public class Spende {
 		this.bild = bild;
 		this.mhd = mhd;
 		this.anonym = anonym;
-		this.name = name;
 		this.vorname = vorname;
+		this.name = name;
 		this.adresse = adresse;
 		this.plz = plz;
+		this.ort = ort;
 		this.anlaufstelle = anlaufstelle;
 		this.kategorie = kategorie;
+		this.menge = menge;
+		this.restmenge = restmenge;
+		this.email = email;
+		this.telefon = telefon;
 	}
+
+
 
 	public static List<Spende> spendenmatchen(int anlaufstelle_id) {
 		return Datenbank.holeSpenden(anlaufstelle_id);
@@ -111,5 +118,39 @@ public class Spende {
 	public int getPlz() {
 		return plz;
 	}
+
+
+
+	public String getOrt() {
+		return ort;
+	}
+
+
+
+	public int getMenge() {
+		return menge;
+	}
+
+
+
+	public int getRestmenge() {
+		return restmenge;
+	}
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public int getTelefon() {
+		return telefon;
+	}
+	
+	
+	
+	
 
 }
