@@ -43,40 +43,47 @@
   	<div class="polaroid">	
   	<form  action ="<%out.print(session.getAttribute("weiterleitung")); %>" method = "post" class="spendan"> 
   		
-	<img src="DisplayImageServlet?id=<%=s.getId()%>" height="200" width="100%"/>
+	<img src="DisplayImageServlet?id=<%=s.getId()%>" height="200px" width="100%"/>
 	<div class="container">
-		<div class="spendtext">
-	<table>
+		<div class="spendtext"><br/>
+	<table class="spendetable">
 	<tr>
   	<td>SpendenNr:</td> <td><% out.print (s.getId()); %><td/></tr>  
-  	<tr><td>Bezeichnung:</td> <td><% out.print (s.getBezeichnung_spende()); %></td></tr> 
-   	<tr><td>Beschreibung:</td> <td><% out.print (s.getBeschreibung());%></td>  </tr>
+  	<tr><td >Bezeichnung:</td> <td ><% out.print (s.getBezeichnung_spende()); %></td></tr> 
+   	<tr><td height="40px">Beschreibung:</td> <td height="40px"><% out.print (s.getBeschreibung());%></td>  </tr>
    	<tr><td>Zustand:</td> <td><%out.print (s.getZustand());%></td></tr>  
    	
-   	<tr><td><%
    	
-   	
-   	
-   	if (s.getAbholung() != 0){
-		out.print ("Die Spende wird abgeholt");  %> </td></tr><tr><td> <% 		
-   	}
-   	
-  	if (s.getLieferung() != 0){
-		out.print ("Die Spende wird geliefert");   	%> </td></tr><tr><td> <%	
-   	}
+   	 	 <tr><td>
   	
-  	// out.print (s.getMhd()); //Ausgabe erst bei Kategorie Lebensmittel muss noch implementiert werden
-
+  	
+<%
   	if (s.getAnonym() != 1){
-  		%>Spender: </td><td><%out.print(s.getVorname() + " " + s.getName());%> </td></tr><tr><td> <%
+  		%>Spender: </td><td><%out.print(s.getVorname() + " " + s.getName());%> </td><td> <%
   		
   	}
   	else {
   		%> Spender: </td><td> <%out.print ("anonym");%></td></tr> <%
-  		}%> <br/> 
-  	
-  	
-</table><% 	
+  		}%>
+   	
+   	<tr><td colspan="2" class="tdcenter">
+   	<%if (s.getAbholung() != 0){
+		out.print ("Die Spende wird abgeholt");  %> 
+		</td></tr>
+		<tr><td colspan="2" class="tdcenter"> 
+		<% 		
+   	}%>
+   	<%
+  	if (s.getLieferung() != 0){
+		out.print ("Die Spende wird geliefert");   	%> 
+		</td></tr>
+		 <%	 //out.print (s.getMhd()); //Ausgabe erst bei Kategorie Lebensmittel muss noch implementiert werden 
+   	}%>
+
+
+	
+  <tr><td colspan="2" class="tdcenter">	
+<% 	
   	if (b instanceof Beduerftiger){						//nur wenn man als Beduerftiger angemeldet ist
   	  %>
   	  Wähle eine Priorität<select name = "prio">		
@@ -84,6 +91,8 @@
   		<option value = "2">2   </option>
   		<option value = "3">3   </option>
   		</select>
+  		</td> <td></td></tr>
+  </table>
   	  <%
   	}
   %>  <br/>  <br/> 

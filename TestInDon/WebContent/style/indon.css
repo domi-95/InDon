@@ -184,13 +184,13 @@ div.polaroid{
 
 div.container {
   text-align: left;
-  padding: 5% 10% 10% 10%;
-  width: 85%;
+  //padding: 5% 10% 10% 10%;
+  width: 100%;
   position: relative;
 }
 
 .spendtext{
-	height: 180px;
+	height: 280px;
 	font-family: sans-serif ;
 	
 }
@@ -386,11 +386,25 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
+.spendetable {
+	margin-top: 20px;
+    border-collapse: collapse;
+    width: 105.2%;
+    
+}
+.spendetable td{
+	text-align: left;
+	width: 52.6%;
+}
 
 th, td {
 	
     text-align: center;
     padding: 8px;
+}
+
+.tdcenter{
+	text-align: center !important;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
