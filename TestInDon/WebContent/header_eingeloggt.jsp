@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,46 +11,47 @@
 <body>
 
 
-    <div class="navbar">
-            <div class="navbar-inner">
-                    <a href="index.jsp" class="brand">
-                     <%@page import="benutzer.*"%>
-                        <img src="Images\logo.png" width="210" height="55" alt="InDon" />
-                        <!-- This is website logo -->
-                    </a>
-                   
-                    <!-- Main navigation -->
-                    <!-- <div class="nav-collapse collapse pull-right">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<a href="index.jsp" class="brand"> <%@page import="benutzer.*"%>
+				<img src="Images\logo.png" width="210" height="55" alt="InDon" /> <!-- This is website logo -->
+			</a>
+
+			<!-- Main navigation -->
+			<!-- <div class="nav-collapse collapse pull-right">
                         <ul class="nav" id="top-navigation">
                             <li class= "blogin"><a href="#home">Login</a></li>
                             <li class = "bclogin"><a href="#service">Unternehmenslogin</a></li>
                             
                         </ul>
                     </div> -->
-                     <!-- Main navigation -->
-                    <div class= "nav">
-	                    <div class="elements">
-	                    		<a class="buser" href=""><%
-								Benutzer b = (Benutzer)session.getAttribute("objekt");%>
-								<%
+			<!-- Main navigation -->
+			<div class="nav">
+				<div class="elements">
+					<a class="buser" href="">
+						<%
+								Benutzer b = (Benutzer)session.getAttribute("objekt");%> <%
 								if (b instanceof Mitarbeiter){
 									
 									Mitarbeiter m =(Mitarbeiter)b;
-									%><%out.print(m.getName()+" "+m.getVorname()); %><%
+									%>
+						<%out.print(m.getName()+" "+m.getVorname()); %>
+						<%
 								
 								}
-								%>
-								<% if (b instanceof Beduerftiger){
+								%> <% if (b instanceof Beduerftiger){
 									Beduerftiger bed =(Beduerftiger)b;
-									%><%out.print(bed.getNachname()+" "+bed.getVorname()); %><%
+									%>
+						<%out.print(bed.getNachname()+" "+bed.getVorname()); %>
+						<%
 								}
-								%></a>
-	                    		<a class="logout" href="index.jsp">Logout</a>
-                    		</div>
-                    </div>
-                    <!-- End main navigation -->  
-            </div>
-        </div>
+								%>
+					</a> <a class="logout" href="index.jsp">Logout</a>
+				</div>
+			</div>
+			<!-- End main navigation -->
+		</div>
+	</div>
 
 
 

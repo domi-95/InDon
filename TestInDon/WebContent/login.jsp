@@ -16,29 +16,24 @@
 		<h1>Anmelden</h1>
 		<div class="formarea">
 			<form action="loginprocess.jsp" method="post">
-			<br />
-			<br /> 
-
-			
-			
-
-			<p class="formnames"></p>
-			<div class="form-input">
+				<br /> <br />
 
 
-			<input type="text" name="benutzername"
-			placeholder ="Enter Username" >
-			</div>
-			<br />
-			<br /> 
-			
-			<div class= "form-input2">
-			<input type="password" name="passwort" 
-			placeholder ="Enter Password">
-			</div>
-			<br />
-			<br />
-			<input type="submit" name= "submit" value="Login" class="btn-login" />
+
+
+				<p class="formnames"></p>
+				<div class="form-input">
+
+
+					<input type="text" name="benutzername" placeholder="Enter Username">
+				</div>
+				<br /> <br />
+
+				<div class="form-input2">
+					<input type="password" name="passwort" placeholder="Enter Password">
+				</div>
+				<br /> <br /> <input type="submit" name="submit" value="Login"
+					class="btn-login" />
 			</form>
 		</div>
 	</div>
