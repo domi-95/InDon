@@ -144,7 +144,6 @@ public class Spende_erstellen_process extends HttpServlet {
 				// fetche den input stream vom bild in ein blob column
 				statement.setBlob(6, inputStream);
 			}
-			inputStream.close();
 			statement.setString(7, mhd);
 			statement.setInt(8, anonym);
 
@@ -207,22 +206,23 @@ public class Spende_erstellen_process extends HttpServlet {
 		} catch (SQLException ex) {
 			message = "ERROR: " + ex.getMessage();
 			ex.printStackTrace();
-		} finally {
-			if (conn != null) {
-				// schlie�t die db connection
-				try {
-					conn.close();
-				} catch (SQLException ex) {
-					ex.printStackTrace();
-				}
-			}
+		} 
+//			finally {
+//			if (conn != null) {
+//				// schlie�t die db connection
+//				try {
+//					conn.close();
+//				} catch (SQLException ex) {
+//					ex.printStackTrace();
+//				}
+//			}
 			// sets the message in request scope
 			// setzt die message in den request scope
 			request.setAttribute("Message", message);
 
 			// zur message page
 			getServletContext().getRequestDispatcher("/Message.jsp").forward(request, response);
-		}
+		//}
 	}
 
 }
