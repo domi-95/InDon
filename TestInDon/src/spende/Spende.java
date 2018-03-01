@@ -15,12 +15,17 @@ public class Spende {
 	private byte[] bild;
 	private String mhd;
 	private int anonym; // boolean
-	private String name;
 	private String vorname;
+	private String name;
 	private String adresse;
 	private int plz;
+	private String ort;
 	private Anlaufstelle anlaufstelle;
 	private Kategorie kategorie;
+	private int menge;
+	private int restmenge;
+	private String email;
+	private int telefon;
 
 	public Spende(int id, String bezeichnung_spende, String beschreibung, String zustand, int abholung, int lieferung,
 			byte[] bild, String mhd, int anonym, String name, String vorname, String adresse, int plz,
