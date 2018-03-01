@@ -287,10 +287,14 @@ public class Datenbank {
 	}
 
 	public static boolean speichereZuordnung(Spende s, int bd_id, int erhalteneMenge) {
+		int verfuegbar = 0;
 		int restmenge = s.getMenge() - erhalteneMenge;
+		if (restmenge == 0) {
+			verfuegbar = 1;
+		}
 		try {
 			Connection con = ConnectionProvider.getCon();
-			String sql = "UPDATE spende SET beduerftiger_id = '" + bd_id + "', verfuegbar = '1', restmenge = '"
+			String sql = "UPDATE spende SET beduerftiger_id = '" + bd_id + "', verfuegbar = '"+verfuegbar+"', restmenge = '"
 					+ restmenge + "' WHERE id = '" + s.getId() + "'";
 			Statement st = con.createStatement();
 			st.executeUpdate(sql);
