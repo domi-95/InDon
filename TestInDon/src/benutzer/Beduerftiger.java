@@ -8,6 +8,18 @@ public class Beduerftiger extends Benutzer {
 	private String nachname;
 	private Anlaufstelle anlaufstelle;
 	private int persHaushalt;
+	private int erhalteneSpenden;
+	
+	
+
+	public Beduerftiger(int id, String benutzername, String passwort, String vorname, String nachname,
+		 int persHaushalt, int erhalteneSpenden) {
+		super(id, benutzername, passwort);
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.persHaushalt = persHaushalt;
+		this.erhalteneSpenden = erhalteneSpenden;
+	}
 
 	public Beduerftiger(int id, String benutzername, String passwort, String vorname, String nachname) {
 		super(id, benutzername, passwort);
@@ -50,6 +62,10 @@ public class Beduerftiger extends Benutzer {
 
 	public void setAnlaufstelle(Anlaufstelle anlaufstelle) {
 		this.anlaufstelle = anlaufstelle;
+	}
+
+	public int getErhalteneSpenden() {
+		return erhalteneSpenden;
 	}
 
 }

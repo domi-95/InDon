@@ -260,7 +260,7 @@ public class Datenbank {
 				result.add(new Interesse(Datenbank.holeSpende(spenden_id),
 						new Beduerftiger(myRs.getInt("b.id"), myRs.getString("b.benutzername"),
 								myRs.getString("b.passwort"), myRs.getString("b.name"), myRs.getString("b.vorname"),
-								myRs.getInt("b.personenHaushalt")),
+								myRs.getInt("b.personenHaushalt"), myRs.getInt("b.erhalteneSpenden")),
 						myRs.getInt("prio"), myRs.getString("i.timestamp")));
 			}
 			return result;
