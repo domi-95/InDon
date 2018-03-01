@@ -53,7 +53,7 @@
 								lebensmittel = true;
 							}
 				%>
-				<option value = "<%=k.getId()%>"><%=k.getBezeichnung()%> <%if(k.isStark_gefragt()){out.print("(stark gefragt)");}%></option>
+				<option value = "<%=k.getId()%>" id="<%=k.getBezeichnung()%>"><%=k.getBezeichnung()%> <%if(k.isStark_gefragt()){out.print("(stark gefragt)");}%></option>
 				<%
 					}
 					}
@@ -61,8 +61,9 @@
 
 			</select> <br /><br />
 			<% if(lebensmittel){ %>
+			<div class="lebensmittel">
 			<input  name="mhd" placeholder ="MHD*"  type="date"class="boxspende"/> <br />
-			<%} %>
+			<%} %></div>
 			<br /> 
 			<input type="number" maxlength="2" name="menge" placeholder ="Menge*" class="boxspende"/> <br /> <br />
 			
