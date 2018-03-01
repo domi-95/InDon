@@ -14,15 +14,15 @@
 	<%@page import="spende.*"%>
 	<%@page import="java.sql.*"%>
 	<%@page import="java.util.Date"%>
-	<div class="login"><h3><%
+	<div class="login"><h3 class="h3message"><%
 	
 		Spende s = (Spende)session.getAttribute("spende");
 		
 		
 	
-		if (Datenbank.speichereZuordnung(s, Integer.parseInt(request.getParameter("zuordnung")), Integer.parseInt(request.getParameter(""))))
+		if (Datenbank.speichereZuordnung(s, Integer.parseInt(request.getParameter("zuordnung")), Integer.parseInt(request.getParameter("erhalteneMenge"))))
 		{
-			out.print("Vielen Dank, für das zuordnen der Spende " +s.getBezeichnung_spende()+" mit der ID "+s.getId()+"an den Beduerftigen mit der ID "+request.getParameter("zuordnung")+""); 
+			out.print("Vielen Dank, für das zuordnen der Spende " +s.getBezeichnung_spende()+" mit der ID "+s.getId()+" an den Beduerftigen mit der ID "+request.getParameter("zuordnung")+" mit der Menge "+request.getParameter("erhalteneMenge")+" "); 
 		}
 		
 		else {
