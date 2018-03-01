@@ -96,7 +96,7 @@ session.setAttribute("spende", s);
 		%><td><%out.print (i.getPrio());	%></td><%
 		
 		%><td><%out.print (i.getBeduerftiger().getPersHaushalt());	%></td><%
-		%><td><%out.print ("muss noch implementiert werden");	%></td><%
+		%><td><%out.print (i.getBeduerftiger().getErhalteneSpenden());	%></td><%
 		%><td><%out.print (i.getTimestamp());	%></td><%
 		%><td><%out.print (s.getRestmenge());	%></td><%
 		%><td>

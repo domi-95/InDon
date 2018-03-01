@@ -341,8 +341,11 @@ public class Datenbank {
 			Connection con = ConnectionProvider.getCon();
 			String sql = "UPDATE spende SET beduerftiger_id = '" + bd_id + "', verfuegbar = '"+verfuegbar+"', restmenge = '"
 					+ restmenge + "' WHERE id = '" + s.getId() + "'";
+			String sql2 = "UPDATE beduerftiger SET `erhalteneSpenden` = `erhalteneSpenden` + 1  WHERE id = '"+bd_id+"'";
 			Statement st = con.createStatement();
+			Statement st2 = con.createStatement();
 			st.executeUpdate(sql);
+			st2.executeUpdate(sql2);
 		} catch (Exception e) {
 			System.out.println("Fehler beim Einfuegen der Zuordnung");
 			e.printStackTrace();

@@ -9,6 +9,7 @@
 </head>
 <body>
 <jsp:include page="header_eingeloggt.jsp"></jsp:include>
+<jsp:include page="navigationMA.jsp"></jsp:include>
 	<%@page import="benutzer.*"%>
 	<%@page import="datenbank.*"%>
 	<%@page import="spende.*"%>
