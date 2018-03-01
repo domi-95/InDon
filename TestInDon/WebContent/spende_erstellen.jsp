@@ -8,22 +8,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <style>
-#lieferung:not (:checked ) ~ .lieferung {
+#lieferung:not(:checked ) ~.lieferung {
 	display: none
 }
 
-#abholung:not (:checked ) ~ .abholung {
-	display: none
-}
-
-#Lebensmittel:not (:selected ) ~ .lebensmittel {
+#abholung:not(:checked ) ~.abholung {
 	display: none
 }
 </style>
 
+
 <title>Spende anbieten</title>
 </head>
 <body>
+
 	<jsp:include page="Header.jsp"></jsp:include>
 
 	<%@page import="datenbank.Datenbank"%>
@@ -59,7 +57,7 @@
 					<option value="all">Keine Angabe</option>
 				</select><br />
 				<br /> <select name="kategorie" placeholder="Kategorie*"
-					class="boxspende">
+					class="boxspende" id="purpose">
 					<option value="all" selected>Wählen Sie eine Kategorie</option>
 					<%
 						if (request.getParameter("anlauf") != null) {
@@ -67,11 +65,8 @@
 
 							List<Kategorie> kategorie = a.getKategorien();
 							for (Kategorie k : kategorie) {
-								if (k.getId() == 1) {
-									lebensmittel = true;
-								}
 					%>
-					<option value="<%=k.getId()%>" id="<%=k.getBezeichnung()%>"><%=k.getBezeichnung()%>
+					<option value="<%=k.getId()%>" ><%=k.getBezeichnung()%>
 						<%
 							if (k.isStark_gefragt()) {
 										out.print("(stark gefragt)");
@@ -86,7 +81,7 @@
 				</select> <br />
 				<br />
 				<!--<%if (lebensmittel) {%>-->
-				<div class="lebensmittel">
+				<div id="business" style="display: none">
 					<input name="mhd" placeholder="MHD*" type="date" class="boxspende" />
 				</div>
 				<!--<%}%>-->
@@ -140,8 +135,23 @@
 		</div>
 	</fieldset>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 
-
+</script>
+<script>
+$(document).ready(function(){
+    $('#purpose').on('change', function() {
+      if ( this.value === '1')
+      {
+        $("#business").show();
+      }
+      else
+      {
+        $("#business").hide();
+      }
+    });
+});
+</script>
 
 </body>
 </html>
