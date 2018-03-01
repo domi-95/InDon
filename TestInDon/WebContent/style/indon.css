@@ -1,17 +1,12 @@
-
-
 body{
 	margin: 0;
-	background-color: #969EA8;
-	
+	background-color: #969EA8;	
 }
-
 
 .navbar {
     background: #ffffff;
     overflow: hidden;  
 }
-
 
 
 .nav {
@@ -52,14 +47,17 @@ body{
 .blogin:hover{
 	background: #edaf7b;
 }
+
 .bclogin {
 	background: #465359;
 	width: 180px; 
 	font-family: sans-serif ; 
 }
+
 .bclogin:hover{
 	background: #b3b3b3;
 }
+
 .logout {
 	background: #465359;
 	width: 180px; 
@@ -94,17 +92,14 @@ body{
 	margin: 2.5px 0 0 0; 
 	
 }
+
 input{
 	text-align: center;
 	width: 100%;
 	height: 30px;
-	font-size: 18px;
-	//padding-left: 30px;
-
-	//margin-top: 2px;
-	//margin-bottom: 10px;
-	
+	font-size: 18px;	
 }
+
 .boxspende{
 	text-align: left;
 	width: 100%;
@@ -115,12 +110,9 @@ input{
 
 .radiocheck{
  	width:50px;
-    float:left;
- 
-  
-  
-	 
+    float:left;	 
 }
+
 .form-input::before{
 	content:"\f007";
 	position: absolute;
@@ -158,11 +150,10 @@ input{
 	width: 90%;
 	display: table;
 	margin: auto;
-	//background-color: green;
 }
+
 .mid{
 	position: absolute;
-	//background-color: black;
 	margin: auto;
 	width: 100%;
 }	
@@ -190,9 +181,8 @@ div.container {
 }
 
 .spendtext{
-	height: 280px;
-	font-family: sans-serif ;
-	
+	height: 300px;
+	font-family: sans-serif ;	
 }
 
 .interesseb{
@@ -216,7 +206,6 @@ div.container {
 
 }
 
-
 .donImg{
 	width: 20%;
 	border: 1px solid;
@@ -226,13 +215,11 @@ div.container {
 	border-radius: 15px;
 }
 
-
 .createDon{
 	margin: auto;
 	margin-top: 50px;
 	width: 60%;
     border: 1px solid #ED842A;
-    //padding: 10px;
     background: #ffffff;
     text-align: left;
     border-radius: 15px;
@@ -242,7 +229,6 @@ div.container {
 form{
 	margin: auto;
 	padding: 0% 5% 10% 5%;
-	//width: 100%;
 }
 
 .formnames{
@@ -256,9 +242,6 @@ form{
 	color: #fff;
 	border-radius: 150px;
 	background-color: #ed842a;
-	//border-style: solid;
-    //border-width: 1px;
-    //border-color: #707070;
     border: none;
     border-bottom: 4px solid  #E48028;
 	width: 50%;
@@ -277,6 +260,7 @@ form{
 	opacity: 0.95;
 	margin: auto;
 }
+
 .btnzu-send{
 	color: #fff;
 	border-radius: 50px;
@@ -295,6 +279,7 @@ h1{
 	font-family: sans-serif ;
 	color: black;
 }
+
 .h1dash{
 	margin-left: 30px;
 	font-family: sans-serif ;
@@ -309,7 +294,6 @@ h1{
 	text-shadow: 2px 2px #4B4B4B;
 }
 
-
 h3{
 	margin-left: 30px;
 	font-family: sans-serif ;
@@ -323,13 +307,11 @@ h3{
 	color: black;
 	text-shadow: none;
 }
-h4{
-	font-family: sans-serif ;
-}
 
 h4{
 	font-family: sans-serif ;
 }
+
 h5{
 	margin-left: 30px;
 	font-family: sans-serif ;
@@ -341,7 +323,6 @@ p{
 	font-family: sans-serif ;
 }
 
-
 ul {
     list-style-type: none;
     margin:0;
@@ -349,27 +330,25 @@ ul {
     overflow: hidden;
    	background-color: #f3f3f3;
   	border: 1px solid #e7e7e7;
-    //position: fixed;
     top: 0;
     width: 100%;
     font-family: sans-serif ;
-    
 }
 
 li {
     float: left;
     border: none;
     border-right: 1px solid #D6D6D6;
-    width: 12.439%;
+    width: 12.439%;    
 }
 
 li a {
     display: block;
     color: #666;
     text-align: center;
-    //padding: 14px 88px;
     padding: 5% ;
     text-decoration: none;
+    height: 34px;
 }
 
 
@@ -386,19 +365,19 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
+
 .spendetable {
 	margin-top: 20px;
     border-collapse: collapse;
-    width: 105.2%;
-    
+    width: 105.2%;  
 }
+
 .spendetable td{
 	text-align: left;
 	width: 52.6%;
 }
 
-th, td {
-	
+th, td {	
     text-align: center;
     padding: 8px;
 }
@@ -407,12 +386,11 @@ th, td {
 	text-align: center !important;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(even){
+	background-color: #f2f2f2;
+	}
 
-th {
-	
+th {	
     background-color: #ED842A;
     color: white;
 }
-
-

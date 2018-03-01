@@ -80,22 +80,28 @@
 		 <%	 //out.print (s.getMhd()); //Ausgabe erst bei Kategorie Lebensmittel muss noch implementiert werden 
    	}%>
 
-
+  
 	
-  <tr><td colspan="2" class="tdcenter">	
+<tr><td colspan="2" class="tdcenter">
 <% 	
   	if (b instanceof Beduerftiger){						//nur wenn man als Beduerftiger angemeldet ist
   	  %>
-  	  Wähle eine Priorität<select name = "prio">		
+  	  Wähle eine Priorität: <select name = "prio">		
   		<option value = "1">1   </option>
   		<option value = "2">2   </option>
   		<option value = "3">3   </option>
   		</select>
-  		</td> <td></td></tr>
-  </table>
+  	<!-- 	-->
+
   	  <%
   	}
-  %>  <br/>  <br/> 
+  	else{%>
+  		<br/>
+  <%	}
+  %>  
+  </td> <td></td></tr>
+  </table>
+  <br/>  <br/> 
  </div>
 
   	 	<input type ="submit" name = "interesse" value = "<%out.print(session.getAttribute("inhalt"));%>" >
