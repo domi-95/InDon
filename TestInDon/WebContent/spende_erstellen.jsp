@@ -16,7 +16,23 @@
 	display: none
 }
 </style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 
+</script>
+<script>
+$(document).ready(function(){
+    $('#purpose').on('change', function() {
+      if ( this.value === '1')
+      {
+        $("#business").show();
+      }
+      else
+      {
+        $("#business").hide();
+      }
+    });
+});
+</script>
 
 <title>Spende anbieten</title>
 </head>
@@ -80,11 +96,11 @@
 
 				</select> <br />
 				<br />
-				<!--<%if (lebensmittel) {%>-->
+				
 				<div id="business" style="display: none">
 					<input name="mhd" placeholder="MHD*" type="date" class="boxspende" />
 				</div>
-				<!--<%}%>-->
+				
 				<br /> <input type="number" maxlength="2" name="menge"
 					placeholder="Menge*" class="boxspende" /> <br /> <br />
 
@@ -134,24 +150,6 @@
 			</form>
 		</div>
 	</fieldset>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
-
-</script>
-<script>
-$(document).ready(function(){
-    $('#purpose').on('change', function() {
-      if ( this.value === '1')
-      {
-        $("#business").show();
-      }
-      else
-      {
-        $("#business").hide();
-      }
-    });
-});
-</script>
 
 </body>
 </html>
