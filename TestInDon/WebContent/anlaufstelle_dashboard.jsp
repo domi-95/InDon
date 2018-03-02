@@ -28,13 +28,11 @@
 				<%
 					Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt");
 
-					LinkedList<Anlaufstelle> anlaufstellen = (LinkedList<Anlaufstelle>) Datenbank
-							.holeAnlaufstelle(m.getId_ret());
+					LinkedList<Anlaufstelle> anlaufstellen = (LinkedList<Anlaufstelle>) Datenbank.holeAnlaufstelle(m.getId_ret());
 
 					for (int i = 0; i < anlaufstellen.size(); i++) {
 				%>
-				<option value="<%=anlaufstellen.get(i).getId()%>"><%=anlaufstellen.get(i).getBezeichnunganlaufstelle()%>
-				</option>
+				<option value="<%=anlaufstellen.get(i).getId()%>"><%=anlaufstellen.get(i).getBezeichnunganlaufstelle()%></option>
 				<%
 					}
 				%>
