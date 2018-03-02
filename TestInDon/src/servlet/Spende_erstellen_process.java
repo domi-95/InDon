@@ -1,10 +1,20 @@
 package servlet;
 
+import java.awt.AlphaComposite;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -51,6 +61,7 @@ public class Spende_erstellen_process extends HttpServlet {
 		int restmenge = 0;
 
 		InputStream inputStream = null; // input stream of the upload file
+		InputStream is = null;
 
 		if ("on".equals(request.getParameter("anonym"))) {
 			anonym = 1;
@@ -103,6 +114,25 @@ public class Spende_erstellen_process extends HttpServlet {
 			inputStream = filePart.getInputStream();
 
 		}
+		if(filePart.getSize() > 6300) {
+		try {
+
+	        Image image = ImageIO.read(inputStream);
+
+	        BufferedImage bi = this.createResizedCopy(image, 200, 200, true);
+	       // ImageIO.write(bi, "jpg", new File("C:\\ImagenesAlmacen\\QR\\olaKeAse.jpg"));
+	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	        ImageIO.write(bi, "jpg", baos);
+	        is = new ByteArrayInputStream(baos.toByteArray());
+
+	    } catch (IOException e) {
+	        System.out.println("Error");
+	    }
+		}
+		else {
+			is = inputStream;
+		}
+		
 
 		Connection conn = null; // datenbank connection
 		String message = null;
@@ -142,7 +172,7 @@ public class Spende_erstellen_process extends HttpServlet {
 
 			if (inputStream != null) {
 				// fetche den input stream vom bild in ein blob column
-				statement.setBlob(6, inputStream);
+				statement.setBlob(6, is);
 			}
 			statement.setString(7, mhd);
 			statement.setInt(8, anonym);
@@ -226,6 +256,22 @@ public class Spende_erstellen_process extends HttpServlet {
 			// zur message page
 			getServletContext().getRequestDispatcher("/Message.jsp").forward(request, response);
 		//}
+			
+			
+
+		
 	}
+	BufferedImage createResizedCopy(Image originalImage, int scaledWidth, int scaledHeight, boolean preserveAlpha){
+	    int imageType = preserveAlpha ? BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB;
+	    BufferedImage scaledBI = new BufferedImage(scaledWidth, scaledHeight, imageType);
+	    Graphics2D g = scaledBI.createGraphics();
+	    if (preserveAlpha) {
+	        g.setComposite(AlphaComposite.Src);
+	    }
+	    g.drawImage(originalImage, 0, 0, scaledWidth, scaledHeight, null);
+	    g.dispose();
+	    return scaledBI;
+	}
+	
 
 }
