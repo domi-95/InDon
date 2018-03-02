@@ -32,15 +32,14 @@
 						<%
 								Benutzer b = (Benutzer)session.getAttribute("objekt");%> <%
 								if (b instanceof Mitarbeiter){
-									
 									Mitarbeiter m =(Mitarbeiter)b;
 									%>
 						<%out.print(m.getName()+" "+m.getVorname()); %>
 						<%
-								
 								}
-								%> <% if (b instanceof Beduerftiger){
-									Beduerftiger bed =(Beduerftiger)b;
+								%> 
+								<% if (b instanceof Beduerftiger){
+									Beduerftiger bed = (Beduerftiger)b;
 									%>
 						<%out.print(bed.getNachname()+" "+bed.getVorname()); %>
 						<%

@@ -29,7 +29,6 @@
 
 				if (b instanceof Mitarbeiter) {
 					response.sendRedirect("anlaufstelle_dashboard.jsp");
-
 				}
 
 				if (b instanceof Beduerftiger) {

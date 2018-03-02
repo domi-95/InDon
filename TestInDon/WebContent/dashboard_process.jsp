@@ -23,8 +23,7 @@
 
 				if (b instanceof Mitarbeiter) {
 					Datenbank.setSpendeNV(Integer.parseInt(request.getParameter("id")));
-					out.print("Vielen Dank, die Spende mit der ID " + request.getParameter("id")
-							+ " wurde für die Rettungsorganisation angefordert..");
+					out.print("Vielen Dank, die Spende mit der ID " + request.getParameter("id") + " wurde für die Rettungsorganisation angefordert..");
 				}
 
 				else {
@@ -32,8 +31,7 @@
 					Date date = new Date();
 					String time = new Timestamp(date.getTime()).toString();
 
-					if (Datenbank.speichereInteresse((b.getId()), Integer.parseInt(request.getParameter("id")),
-							Integer.parseInt(request.getParameter("prio")), time)) {
+					if (Datenbank.speichereInteresse((b.getId()), Integer.parseInt(request.getParameter("id")), Integer.parseInt(request.getParameter("prio")), time)) {
 						out.print("Vielen Dank, ihr Interesse wurde efolgreich bekundet"); //ggf. noch mit Click-Dummy Text abgleichen
 					}
 

@@ -28,8 +28,7 @@
 			<!-- Main navigation -->
 			<div class="nav">
 				<div class="elements">
-					<a class="blogin" href="login.jsp">Login</a> <a class="bclogin"
-						href="#Clogin">Unternehmenslogin</a>
+					<a class="blogin" href="login.jsp">Login</a> <a class="bclogin"href="#Clogin">Unternehmenslogin</a>
 				</div>
 			</div>
 			<!-- End main navigation -->

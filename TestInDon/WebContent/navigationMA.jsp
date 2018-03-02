@@ -9,9 +9,6 @@
 </head>
 <body>
 
-
-
-
 	<ul>
 		<li><a href="mitarbeiter_dashboard.jsp">Spende einsehen</a></li>
 		<li><a href="spenden_matchen.jsp">Spendenangebot zuordnen</a></li>

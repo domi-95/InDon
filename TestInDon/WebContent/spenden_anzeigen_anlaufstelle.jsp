@@ -133,7 +133,7 @@
 										<%
 											}
 										%> <%
- 	if (s.getLieferung() != 0) {
+ 			if (s.getLieferung() != 0) {
  			out.print("Die Spende wird geliefert");
  %>
 									</td>
