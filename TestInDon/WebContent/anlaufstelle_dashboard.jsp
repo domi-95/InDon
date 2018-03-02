@@ -19,11 +19,11 @@
 	<%@page import="spende.*"%>
 	<%@page import="java.util.*"%>
 	<div class="login">
-		<form method="post" action="mitarbeiter_dashboard.jsp" onchange="submit()">
+		<form method="get" action="mitarbeiter_dashboard.jsp" onchange="submit()">
 
 			<h1>Willkommen bei InDon</h1>
 
-			<select name=anlaufstelle class="boxspende">
+			<select name="anlaufstelle"  class="boxspende">
 				<option selected>Wählen Sie eine Anlaufstelle</option>
 				<%
 					Mitarbeiter m = (Mitarbeiter) session.getAttribute("objekt");
