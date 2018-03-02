@@ -19,11 +19,11 @@
 
 	<% 
 //out.print (bd);
- 
+	 session.setAttribute("wo", "anders");
 	 session.setAttribute("inhalt", "Interesse bekunden");
 	 session.setAttribute("weiterleitung", "dashboard_process.jsp");
 	 session.setAttribute("anlaufstelle", bd.getAnlaufstelle());
-%>
+%>	
 
 	<jsp:include page="spenden_anzeigen_anlaufstelle.jsp"></jsp:include>
 
