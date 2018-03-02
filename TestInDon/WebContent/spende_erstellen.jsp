@@ -131,8 +131,7 @@ $(document).ready(function(){
 				</div>
 
 				<div class="abholung" class="radiocheck">
-					<input type="text" name="adresse" placeholder="Straße, Hausnummer*"
-						class="boxspende" /> <br />
+					<input type="text" name="adresse" placeholder="Straße, Hausnummer*" maxlength="40" class="boxspende" /> <br />
 					<br /> <input type="text" maxlength="30" name="ort"
 						placeholder="Ort*" class="boxspende" /> <br />
 					<br /> <input type="number" maxlength="6" name="plz"
