@@ -178,7 +178,10 @@ public class Spende_erstellen_process extends HttpServlet {
 			if (anl_id != 0) {
 				statement.setInt(14, anl_id);
 			}
-			statement.setInt(15, kat_id);
+			if (kat_id != 0) {
+				statement.setInt(15, kat_id);
+				count++;
+			}
 			statement.setInt(16, verfuegbar);
 			statement.setInt(17, bed_id);
 			if (menge != 0) {
@@ -193,7 +196,7 @@ public class Spende_erstellen_process extends HttpServlet {
 			}
 
 			// executet das statement
-			if (count == 8) {
+			if (count == 9) {
 				int row = statement.executeUpdate();
 				if (row > 0) {
 					message = "Vielen Dank, dass sie gespendet haben!";

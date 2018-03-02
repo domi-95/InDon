@@ -74,7 +74,7 @@ $(document).ready(function(){
 				</select><br />
 				<br /> <select name="kategorie" placeholder="Kategorie*"
 					class="boxspende" id="purpose">
-					<option value="all" selected>Wählen Sie eine Kategorie</option>
+					<option value="0" selected>Wählen Sie eine Kategorie</option>
 					<%
 						if (request.getParameter("anlauf") != null) {
 							session.setAttribute("anlauf", a);
