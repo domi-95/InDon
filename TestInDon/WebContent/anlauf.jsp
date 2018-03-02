@@ -12,7 +12,7 @@
 	<%@page import="java.sql.*"%>
 	<%@page import="java.util.*"%>
 
-<form method="GET" action="spende_erstellen.jsp">
+<form method="post" action="spende_erstellen.jsp">
 	<select name="anlauf" onchange="submit()" class="boxspende">
 				<option value="all" selected>Wählen Sie eine Anlaufstelle</option>
 				<%

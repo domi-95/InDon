@@ -19,7 +19,7 @@
 	<%@page import="spende.*"%>
 	<%@page import="java.util.*"%>
 	<div class="login">
-		<form method="get" action="mitarbeiter_dashboard.jsp" onchange="submit()">
+		<form method="post" action="mitarbeiter_dashboard.jsp" onchange="submit()">
 
 			<h1>Willkommen bei InDon</h1>
 
