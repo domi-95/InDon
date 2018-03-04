@@ -50,10 +50,8 @@
 			%>
 
 			<div class="polaroid">
-				<form
-					action="<%out.print(session.getAttribute("weiterleitung"));%>"
-					method="post" class="spendan">
-				<a href="spende_einsehen.jsp">
+				<form action="<%out.print(session.getAttribute("weiterleitung"));%>" method="post" class="spendan">
+				<a href="spende_einsehen.jsp?id=<%=s.getId()%>">
 					<img src="DisplayImageServlet?id=<%=s.getId()%>" height="200px"
 						width="100%" /> </a>
 					<div class="container">
