@@ -123,7 +123,7 @@ public class Datenbank {
 						myRs.getInt("s.menge"),
 						myRs.getInt("s.restmenge"),
 						myRs.getString("s.email"),
-						myRs.getInt("s.telefon")));
+						myRs.getString("s.telefon")));
 			}
 			return result;
 		} catch (SQLException e) {
@@ -173,7 +173,7 @@ public class Datenbank {
 						myRs.getInt("s.menge"),
 						myRs.getInt("s.restmenge"),
 						myRs.getString("s.email"),
-						myRs.getInt("s.telefon")));
+						myRs.getString("s.telefon")));
 			}
 			return result;
 		} catch (SQLException e) {
@@ -215,7 +215,7 @@ public class Datenbank {
 					myRs.getInt("s.menge"),
 					myRs.getInt("s.restmenge"),
 					myRs.getString("s.email"),
-					myRs.getInt("s.telefon"));
+					myRs.getString("s.telefon"));
 
 		} catch (SQLException e) {
 			System.out.println("FEHLER beim holen der Spende");
