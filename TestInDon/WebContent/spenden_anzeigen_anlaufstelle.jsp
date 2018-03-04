@@ -53,9 +53,9 @@
 				<form
 					action="<%out.print(session.getAttribute("weiterleitung"));%>"
 					method="post" class="spendan">
-
+				<a href="spende_einsehen.jsp">
 					<img src="DisplayImageServlet?id=<%=s.getId()%>" height="200px"
-						width="100%" />
+						width="100%" /> </a>
 					<div class="container">
 						<div class="spendtext">
 							<br />
@@ -134,13 +134,16 @@
 										<%
 											}
 										%> <%
- 			if (s.getLieferung() != 0) {
+ 	if (s.getLieferung() != 0) {
  			out.print("Die Spende wird geliefert");
  %>
 									</td>
 								</tr>
 								<%
-									//out.print (s.getMhd()); //Ausgabe erst bei spenden_matchen_zuordnung
+									}
+
+										if (s.getKategorie().getId() == 1) {
+											out.print(s.getMhd()); //Ausgabe erst bei Kategorie Lebensmittel muss noch implementiert werden
 										}
 								%>
 								<tr>
