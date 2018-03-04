@@ -102,7 +102,7 @@ $(document).ready(function(){
 					<input name="mhd" placeholder="MHD*" type="date" class="boxspende" />
 				</div>
 				
-				<br /> <input type="number" maxlength="2" name="menge"
+				<br /> <input type="number" maxlength="2" min ="0" name="menge"
 					placeholder="Menge*" class="boxspende" /> <br /> <br />
 
 				<h4>Lieferung*:</h4>
@@ -121,7 +121,7 @@ $(document).ready(function(){
 					placeholder="Name*" class="boxspende" /> <br />
 				<br /> <input type="text" maxlength="20" name="vorname"
 					placeholder="Vorname*" class="boxspende" /> <br />
-				<br /> <input type="number" maxlength="20" name="telefon"
+				<br /> <input type="number" maxlength="20" min ="0" name="telefon"
 					placeholder="Telefon*" class="boxspende" /> <br />
 				<br />
 
@@ -135,7 +135,7 @@ $(document).ready(function(){
 					<input type="text" name="adresse" placeholder="Straße, Hausnummer*" maxlength="40" class="boxspende" /> <br />
 					<br /> <input type="text" maxlength="30" name="ort"
 						placeholder="Ort*" class="boxspende" /> <br />
-					<br /> <input type="number" maxlength="6" name="plz"
+					<br /> <input type="number" maxlength="6" min ="0" name="plz"
 						placeholder="PLZ*" class="boxspende" /> <br />
 					<br /> <input type="text" maxlength="15" name="land"
 						placeholder="Land*" class="boxspende" /> <br />
