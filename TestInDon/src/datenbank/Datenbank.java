@@ -7,10 +7,6 @@ import spende.*;
 
 public class Datenbank {
 	
-	public static void main(String[] args) {
-		System.out.println(Datenbank.holeSpenden(2));
-	}
-	
 
 
 	public static List<Kategorie> holeKategorien(Anlaufstelle anlaufstelle) {
@@ -99,14 +95,13 @@ public class Datenbank {
 							+ anlaufstelle_id + "' AND s.verfuegbar = '0'");
 			while (myRs.next()) {
 				result.add(new Spende(
-						myRs.getInt("s.id"), 
+						myRs.getInt("id"), 
 						myRs.getString("s.bezeichnung_spende"),
 						myRs.getString("s.beschreibung"),
 						myRs.getString("s.zustand"),
 						myRs.getInt("s.abholung"),
 						myRs.getInt("s.lieferung"), 
-						myRs.getBytes("s.bild"),
-						myRs.getString("s.mhd"),
+						myRs.getBytes("bild"), myRs.getString("s.mhd"),
 						myRs.getInt("s.anonym"), 
 						myRs.getString("s.vorname"), 
 						myRs.getString("s.nachname"),
@@ -117,13 +112,13 @@ public class Datenbank {
 										 myRs.getString("a.bezeichnung"),
 										 myRs.getString("a.adresse"), 
 										 myRs.getString("s.ort"), 
-										 myRs.getInt("a.plz")),
-						new Kategorie(myRs.getInt("k.id"), 
-									  myRs.getString("k.bezeichnung")),
+										 myRs.getInt("plz")),
+						new Kategorie(myRs.getInt("id"), 
+									  myRs.getString("bezeichnung")),
 						myRs.getInt("s.menge"),
 						myRs.getInt("s.restmenge"),
 						myRs.getString("s.email"),
-						myRs.getString("s.telefon")));
+						myRs.getInt("s.telefon")));
 			}
 			return result;
 		} catch (SQLException e) {
@@ -138,25 +133,18 @@ public class Datenbank {
 		Connection con = ConnectionProvider.getCon();
 		try {
 			Statement myst = con.createStatement();
-//			ResultSet myRs = myst.executeQuery(
-//					"SELECT DISTINCT * from spende s, anlaufstelle a, kategorie k, interesse i WHERE s.anlaufstelle_id = a.id AND s.kategorie_id = k.id AND a.id = '"
-//							+ anlaufstelle_id + "' AND s.verfuegbar = '0' AND i.s_id = s.id");
-			
-			
-			ResultSet myRs = myst.executeQuery("SELECT s.id, s.bezeichnung_spende, s.beschreibung, s.zustand, s.abholung, s.lieferung, s.bild, s.mhd, s.anonym, s.vorname, s.nachname, s.adresse, s.plz, s.ort, a.id, a.bezeichnung, a.adresse, s.ort, a.plz, k.id, k.bezeichnung, s.menge, s.restmenge, s.email, s.telefon  FROM spende s, anlaufstelle a, kategorie k, interesse i WHERE s.anlaufstelle_id = a.id AND s.kategorie_id = k.id AND a.id = '" + anlaufstelle_id + "' AND s.verfuegbar = '0' AND i.s_id = s.id GROUP BY  s.id, s.bezeichnung_spende, s.beschreibung, s.zustand, s.abholung, s.lieferung, s.mhd, s.vorname, s.nachname, s.adresse, s.plz, s.ort, a.id, a.bezeichnung, a.adresse, s.ort, a.plz, k.id, k.bezeichnung, s.menge, s.restmenge, s.email, s.telefon");
-			// ResultSet myRs = myst.executeQuery("SELECT s.id, s.bezeichnung_spende, s.beschreibung, s.zustand, s.abholung, s.lieferung, s.mhd, s.vorname, s.nachname, s.adresse, s.plz, s.ort, a.id, a.bezeichnung, a.adresse, s.ort, a.plz, k.id, k.bezeichnung, s.menge, s.restmenge, s.email, s.telefon FROM spende s, anlaufstelle a, kategorie k, interesse i WHERE s.anlaufstelle_id = a.id AND s.kategorie_id = k.id AND a.id = 1 AND s.verfuegbar = '0' AND i.s_id = s.id GROUP BY s.id, s.bezeichnung_spende, s.beschreibung, s.zustand, s.abholung, s.lieferung, s.mhd, s.vorname, s.nachname, s.adresse, s.plz, s.ort, a.id, a.bezeichnung, a.adresse, s.ort, a.plz, k.id, k.bezeichnung, s.menge, s.restmenge, s.email, s.telefon");
-			
-			
+			ResultSet myRs = myst.executeQuery(
+					"SELECT * from spende s, anlaufstelle a, kategorie k, interesse i WHERE s.anlaufstelle_id = a.id AND s.kategorie_id = k.id AND a.id = '"
+							+ anlaufstelle_id + "' AND s.verfuegbar = '0' AND i.s_id = s.id");
 			while (myRs.next()) {
 				result.add(new Spende(
-						myRs.getInt("s.id"), 
+						myRs.getInt("id"), 
 						myRs.getString("s.bezeichnung_spende"),
 						myRs.getString("s.beschreibung"),
 						myRs.getString("s.zustand"),
 						myRs.getInt("s.abholung"),
 						myRs.getInt("s.lieferung"), 
-						myRs.getBytes("s.bild"),
-						myRs.getString("s.mhd"),
+						myRs.getBytes("bild"), myRs.getString("s.mhd"),
 						myRs.getInt("s.anonym"), 
 						myRs.getString("s.vorname"), 
 						myRs.getString("s.nachname"),
@@ -167,13 +155,13 @@ public class Datenbank {
 										 myRs.getString("a.bezeichnung"),
 										 myRs.getString("a.adresse"), 
 										 myRs.getString("s.ort"), 
-										 myRs.getInt("a.plz")),
-						new Kategorie(myRs.getInt("k.id"), 
-									  myRs.getString("k.bezeichnung")),
+										 myRs.getInt("plz")),
+						new Kategorie(myRs.getInt("id"), 
+									  myRs.getString("bezeichnung")),
 						myRs.getInt("s.menge"),
 						myRs.getInt("s.restmenge"),
 						myRs.getString("s.email"),
-						myRs.getString("s.telefon")));
+						myRs.getInt("s.telefon")));
 			}
 			return result;
 		} catch (SQLException e) {
@@ -215,7 +203,7 @@ public class Datenbank {
 					myRs.getInt("s.menge"),
 					myRs.getInt("s.restmenge"),
 					myRs.getString("s.email"),
-					myRs.getString("s.telefon"));
+					myRs.getInt("s.telefon"));
 
 		} catch (SQLException e) {
 			System.out.println("FEHLER beim holen der Spende");
@@ -312,7 +300,7 @@ public class Datenbank {
 			Statement myst = con.createStatement();
 			ResultSet myRs = myst.executeQuery(
 					"SELECT * from interesse i, beduerftiger b, spende s WHERE i.b_id = b.id AND i.s_id = s.id AND s.id = '"
-							+ spenden_id + "' ORDER BY timestamp ASC");
+							+ spenden_id + "'");
 			while (myRs.next()) {
 				result.add(new Interesse(Datenbank.holeSpende(spenden_id),
 						new Beduerftiger(myRs.getInt("b.id"), myRs.getString("b.benutzername"),

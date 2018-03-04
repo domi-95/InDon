@@ -12,7 +12,9 @@ public class Mitarbeiter extends Rettungsorganisation {
 		this.vorname = vorname;
 	}
 
-
+	public int holeId_ret() {
+		return super.getId_ret();
+	}
 
 	public String getName() {
 		return name;

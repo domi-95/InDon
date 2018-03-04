@@ -233,7 +233,7 @@ public class Spende_erstellen_process extends HttpServlet {
 				}
 			}
 				else {
-					message = "Bitte füllen Sie alle Pflichtfelder aus!";
+					message = "Bitte fÃ¼llen Sie alle Pflichtfelder!";
 				}
 			
 		} catch (SQLException ex) {

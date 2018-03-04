@@ -14,9 +14,16 @@
 	<center>
 		<div class="login">
 			<center>
-				<h3 class="h3message"><%=request.getAttribute("Message")%></h3>
+			<br/><br/>
+				<h3 class="h3message"><%=request.getAttribute("Message")%></h3> <br/><br/>
 			</center>
+			<form action="index.jsp">
+	<center>
+					<input type="submit" value="Home" class="btn-send" />
+	</center>
+	</form>
 		</div>
 	</center>
+	
 </body>
 </html>

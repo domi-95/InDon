@@ -25,14 +25,12 @@ public class Spende {
 	private int menge;
 	private int restmenge;
 	private String email;
-	private String telefon;
-
+	private int telefon;
 
 
 	public Spende(int id, String bezeichnung_spende, String beschreibung, String zustand, int abholung, int lieferung,
 			byte[] bild, String mhd, int anonym, String vorname, String name, String adresse, int plz, String ort,
-			Anlaufstelle anlaufstelle, Kategorie kategorie, int menge, int restmenge, String email, String telefon) {
-		// super();
+			Anlaufstelle anlaufstelle, Kategorie kategorie, int menge, int restmenge, String email, int telefon) {
 		this.id = id;
 		this.bezeichnung_spende = bezeichnung_spende;
 		this.beschreibung = beschreibung;
@@ -54,6 +52,8 @@ public class Spende {
 		this.email = email;
 		this.telefon = telefon;
 	}
+
+
 
 	public static List<Spende> spendenmatchen(int anlaufstelle_id) {
 		return Datenbank.holeSpenden(anlaufstelle_id);
@@ -142,14 +142,13 @@ public class Spende {
 	public String getEmail() {
 		return email;
 	}
-	
 
-	public String getTelefon() {
+
+
+	public int getTelefon() {
 		return telefon;
 	}
-
-
-
+	
 	
 	
 	
