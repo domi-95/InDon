@@ -118,7 +118,7 @@
 				</thead>
 
 				<%
-					int[] dmenge = new int[s.getMenge()];
+					int[] dmenge = new int[s.getRestmenge()];
 
 					for (int i = 0; i <= (dmenge.length - 1); i++) {
 						dmenge[i] = i + 1;
