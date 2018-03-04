@@ -33,6 +33,11 @@
 				}
 			%>
 		</h3>
+		<form action="spende_matchen.jsp">
+			<center>
+					<input type="submit" value="Zurück" class="btn-send" />
+			</center>
+		</form>
 	</div>
 </body>
 </html>
