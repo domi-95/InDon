@@ -121,7 +121,7 @@ $(document).ready(function(){
 					placeholder="Name*" class="boxspende" /> <br />
 				<br /> <input type="text" maxlength="20" name="vorname"
 					placeholder="Vorname*" class="boxspende" /> <br />
-				<br /> <input type="number" maxlength="20" min ="0" name="telefon"
+				<br /> <input type="tel" maxlength="20" min ="0" name="telefon"
 					placeholder="Telefon*" class="boxspende" /> <br />
 				<br />
 
