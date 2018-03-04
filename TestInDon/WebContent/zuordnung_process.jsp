@@ -21,10 +21,9 @@
 			<%
 				Spende s = (Spende) session.getAttribute("spende");
 
-				if (Datenbank.speichereZuordnung(s, Integer.parseInt(request.getParameter("zuordnung")),
-						Integer.parseInt(request.getParameter("erhalteneMenge")))) {
+				if (Datenbank.speichereZuordnung(s, Integer.parseInt(request.getParameter("zuordnung")), Integer.parseInt(request.getParameter("erhalteneMenge")))) {
 					out.print("Vielen Dank, für das zuordnen der Spende " + s.getBezeichnung_spende() + " mit der ID "
-							+ s.getId() + " an den Beduerftigen mit der ID " + request.getParameter("zuordnung")
+							+ s.getId() + " wurde an den Bedürftigen mit der ID " + request.getParameter("zuordnung")
 							+ " mit der Menge " + request.getParameter("erhalteneMenge") + " ");
 				}
 
@@ -33,11 +32,13 @@
 				}
 			%>
 		</h3>
-		<form action="spende_matchen.jsp">
-			<center>
-					<input type="submit" value="Zurück" class="btn-send" />
-			</center>
-		</form>
+		<br/>
+		<br/>
+		<form action="spenden_matchen.jsp">
+	<center>
+					<input type="submit" value="zurück" class="btn-send" />
+	</center>
+	</form>
 	</div>
 </body>
 </html>
