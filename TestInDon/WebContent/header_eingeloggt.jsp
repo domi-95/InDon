@@ -46,7 +46,8 @@
 						<%
 								}
 								%>
-					</a> <a class="logout" href="index.jsp">Logout</a>
+					</a> 
+					<a class="logout" href="index.jsp">Logout</a>
 				</div>
 			</div>
 			<!-- End main navigation -->
