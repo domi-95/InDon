@@ -25,10 +25,21 @@
 				if (b instanceof Mitarbeiter) {
 					Datenbank.setSpendeNV(Integer.parseInt(request.getParameter("id")));
 					out.print("Vielen Dank, die Spende mit der ID " + request.getParameter("id") + " wurde für die Rettungsorganisation angefordert..");
+				
+					%>
+					</h4>
+					<form action="mitarbeiter_dashboard.jsp">
+	<center>
+					<input type="submit" value="zurück" class="btn-send" />
+	</center>
+	</form>
+					<%
 				}
 
 				else {
-
+					%>
+					<h4>
+					<%
 					Date date = new Date();
 					String time = new Timestamp(date.getTime()).toString();
 
@@ -39,14 +50,18 @@
 					else {
 						out.print("Sie haben schonmal  Interesse an dieser Spende bekundet!"); //ggf. noch zurück button um wieder zum dashboard zu kommen
 					}
+					%>
+					</h4>
+					<form action="beduerftigen_dashboard.jsp">
+					<center>
+									<input type="submit" value="zurück" class="btn-send" />
+					</center>
+					</form>
+					<%
 				}
 			%>
-		</h4>
-		<form action="mitarbeiter_dashboard.jsp">
-	<center>
-					<input type="submit" value="zurück" class="btn-send" />
-	</center>
-	</form>
+		
+		
 	</div>
 </body>
 </html>
