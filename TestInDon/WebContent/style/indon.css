@@ -385,7 +385,8 @@ li {
     float: left;
     border: none;
     border-right: 1px solid #D6D6D6;
-    width: 12.439%;    
+    width: 12.439%;  
+	height: 34px; 
 }
 
 li a {
@@ -395,6 +396,7 @@ li a {
     padding: 5% ;
     text-decoration: none;
     height: 34px;
+    vertical-align: middle; 
 }
 
 
