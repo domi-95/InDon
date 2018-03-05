@@ -19,14 +19,6 @@
 			</a>
 
 			<!-- Main navigation -->
-			<!-- <div class="nav-collapse collapse pull-right">
-                        <ul class="nav" id="top-navigation">
-                            <li class= "blogin"><a href="#home">Login</a></li>
-                            <li class = "bclogin"><a href="#service">Unternehmenslogin</a></li>
-                            
-                        </ul>
-                    </div> -->
-			<!-- Main navigation -->
 			<div class="nav">
 				<div class="elements">
 					<a class="blogin" href="login.jsp">Login</a> <a class="bclogin"href="#Clogin">Unternehmenslogin</a>
