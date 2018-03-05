@@ -393,7 +393,7 @@ li a {
     display: block;
     color: #666;
     text-align: center;
-    padding: 5% ;
+    padding: 2.5% ;
     text-decoration: none;
     height: 34px;
     vertical-align: middle; 
@@ -413,6 +413,8 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
+
+
 
 .spendetable {
 	margin-top: 20px;

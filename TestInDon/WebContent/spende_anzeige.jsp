@@ -18,75 +18,76 @@ Anlaufstelle a = (Anlaufstelle) session.getAttribute("anlaufstelle");
 		session.setAttribute("spende", s);
 %>
 
-	<img src="DisplayImageServlet?id=<%=s.getId()%>" class="donImg" height="200px"/> <br />
-		Bezeichnung :
+	<img src="DisplayImageServlet?id=<%=s.getId()%>" class="donImg" height="200px"/>
+		<table>
+		<tr>
+		<td>Bezeichnung :
 		<%
  	out.print(s.getBezeichnung_spende());
- %>
-		<br /> <br /> Beschreibung:
+ %></td></tr>
+		<tr><td> Beschreibung:
 		<%
  	out.print(s.getBeschreibung());
- %>
-		<br /> <br /> Zustand :
+ %></td></tr>
+		 <tr><td>Zustand :
 		<%
  	out.print(s.getZustand());
- %>
-		<br /> <br />
+ %></td></tr>
+	
 		<%
 			if (s.getKategorie().getId() == 1) {
 		%>
-		MHD :
+		<tr><td>MHD :
 		<%
 			out.print(s.getMhd());
-		%>
+		%></td></tr>
 		<br /> <br />
 		<%
 			}
-			if (s.getAbholung() != 0) {
+			if (s.getAbholung() != 0) { %><tr><td><%
 				out.print("Die Spende wird abgeholt");
-				%><br/> <br/>
+				%></td></tr><tr><td>
 				Telefon: <%  out.print (s.getTelefon());
-				%><br/> <br/>
+				%></td></tr><tr><td>
 				Adresse: <% out.print (s.getAdresse());
-				%> <br/> <br/>
+				%> </td></tr><tr><td>
 				Ort: <% out.print (s.getOrt());
-				%><br/> <br/>
+				%></td></tr><tr><td>
 				PLZ: <% out.print (s.getPlz());
-		%>
-		<br /> <br />
+		%></td></tr>
+		
 		<%
 			}
 
-			if (s.getLieferung() != 0) {
+			if (s.getLieferung() != 0) { %><tr><td><%
 				out.print("Die Spende wird geliefert");
-				%><br/> <br/>
+				%></td></tr><tr><td>
 				Telefon: <%  out.print (s.getTelefon());
-				%><br/> <br/>
+				%></td></tr><tr><td>
 				Email: <% out.print (s.getEmail());
-		%>
+		%></td></tr>
 		
 		<%
 			}
 			
-			if (s.getAnonym() == 0) {
-				%><br/> <br/>
+			if (s.getAnonym() == 0) {%><tr><td><%
+				%>
 				Name: <% 	out.print(s.getVorname() + " " + s.getName());
 		%>
-		<br /> <br />
+		</td></tr>
 		<%
 			} else {
-				%><br/> <br/>	<%	out.print("Spender ist anonym");
+				%><tr><td><%	out.print("Spender ist anonym");
 		%>
-		<br /> <br />
+		</td></tr>
 		<%
 			}
-		%>
+		%><tr><td>
 		Menge gesamt:
 		<%
 			out.print(s.getMenge());
 		%>
-		<br /> <br />
-	
-
+		</td></tr>
+	</table>
 </body>
 </html>
