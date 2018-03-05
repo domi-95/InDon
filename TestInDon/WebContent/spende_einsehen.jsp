@@ -9,8 +9,12 @@
 <body>
 
 	<jsp:include page="header_eingeloggt.jsp"></jsp:include>
-	<jsp:include page="navigationMA.jsp"></jsp:include>
+	<%
+	Benutzer b = (Benutzer) session.getAttribute("objekt");
 
+				if (b instanceof Mitarbeiter) {%>
+	<jsp:include page="navigationMA.jsp"></jsp:include><%
+}%>
 	<%@page import="benutzer.*"%>
 	<%@page import="spende.*"%>
 	<%@page import="java.util.*"%>
