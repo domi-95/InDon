@@ -18,76 +18,21 @@
 
 <% 
 Anlaufstelle a = (Anlaufstelle) session.getAttribute("anlaufstelle");
-		Spende s = Datenbank.holeSpende(Integer.parseInt(request.getParameter("einsehen")));
+		Spende s = Datenbank.holeSpende(Integer.parseInt(request.getParameter("id")));
 		session.setAttribute("spende", s);
 %>
 
+<h1 class="h1dash">Spende einsehen</h1>
+	<h1 class="h1dash">
+		<%
+			out.print(s.getBezeichnung_spende());
+		%>
+	</h1>
 
-	<img src="DisplayImageServlet?id=<%=s.getId()%>" class="donImg" /> <br />
-		Bezeichnung :
-		<%
- 	out.print(s.getBezeichnung_spende());
- %>
-		<br /> <br /> Beschreibung:
-		<%
- 	out.print(s.getBeschreibung());
- %>
-		<br /> <br /> Zustand :
-		<%
- 	out.print(s.getZustand());
- %>
-		<br /> <br />
-		<%
-			if (s.getKategorie().getId() == 1) {
-		%>
-		MHD :
-		<%
-			out.print(s.getMhd());
-		%>
-		<br /> <br />
-		<%
-			}
-			if (s.getAbholung() != 0) {
-				out.print("Die Spende wird abgeholt");
-				%>Telefon: <%  out.print (s.getTelefon());
-				%>Adresse: <% out.print (s.getAdresse());
-				%>Adresse: <% out.print (s.getOrt());
-				%>PLZ: <% out.print (s.getPlz());
-		%>
-		<br /> <br />
-		<%
-			}
 
-			if (s.getLieferung() != 0) {
-				out.print("Die Spende wird geliefert");
-				%>Telefon: <%  out.print (s.getTelefon());
-				%>Email: <% out.print (s.getEmail());
-		%>
-		<br /> <br />
-		<%
-			}
-			
-			if (s.getKategorie().getId() == 1){
-			%>Name: <%  out.print (s.getMhd()); //Ausgabe erst bei Kategorie Lebensmittel muss noch implementiert werden
-			}
-			if (s.getAnonym() != 1) {
-				out.print(s.getVorname() + " " + s.getName());
-		%>
-		<br /> <br />
-		<%
-			} else {
-				out.print("Spender ist anonym");
-		%>
-		<br /> <br />
-		<%
-			}
-		%>
-		Menge gesamt:
-		<%
-			out.print(s.getMenge());
-		%>
-		<br /> <br />
-		
+<div class="don">
+	<jsp:include page="spende_anzeige.jsp"></jsp:include>
+	</div>	
 
 </body>
 </html>

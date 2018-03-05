@@ -30,69 +30,7 @@
 	</h1>
 
 	<div class="don">
-		<img src="DisplayImageServlet?id=<%=s.getId()%>" class="donImg" /> <br />
-		Bezeichnung :
-		<%
- 	out.print(s.getBezeichnung_spende());
- %>
-		<br /> <br /> Beschreibung:
-		<%
- 	out.print(s.getBeschreibung());
- %>
-		<br /> <br /> Zustand :
-		<%
- 	out.print(s.getZustand());
- %>
-		<br /> <br />
-		<%
-			if (s.getKategorie().getId() == 1) {
-		%>
-		MHD :
-		<%
-			out.print(s.getMhd());
-		%>
-		<br /> <br />
-		<%
-			}
-		%>
-
-
-
-
-		<%
-			if (s.getAbholung() != 0) {
-				out.print("Die Spende wird abgeholt");
-		%>
-		<br /> <br />
-		<%
-			}
-
-			if (s.getLieferung() != 0) {
-				out.print("Die Spende wird geliefert");
-		%>
-		<br /> <br />
-		<%
-			}
-
-			// out.print (s.getMhd()); //Ausgabe erst bei Kategorie Lebensmittel muss noch implementiert werden
-
-			if (s.getAnonym() != 1) {
-				out.print(s.getVorname() + " " + s.getName());
-		%>
-		<br /> <br />
-		<%
-			} else {
-				out.print("Spender ist anonym");
-		%>
-		<br /> <br />
-		<%
-			}
-		%>
-		Menge gesamt:
-		<%
-			out.print(s.getMenge());
-		%>
-		<br /> <br />
+		<jsp:include page="spende_anzeige.jsp"></jsp:include>
 		<%
 			List<Interesse> interesse = Datenbank.holeInteresse(s.getId());
 		%>
