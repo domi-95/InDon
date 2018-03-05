@@ -13,7 +13,7 @@ public class ConnectionProvider {
 		try {
 			Class.forName(DRIVER);
 			con = DriverManager.getConnection("jdbc:mysql://server2.febas.net/InDon", "InDonAdmin", "InDon123");
-			// con = DriverManager.getConnection("jdbc:mysql://localhost/indon","root","");s//falls Localhost verwendet werden soll
+			// con = DriverManager.getConnection("jdbc:mysql://localhost/indon","root","");			//falls Localhost verwendet werden soll
 		} catch (Exception e) {
 			System.out.println("Connection nicht m�glich zum DB");
 
