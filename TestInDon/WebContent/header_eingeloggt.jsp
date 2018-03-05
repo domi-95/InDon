@@ -18,15 +18,6 @@
 				<img src="Images\logo.png" width="210" height="55" alt="InDon" /> <!-- This is website logo -->
 			</a>
 
-			<!-- Main navigation -->
-			<!-- <div class="nav-collapse collapse pull-right">
-                        <ul class="nav" id="top-navigation">
-                            <li class= "blogin"><a href="#home">Login</a></li>
-                            <li class = "bclogin"><a href="#service">Unternehmenslogin</a></li>
-                            
-                        </ul>
-                    </div> -->
-			<!-- Main navigation -->
 			<div class="nav">
 				<div class="elements">
 					<a class="buser" href="">
