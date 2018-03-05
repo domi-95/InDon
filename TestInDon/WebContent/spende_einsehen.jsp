@@ -36,7 +36,13 @@ Anlaufstelle a = (Anlaufstelle) session.getAttribute("anlaufstelle");
 
 <div class="don">
 	<jsp:include page="spende_anzeige.jsp"></jsp:include>
+	<br/>
+	<br/>
+	<form>
+  <input type="button" value="zurück" onclick="history.back()">
+</form>
 	</div>	
+	
 
 </body>
 </html>
