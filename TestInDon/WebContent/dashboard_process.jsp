@@ -42,6 +42,11 @@
 				}
 			%>
 		</h4>
+		<form action="mitarbeiter_dashboard.jsp">
+	<center>
+					<input type="submit" value="zurück" class="btn-send" />
+	</center>
+	</form>
 	</div>
 </body>
 </html>

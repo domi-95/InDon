@@ -18,7 +18,7 @@ Anlaufstelle a = (Anlaufstelle) session.getAttribute("anlaufstelle");
 		session.setAttribute("spende", s);
 %>
 
-	<img src="DisplayImageServlet?id=<%=s.getId()%>" class="donImg" /> <br />
+	<img src="DisplayImageServlet?id=<%=s.getId()%>" class="donImg" height="200px"/> <br />
 		Bezeichnung :
 		<%
  	out.print(s.getBezeichnung_spende());
