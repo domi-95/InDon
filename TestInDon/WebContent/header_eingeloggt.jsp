@@ -26,7 +26,8 @@
 								if (b instanceof Mitarbeiter){
 									Mitarbeiter m =(Mitarbeiter)b;
 									%>
-						<%out.print(m.getName()+" "+m.getVorname()); %>
+						<%out.print(m.getName()+" "+m.getVorname()); %> |
+						<%out.print(m.getBezeichnung()); %>
 						<%
 								}
 								%> 
