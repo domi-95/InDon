@@ -300,6 +300,18 @@ form{
 	margin: auto;
 }
 
+.btn-back{
+	color: #fff;
+	border-radius: 50px;
+	background-color: #ed842a;
+    border: 12px;
+    border-bottom: 4px solid  #E48028;
+	width: 20%;
+	text-align: center;
+	opacity: 0.95;
+	margin: auto;
+}
+
 
 h1{
 	margint: auto;

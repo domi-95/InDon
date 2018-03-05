@@ -39,7 +39,7 @@ Anlaufstelle a = (Anlaufstelle) session.getAttribute("anlaufstelle");
 	<br/>
 	<br/>
 	<form>
-  <input type="button" value="zurück" onclick="history.back()">
+  <center><input type="button" value="zurück" onclick="history.back()" class="btn-back"></center>
 </form>
 	</div>	
 	
